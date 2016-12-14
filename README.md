@@ -1,4 +1,4 @@
-# eICU Collaborative Research Database (eICU-CRD) Code Repository
+# eICU-CRD Code Repository
 
 This is a repository of code shared by the research community. The repository is intended to be a central hub for sharing, refining, and reusing code used for analysis of the [eICU Collaborative Research Database (eICU-CRD)](http://eicu-crd.mit.edu). To find out more about eICU-CRD, please see: http://eicu-crd.mit.edu
 
