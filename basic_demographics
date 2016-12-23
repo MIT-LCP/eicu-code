@@ -1,6 +1,6 @@
 -- ------------------------------------------------------------------  
 -- Title: Basic Demographics
--- Description: Extracts patient unique identifier, gender, age, admission diagnosis, horpital mortality and icu length of stay.
+-- Description: Extracts patient unique identifier, gender, age, admission diagnosis, hospital mortality and icu length of stay.
 -- Matthieu Komorowski, LCP MIT, 12/23/2016
 -- eICU-CRD v1.0
 -- ------------------------------------------------------------------  
@@ -10,8 +10,7 @@ select pt.patientunitstayid,
 pt.age,
 pt.apacheadmissiondx,
 (case When pt.hospitaldischargestatus = 'Alive' Then 0
-When pt.hospitaldischargestatus Is Null Then Null
-when pt.hospitaldischargestatus = 'Expired' then 1 else 2 End ) as hospital_mortality,
+when pt.hospitaldischargestatus = 'Expired' Then 1 else Null End ) as hospital_mortality,
 round(pt.unitdischargeoffset/60) as icu_los_hours
 from eicu.patient pt
 order by pt.patientunitstayid
