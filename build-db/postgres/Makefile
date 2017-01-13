@@ -7,13 +7,14 @@
 
 DBNAME=eicu
 DBUSER=eicu
+DBPASS=eicu
 DBHOST=localhost
 DBSCHEMA=eicu
 
 PHYSIONETURL=https://physionet.org/works/eICUCollaborativeResearchDatabase/files/
 
 # if left blank, data is assumed to be in the local directory
-datadir=
+datadir=./
 
 ## Commands ##
 PSQL=psql "dbname=$(DBNAME) options=--search_path=$(SCHEMA)" --username=$(DBUSER)
@@ -66,7 +67,7 @@ endif
 ifeq ("$(wildcard $(datadir)apacheApsVar.csv.gz)","")
 	@echo "Unable to find $(datadir)apacheApsVar.csv.gz - exiting before build."; exit 1
 endif
-ifeq ("$(wildcard $(datadir)apachePatientResults.csv.gz)","")
+ifeq ("$(wildcard $(datadir)apachePatientResult.csv.gz)","")
 	@echo "Unable to find $(datadir)apachePatientResults.csv.gz - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)apachePredVar.csv.gz)","")
@@ -95,7 +96,7 @@ endif
 ifeq ("$(wildcard $(datadir)apacheApsVar.csv)","")
 	@echo "Unable to find $(datadir)apacheApsVar.csv - exiting before build."; exit 1
 endif
-ifeq ("$(wildcard $(datadir)apachePatientResults.csv)","")
+ifeq ("$(wildcard $(datadir)apachePatientResult.csv)","")
 	@echo "Unable to find $(datadir)apachePatientResults.csv - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)apachePredVar.csv)","")
@@ -117,13 +118,9 @@ eicu-create-user:
 	@echo '-- Creating user --'
 	@echo '-------------------'
 	@echo ''
-	@sleep 2
-	EICU_USER="$(DBUSER)" EICU_DB="$(DBNAME)" ./create_eicu_db.sh
+	DBUSER="$(DBUSER)" DBNAME="$(DBNAME)" DBPASS="$(DBPASS)" ./create_eicu.sh
 
 eicu-build:
-ifeq ($(datadir),"")
-datadir := './'
-endif
 	@echo ''
 	@echo '-------------------'
 	@echo '-- Building eICU --'
@@ -134,40 +131,37 @@ endif
 	@echo '---------------------'
 	@echo ''
 	@sleep 2
-	psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_create_tables.sql --username="$(DBUSER)" --host="$(DBHOST)"
+	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_create_tables.sql --username="$(DBUSER)" --host="$(DBHOST)"
 	@echo ''
 	@echo '------------------'
 	@echo '-- Loading data --'
 	@echo '------------------'
 	@echo ''
 	@sleep 2
-	cd ${DATA_DIR} && psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_load_data.sql --username="$(DBUSER)" --host="$(DBHOST)" -e
+	cd $(datadir) && PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f $(CURDIR)/postgres_load_data.sql --username="$(DBUSER)" --host="$(DBHOST)" -e
 	@echo ''
 	@echo '--------------------'
 	@echo '-- Adding indexes --'
 	@echo '--------------------'
 	@echo ''
 	@sleep 2
-	psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_indexes.sql --username="$(DBUSER)" --host="$(DBHOST)"
+	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_indexes.sql --username="$(DBUSER)" --host="$(DBHOST)"
 	@echo ''
 	@echo '--------------------'
 	@echo '-- Adding comments --'
 	@echo '--------------------'
 	@echo ''
 	@sleep 2
-	psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_comments.sql --username="$(DBUSER)" --host="$(DBHOST)"
+	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_comments.sql --username="$(DBUSER)" --host="$(DBHOST)"
 	@echo ''
 	@echo '----------------'
 	@echo '-- Check data --'
 	@echo '----------------'
 	@echo ''
 	@sleep 2
-	psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_checks.sql --username="$(DBUSER)" --host="$(DBHOST)"
+	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_checks.sql --username="$(DBUSER)" --host="$(DBHOST)"
 
 eicu-build-gz:
-ifeq ($(datadir),"")
-datadir := './'
-endif
 	@echo ''
 	@echo '-------------------'
 	@echo '-- Building eICU --'
@@ -178,34 +172,34 @@ endif
 	@echo '---------------------'
 	@echo ''
 	@sleep 2
-	psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_create_tables.sql --username="$(DBUSER)" --host="$(DBHOST)"
+	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_create_tables.sql --username="$(DBUSER)" --host="$(DBHOST)"
 	@echo ''
 	@echo '-------------------------------------'
 	@echo '-- Loading data from gzipped files --'
 	@echo '-------------------------------------'
 	@echo ''
 	@sleep 2
-	cd ${DATA_DIR} && psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_load_data_gz.sql --username="$(DBUSER)" --host="$(DBHOST)" -e
+	cd $(datadir) && PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f $(CURDIR)/postgres_load_data_gz.sql --username="$(DBUSER)" --host="$(DBHOST)" -e
 	@echo ''
 	@echo '--------------------'
 	@echo '-- Adding indexes --'
 	@echo '--------------------'
 	@echo ''
 	@sleep 2
-	psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_indexes.sql --username="$(DBUSER)" --host="$(DBHOST)"
+	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_indexes.sql --username="$(DBUSER)" --host="$(DBHOST)"
 	@echo ''
 	@echo '--------------------'
 	@echo '-- Adding comments --'
 	@echo '--------------------'
 	@echo ''
 	@sleep 2
-	psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_comments.sql --username="$(DBUSER)" --host="$(DBHOST)"
+	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_comments.sql --username="$(DBUSER)" --host="$(DBHOST)"
 	@echo ''
 	@echo '----------------'
 	@echo '-- Check data --'
 	@echo '----------------'
 	@echo ''
 	@sleep 2
-	psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_checks.sql --username="$(DBUSER)" --host="$(DBHOST)"
+	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_checks.sql --username="$(DBUSER)" --host="$(DBHOST)"
 
 .PHONY: help eicu
