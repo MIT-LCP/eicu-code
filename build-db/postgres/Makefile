@@ -17,7 +17,7 @@ PHYSIONETURL=https://physionet.org/works/eICUCollaborativeResearchDatabase/files
 datadir=./
 
 ## Commands ##
-PSQL=psql "dbname=$(DBNAME) options=--search_path=$(SCHEMA)" --username=$(DBUSER)
+PSQL=psql "dbname=$(DBNAME) options=--search_path=$(DBSCHEMA)" --username=$(DBUSER)
 
 ## Export ##
 # Parameters given in this Makefile take precedence over those defined in each
