@@ -12,6 +12,8 @@ Please include the following header information at the top of your code:
 -- ------------------------------------------------------------------
 -- Title: Short descriptive title.
 -- Description: More detailed description explaining the purpose.
+-- eICU version: Version of eICU Collaborative Research Database (e.g. v1.1). 
+-- References: References to relevant academic papers etc (optional). 
 -- ------------------------------------------------------------------
 ```
 
