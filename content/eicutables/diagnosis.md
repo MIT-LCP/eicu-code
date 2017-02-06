@@ -20,11 +20,11 @@ toc = "true"
 
 # Brief summary
 
-The diagnosis.md table contains a list of diagmoses that were documented for each patient in the Active Diagnosis/Treatment sections of the eCareManager medical record.The cooresponding International Classification of Diseases (ICD) codes are also available in this table. This can be useful for determining if certain diseases were documented during the ICU stay and at what point in the patient's ICU stay these diagnoses were documented.
+The diagnosis.md table contains a list of diagnoses that were documented for each patient in the Active Diagnosis/Treatment sections of the eCareManager medical record.The corresponding International Classification of Diseases (ICD) codes are also available in this table. This can be useful for determining if certain diseases were documented during the ICU stay and at what point in the patient's ICU stay these diagnoses were documented.
 
 # Important considerations
 
-The diagnosis.med table contains diagnoses that were documented in the ICU stay and may or may not be consistent with diagnoses that were coded and used for professional billing or hospital reimbursment purposes. This table does not include diagnoses that may have been documented prior to or after the ICU stay. This table does not indicate which diagnoses were resolved or ruled-out nor does it provide a diagnosis time frame when/if a diagnosis was removed.
+The diagnosis.med table contains diagnoses that were documented in the ICU stay by clinical staff and may or may not be consistent with diagnoses that were coded and used for professional billing or hospital reimbursment purposes. This table does not include diagnoses that may have been documented prior to or after the ICU stay. This table does not indicate which diagnoses were resolved or ruled-out nor does it provide a diagnosis time frame when/if a diagnosis was removed. 
 
 * To follow.
 
