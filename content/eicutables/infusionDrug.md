@@ -22,7 +22,6 @@ toc = "true"
 
 Infusion drugs entered directly into the source system (eCareManager) by clinicians must include the concentration of the drug being infused. This is done by entering the "drugAmount" and "volumeOfFluid" and this is independent of the amount being infused (drugRate or infusionRate). Interfaced values from source EMRs may not contain the concentration.    
 
-* To follow -->
 
 # Table columns
 
