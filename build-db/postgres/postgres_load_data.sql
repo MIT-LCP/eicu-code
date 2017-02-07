@@ -34,16 +34,4 @@
 --  Load Data for Table PATIENTS
 --------------------------------------------------------
 
-\copy PATIENT FROM 'patient.csv.gz' DELIMITER ',' CSV HEADER NULL ''
-
---------------------------------------------------------
---  Load Data for Table VITALAPERIODIC
---------------------------------------------------------
-
-\copy VITALAPERIODIC FROM 'vitalAperiodic.csv.gz' DELIMITER ',' CSV HEADER NULL ''
-
---------------------------------------------------------
---  Load Data for Table VITALPERIODIC
---------------------------------------------------------
-
-\copy VITALPERIODIC FROM 'vitalPeriodic.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+\copy PATIENT FROM 'patient.csv' DELIMITER ',' CSV HEADER NULL ''

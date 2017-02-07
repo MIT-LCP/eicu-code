@@ -68,21 +68,3 @@ CREATE INDEX PATIENT_idx05
   ON PATIENT (UNITTYPE);
 ALTER TABLE PATIENT
   ADD CONSTRAINT PATIENT_pk primary key (PATIENTUNITSTAYID);
-
---------------------------------------------------------
---  VITALAPERIODIC
---------------------------------------------------------
-
-CREATE INDEX VITALAPERIODIC_idx01
-  ON VITALAPERIODIC (PATIENTUNITSTAYID);
-ALTER TABLE VITALAPERIODIC
-  ADD CONSTRAINT VITALAPERIODIC_pk primary key (VITALAPERIODICID);
-
---------------------------------------------------------
---  VITALPERIODIC
---------------------------------------------------------
-
-CREATE INDEX VITALPERIODIC_idx01
-  ON VITALPERIODIC (PATIENTUNITSTAYID);
-ALTER TABLE VITALPERIODIC
-  ADD CONSTRAINT VITALPERIODIC_pk primary key (VITALPERIODICID);

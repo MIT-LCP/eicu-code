@@ -35,15 +35,3 @@
 --------------------------------------------------------
 
 \copy PATIENT FROM program 'gzip -c -d patient.csv.gz' DELIMITER ',' CSV HEADER NULL ''
-
---------------------------------------------------------
---  Load Data for Table VITALAPERIODIC
---------------------------------------------------------
-
-\copy VITALAPERIODIC FROM program 'gzip -c -d vitalAperiodic.csv.gz' DELIMITER ',' CSV HEADER NULL ''
-
---------------------------------------------------------
---  Load Data for Table VITALPERIODIC
---------------------------------------------------------
-
-\copy VITALPERIODIC FROM program 'gzip -c -d vitalPeriodic.csv.gz' DELIMITER ',' CSV HEADER NULL ''
