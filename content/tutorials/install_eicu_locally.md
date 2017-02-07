@@ -10,19 +10,19 @@ toc = "true"
     parent = "Tutorials"
 +++
 
-# How to install eICU-CRD in a local Postgres database
+# How to install the database in Postgres 
 
-Prerequisites: *This tutorial assumes that you have already completed the [steps required to gain access](/gettingstarted/access) to eICU-CRD on PhysioNet.*
+Prerequisites: *This tutorial assumes that you have already completed the [steps required to gain access](/gettingstarted/access) to the eICU Collaborative Research Database on PhysioNet.*
 
 ## 1. Install Postgres
 
-Postgres (also known as PostgreSQL) is a database management system. To create an instance of eICU-CRD on your local machine, you'll first need to make sure that Postgres is installed. For installation, please refer to: http://www.postgresql.org/download/
+Postgres (also known as PostgreSQL) is a database management system. To create an instance of the database on your local machine, you'll first need to make sure that Postgres is installed. For installation, please refer to: http://www.postgresql.org/download/
 
 On Mac OSX with the [Homebrew package manager](http://brew.sh/), simply type ```brew install postgres```. On Ubuntu Linux, try ```sudo apt-get install postgresql-9.4```.
 
 ## 2. Place the CSV data files in a local directory
 
-Assuming that you have completed the [steps required to gain access](/gettingstarted/access) to eICU-CRD, you should be able to access the CSV data files on PhysioNet at: https://physionet.org/works/eICUClinicalDatabase/files/. Download these files to a local folder and decompress them if necessary.
+Assuming that you have completed the [steps required to gain access](/gettingstarted/access), you should be able to access the CSV data files on PhysioNet at: https://physionet.org/works/eICUClinicalDatabase/files/. Download these files to a local folder and decompress them if necessary.
 
 ## 3. Connect to the database with psql
 
@@ -33,7 +33,7 @@ Now that Postgres is running, you should be able to connect to the system using 
 psql postgres
 ```
 
-## 4. Create an empty database containing an eICU-CRD schema
+## 4. Create an empty database containing the database schema
 
 From this point onwards we will be referring to scripts in the '[buildeicu](https://github.com/MIT-eicu/eicu-code/tree/master/buildeicu)' directory of the [eICU code repository](https://github.com/MIT-eicu/eicu-code/).
 
@@ -111,9 +111,9 @@ CREATE INDEX APACHEPATIENTRESULTS_idx01
   ON APACHEPATIENTRESULTS (PATIENTUNITSTAYID)
 ```
 
-## 8. eICU-CRD is ready for analyses
+## 8. The database is ready for analyses
 
-You should now have a working copy of eICU-CRD ready to query with the psql command line tool. Try, for example, counting the number of patients in the database:
+You should now have a working copy of the eICU Collaborative Research Database ready to query with the psql command line tool. Try, for example, counting the number of patients in the database:
 
 ``` sql
 select count(PATIENTUNITSTAYID)
