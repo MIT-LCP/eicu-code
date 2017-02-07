@@ -10,25 +10,25 @@
 --  Load Data for Table ADMISSIONDX
 --------------------------------------------------------
 
-\copy ADMISSIONDX FROM 'admissionDx.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+\copy ADMISSIONDX FROM 'admissionDx.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table APACHEAPSVAR
 --------------------------------------------------------
 
-\copy APACHEAPSVAR FROM 'apacheApsVar.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+\copy APACHEAPSVAR FROM 'apacheApsVar.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table APACHEPATIENTRESULTS
 --------------------------------------------------------
 
-\copy APACHEPATIENTRESULT FROM 'apachePatientResult.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+\copy APACHEPATIENTRESULT FROM 'apachePatientResult.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table APACHEPREDVAR
 --------------------------------------------------------
 
-\copy APACHEPREDVAR FROM 'apachePredVar.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+\copy APACHEPREDVAR FROM 'apachePredVar.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table PATIENTS
