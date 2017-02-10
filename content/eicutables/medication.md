@@ -12,7 +12,7 @@ toc = "true"
 
 # medication
 
-**Purpose:** Drugs ordered by eICU and hospital staff. Also interfaces with the pharmacy systems.
+**Purpose:** The medications table reflects the active medication orders for patients. These are orders but dot necessarily reflect administration to the patient. Titration of continuous infusion medications can be obtained in the infusionDrug table. 
 
 **Links to:**
 
@@ -20,7 +20,7 @@ toc = "true"
 
 # Important considerations
 
-* Drugs that are ordered are not necessarily delivered to the patient.  
+* The majority of hospitals have an HL7 medication interface system in place which automatically synchronizes the orders with eCareManager as they are verified by the pharmacist in the source pharmacy system. For hospitals without a medication interface, the eICU staff may enter a selection of medications to facilitate population management and completeness for reporting purposes. 
 
 # Table columns
 
