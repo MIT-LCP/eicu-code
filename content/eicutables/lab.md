@@ -18,9 +18,9 @@ toc = "true"
 
 * PATIENT on `patientUnitStayID`
 
-<!-- # Important considerations
+# Important considerations
 
-* To follow. -->
+It is possible some rarely obtained lab measurements are not interfaced into the system and therefore will not be available in the database. Absence of a rare lab measurement, such as serum lidocaine concentrations, would not indicate the lab was not drawn. However, absence of a platelet count would indicate the value was not obtained. 
 
 # Table columns
 
