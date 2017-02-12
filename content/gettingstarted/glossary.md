@@ -32,8 +32,6 @@ Bicarb: bicarbonate
 
 BIPAP: bilevel Positive Airway Pressure
 
-BMI: body mass index 
-
 BP: blood pressure
 
 CABG: coronary artery bypass grafting 
