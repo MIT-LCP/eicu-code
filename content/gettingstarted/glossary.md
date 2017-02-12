@@ -24,7 +24,7 @@ AIDS: acquired immune deficiency syndrome
 
 AMI: acute myocardial infarction 
 
-APACHE: acute physiology age chronic health evaluation
+APACHE: Acute Physiology and Chronic Health Evaluation
 
 APS: acute physiology score 
 
