@@ -13,6 +13,21 @@ toc = "true"
 # nurseCare
 
 **Purpose:** 
+The Nursing Care Flowsheet provides the capability for nurses to document patient care information for the following categories:
+•         Nutrition
+•         Activity
+•         Hygiene/ADLs
+•         Respiratory
+•         Incision/Wound Care
+•         Line Care
+•         Drain/Tube Care
+•         Safety
+•         Alarms On
+•         Isolation Precautions
+•         Equipment
+•         Restraints
+•         Other Nursing Care Data
+
 
 **Links to:**
 
