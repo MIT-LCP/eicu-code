@@ -14,6 +14,8 @@ toc = "true"
 
 **Purpose:** 
 
+The Nursing Assessment Flowsheet provides the capability to assess and document patient items such as pain, psychosocial status, patient/family education, neurologic, cardiovascular, respiratory, oral/GI/GU, skin, and other nursing assessment data along with date/time.
+
 **Links to:**
 
 * PATIENT on `patientUnitStayID`
