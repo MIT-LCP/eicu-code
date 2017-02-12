@@ -13,6 +13,7 @@ toc = "true"
 # respiratoryCharting
 
 **Purpose:** 
+Data provided in the respiratory chart includes date/time, chart type (e.g. respiratory flow setting, vent data), and respiratory values.
 
 **Links to:**
 
