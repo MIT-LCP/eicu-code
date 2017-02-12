@@ -12,15 +12,15 @@ toc = "true"
 
 # nurseCharting
 
-**Purpose:** Large table that contains information entered in a semi-structured form by the nurse.  The three columns `nursingchartcelltypecat`, `nursingchartcelltypevallabel` and `nursingchartcelltypevalname` provide an organised structure for the data, but `nursingchartvalue` are free text entry and so unstructured.
+**Purpose:** Large table that contains information entered in a semi-structured form by the nurse.  The three columns `nursingchartcelltypecat`, `nursingchartcelltypevallabel` and `nursingchartcelltypevalname` provide an organised structure for the data, but `nursingchartvalue` are free text entry and therefore fairly unstructured.
 
 **Links to:**
 
 * PATIENT on `patientUnitStayID`
 
-<!-- # Important considerations
+ # Important considerations
 
-* To follow. -->
+* Nurse charting data can be entered directy into the system or can represent interfaced data from charting in the bedside EMR. 
 
 # Table columns
 
