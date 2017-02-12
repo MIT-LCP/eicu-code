@@ -17,27 +17,25 @@ toc = "true"
 "Periodic" data refers to data which is consistently interfaced from bedside vital signs monitors into eCareManager. Data are generally interfaced as 1 minute averages, and archived into the vitalPeriodic table as 5 minute median values. 
 
 The following vital signs are referred to as periodic vital signs as they are captured continuously by the system. (Temperature will be captured this way only if interfaced by a rectal or intravascular probe, for example): 
-•         Temperature
-•         Heart rate
-•         SVO2
-•         Respiratory rate
-•         ICP (intracranial pressure) 
-•         End Tidal CO2
-•         CPP (cerebral perfusion pressure) 
-•         Mean Invasive blood pressure
-•         Pulmonary artery pressure
-•         O2 saturation by pulse oximeter
-•         CVP (central venous pressure) 
-•         Invasive blood pressure (systolic and diastolic)
 
-
-
+- Temperature  
+- Heart rate  
+- SVO2  
+- Respiratory rate  
+- ICP (intracranial pressure)   
+- End Tidal CO2  
+- CPP (cerebral perfusion pressure)  
+- Mean Invasive blood pressure  
+- Pulmonary artery pressure  
+- O2 saturation by pulse oximeter  
+- CVP (central venous pressure)  
+- Invasive blood pressure (systolic and diastolic)  
 
 **Links to:**
 
-* PATIENT on `patientUnitStayID`
+- PATIENT on `patientUnitStayID`
 
- # Important considerations
+# Important considerations
 
 vitalPeriodic data represents the 5 minute median values from the bedside vital signs monitors, and is therefore unvalidated data. 
 
