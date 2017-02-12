@@ -13,14 +13,16 @@ toc = "true"
 # pastHistory
 
 **Purpose:** 
+Provides information related a patient's relevant past medical history. 
+
 
 **Links to:**
 
 * PATIENT on `patientUnitStayID`
 
-<!-- # Important considerations
+Important considerations
 
-* To follow. -->
+Providing detailed Past History is not common, but items such as AIDS, Cirrhosis of the Liver, Hepatic Failure, Chronic Renal Failure, Transplant, and Pre-existing Cancers / immunosuppression are more reliable because of their importance in severity outcome scoring.
 
 # Table columns
 
@@ -41,6 +43,16 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `pastHistoryValue` | varchar(100) | NULL | Structured picklist of available past history items e.g.: Performed, hypercoagulable condition, COPD - no limitations, etc. |  | S
 `pastHistoryValueText` | varchar(255) | NULL | the picklist value of the past history item e.g.: COPD - Moderate, CHF, Medication dependent, etc. |  | S
 
-<!-- # Detailed description
+ Detailed description
 
-* To follow. -->
+Data include Past History date/time (as offset), note type, root path (e.g. notes/Progress Notes/Past History/Organ Systems/Hematology/Oncology (A)/Cancer Therapy/Chemotherapy/Cis-platinum, etc.), picklist values (e.g. Performed, Not Performed, Not Obtainable, No Health Problems, etc.) and text (e.g. COPD  - Moderate, CHF, Medication dependent). 
+Data entry fields are organized by the following organ systems: 
+•         Neurologic
+•         Cardiovascular
+•         Pulmonary
+•         Gastrointestinal
+•         Infectious Disease
+•         Hematology/Oncology
+•         Endocrine
+•         Rheumatic
+
