@@ -13,6 +13,7 @@ toc = "true"
 # respiratoryCare
 
 **Purpose:** The table contains information related to respiratory care.
+Patient data includes respiratory care date/times, sequence of records for historical ordering, airway type/size/position, cuff pressure and various vent details including vent start and end dates/times, pressure limits, etc.
 
 **Links to:**
 
