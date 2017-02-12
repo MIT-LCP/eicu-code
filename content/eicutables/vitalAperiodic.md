@@ -23,12 +23,12 @@ The vitalAperiodic table provides invasive vital sign data which is interfaced i
 
 The following vital signs are referred to as aperiodic vital signs, as they are not captured by the system on a regular basis (non-invasive BP can be triggered at an unpredictable variety of time intervals):
 
-•         Cardiac output
-•         Cardiac Index
-•         Pulmonary artery occlusion pressure (“wedge pressure” - PAOP) 
-•         SVR / SVRI
-•         PVR / PVRI
-•         Non-invasive blood pressure
+- Cardiac output
+- Cardiac Index
+- Pulmonary artery occlusion pressure (“wedge pressure” - PAOP) 
+- SVR / SVRI
+- PVR / PVRI
+- Non-invasive blood pressure
 
 
 # Table columns
