@@ -19,4 +19,4 @@ Through this work, we have generated a large database which has potential for fa
 
 ## Coverage
 
-The eICU Collaborative Research Database is populated with data from a combination of many critical care units throughout the continental United States. The data in the collaborative database covers patients who were admitted to critical care units in 2013 and 2014.
+The eICU Collaborative Research Database is populated with data from a combination of many critical care units throughout the continental United States. The data in the collaborative database covers patients who were admitted to critical care units in 2014 and 2015.
