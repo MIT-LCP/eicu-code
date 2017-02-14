@@ -31,5 +31,5 @@ We have created a repository on GitHub to hold eICU Collaborative Research Datab
 
 If you identify an issue with the eICU Collaborative Research Database (for example, unusual characteristics or limitations), one useful step would be to add your finding to the documentation, via the method described above.
 
-For concerns about errors in the database, including private health information which has not been sufficiently de-identified, please contact us directly at [eicu-support@physionet.org](mailto:eicu-support@physionet.org).
+For concerns about errors in the database, including private health information which has not been sufficiently de-identified, please [contact us directly](mailto:phi-report@physionet.org).
 
