@@ -122,8 +122,6 @@ MV or vent: mechanical ventilation or minute ventilation
 
 NDDF: national drug data file 
 
-O2: oxygen
-
 PA: pulmonary artery
 
 PaCO2: partial pressures of carbon dioxide 
@@ -135,10 +133,6 @@ PaO2/FiO2: the ratio of partial pressure arterial oxygen and fraction of inspire
 PAOP: pulmonary artery occlusion pressure
 
 PEEP: positive end-expiratory pressure
-
-pH: potential of hydrogen) is a numeric scale used to specify the acidity or basicity of an aqueous solution
-
-PHI: patient health information
 
 preop: pre-operation (before surgery)
 
@@ -179,6 +173,4 @@ TX: treatment
 Var: variable
 
 VICU: ventilator intensive care unit
-
-
 
