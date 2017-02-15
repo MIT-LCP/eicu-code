@@ -62,6 +62,8 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `unitDischargeLocation` | varchar(100) | NULL | Structured list of locations where the patient was discharged to from the unit e.g.: Other ICU (CABG), Other Hospital, Telemetry, Other Internal, Other ICU, Floor, Step-Down Unit (SDU), etc. |  | S
 `unitDischargeStatus` | varchar(10) | NULL | specifies patient’s condition upon leaving the unit: Alive, Expired, or NULL |  | S
 `auditEtlRunID` | uniqueidentifier | NULL | Internal ID of the ETL run that imported the patient’s data i.e. 32 character GUID. |  | C
+`uniquepid` | varchar(10) | NOT NULL | ID for a unique patient. |  | C
+
 
 <!-- # Detailed description
 
