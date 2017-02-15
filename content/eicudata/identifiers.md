@@ -21,4 +21,4 @@ Identifiers are used across the database to identify unique concepts such as pat
 
 * A unique `patientunitstayid`, which is assigned to each ICU stay (the equivalent of MIMIC's `icustay_id`)
 
-* Note that there is currently no subject identifier across hospital admissions - this is being added in a future release.
+* A `uniquepid` which links patients across multiple hospital stays.
