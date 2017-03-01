@@ -31,7 +31,79 @@
 \copy APACHEPREDVAR FROM program 'gzip -c -d apachePredVar.csv.gz' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
+--  Load Data for Table CAREPLANCAREPROVIDER
+--------------------------------------------------------
+
+\copy CAREPLANCAREPROVIDER FROM program 'gzip -c -d carePlanCareProvider.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table CAREPLANEOL
+--------------------------------------------------------
+
+\copy CAREPLANEOL FROM program 'gzip -c -d carePlanEOL.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table CAREPLANGENERAL
+--------------------------------------------------------
+
+\copy CAREPLANGENERAL FROM program 'gzip -c -d carePlanGeneral.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table CAREPLANGOAL
+--------------------------------------------------------
+
+\copy CAREPLANGOAL FROM program 'gzip -c -d carePlanGoal.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table CAREPLANINFECTIOUSDISEASE
+--------------------------------------------------------
+
+\copy CAREPLANINFECTIOUSDISEASE FROM program 'gzip -c -d carePlanInfectiousDisease.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table DIAGNOSIS
+--------------------------------------------------------
+
+\copy DIAGNOSIS FROM program 'gzip -c -d diagnosis.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table HOSPITAL
+--------------------------------------------------------
+
+\copy HOSPITAL FROM program 'gzip -c -d eRI_hospitalProfileData_Jan2017.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table LAB
+--------------------------------------------------------
+
+\copy LAB FROM program 'gzip -c -d lab.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table PASTHISTORY
+--------------------------------------------------------
+
+\copy PASTHISTORY FROM program 'gzip -c -d pastHistory.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
 --  Load Data for Table PATIENTS
 --------------------------------------------------------
 
 \copy PATIENT FROM program 'gzip -c -d patient.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table TREATMENT
+--------------------------------------------------------
+
+\copy TREATMENT FROM program 'gzip -c -d treatment.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table VITALAPERIODIC
+--------------------------------------------------------
+
+\copy VITALAPERIODIC FROM program 'gzip -c -d vitalAperiodic.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table VITALPERIODIC
+--------------------------------------------------------
+
+\copy VITALPERIODIC FROM program 'gzip -c -d vitalPeriodic.csv.gz' DELIMITER ',' CSV HEADER NULL ''
