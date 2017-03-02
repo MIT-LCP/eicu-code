@@ -70,7 +70,7 @@
 --  Load Data for Table HOSPITAL
 --------------------------------------------------------
 
-\copy HOSPITAL FROM program 'gzip -c -d eRI_hospitalProfileData_Jan2017.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+\copy HOSPITAL FROM program 'gzip -c -d hospital.csv.gz' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table LAB
