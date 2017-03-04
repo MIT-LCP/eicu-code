@@ -15,6 +15,14 @@ toc = "true"
 
 This page lists changes implemented in sequential updates to the eICU Collaborative Research Database. Issues are tracked using a unique issue number, usually of the form #100, #101, etc.
 
+# Current version
+
+The current version of the database is v1.0. When referencing this version, we recommend using the full title: eICU Collaborative Research Database v1.0.
+
+# eICU Collaborative Research Database v1.0
+
+The first public release of the eICU Collaborative Research Database is v1.0. It was made available on 4 March 2017. 
+
 # eICU Collaborative Research Database v0.1
 
 eICU Collaborative Research Database v0.1 was released on 20 December 2016. It was a preliminary version and not widely publicized to allow for internal testing.
