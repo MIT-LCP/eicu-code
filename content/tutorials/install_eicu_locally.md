@@ -22,7 +22,7 @@ On Mac OSX with the [Homebrew package manager](http://brew.sh/), simply type ```
 
 ## 2. Place the CSV data files in a local directory
 
-Assuming that you have completed the [steps required to gain access](/gettingstarted/access), you should be able to access the CSV data files on PhysioNet at: https://physionet.org/works/eICUClinicalDatabase/files/. Download these files to a local folder and decompress them if necessary.
+Assuming that you have completed the [steps required to gain access](/gettingstarted/access), you should be able to access the CSV data files on PhysioNet at:  https://physionet.org/works/eICUCollaborativeResearchDatabase/. Download these files to a local folder and decompress them if necessary.
 
 ## 3. Connect to the database with psql
 
