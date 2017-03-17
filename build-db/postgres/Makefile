@@ -9,7 +9,7 @@ DBNAME=eicu
 DBUSER=eicu
 DBPASS=eicu
 DBHOST=localhost
-DBSCHEMA=eicu
+DBSCHEMA=eicu_crd
 
 PHYSIONETURL=https://physionet.org/works/eICUCollaborativeResearchDatabase/files/
 
