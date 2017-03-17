@@ -33,10 +33,10 @@ WITH infection_group AS
 			   '462','463','464','465','481','482','485','486','494','510',
 			   '513','540','541','542','566','567','590','597','601','614',
 			   '615','616','681','682','683','686','730') THEN 1
-		WHEN substring(icd9code,1,4) IN ('5695','5720','5721','5750','5990','7110',
-				'7907','9966','9985','9993') THEN 1
-		WHEN substring(icd9code,1,5) IN ('49121','56201','56203','56211','56213',
-				'56983') THEN 1
+		WHEN substring(icd9code,1,5) IN ('569.5','572.0','572.1','575.0','599.0','711.0',
+				'790.7','996.6','998.5','999.3') THEN 1
+		WHEN substring(icd9code,1,6) IN ('491.21','562.01','562.03','562.11','562.13',
+				'569.83') THEN 1
 		ELSE 0 END AS infection 
         FROM diagnosis
 ),
@@ -46,12 +46,12 @@ organ_diag_group AS
     SELECT patientUnitStayID,
     CASE
     	WHEN substring(icd9code,1,3) IN ('458','293','570','584') THEN 1
-		WHEN substring(icd9code,1,4) IN ('7855','3483','3481',
-				'2874','2875','2869','2866','5734')  THEN 1
+		WHEN substring(icd9code,1,5) IN ('785.5','348.3','348.1',
+				'287.4','287.5','286.9','286.6','573.4')  THEN 1
 		ELSE 0 END AS organ_dysfunction,
 		-- Explicit diagnosis of severe sepsis or septic shock
 		CASE
-		WHEN substring(icd9code,1,5) IN ('99592','78552')  THEN 1
+		WHEN substring(icd9code,1,6) IN ('995.92','785.52')  THEN 1
 		ELSE 0 END AS explicit_sepsis
 	FROM diagnosis
 ),
