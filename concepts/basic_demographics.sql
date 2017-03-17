@@ -15,5 +15,5 @@ SELECT pt.patientunitstayid, pt.age, pt.apacheadmissiondx,
             WHEN pt.hospitaldischargestatus = 'Expired' THEN 1 
             ELSE NULL END) AS hosp_mortality,
        ROUND(pt.unitdischargeoffset/60) AS icu_los_hours
-FROM eicu.patient pt
+FROM eicu_crd.patient pt
 ORDER BY pt.patientunitstayid;
