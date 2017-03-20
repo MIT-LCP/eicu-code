@@ -37,6 +37,13 @@ help:
 	@echo '             make eicu datadir="/path/to/data/"                            '
 	@echo '                                                                           '
 	@echo '             e.g. make eicu datadir="/data/eicu/"                          '
+	@echo '                                                                           '
+	@echo '                                                                           '
+	@echo '   Build eICU using the Gzipped CSV files in the /path/to/data directory - '
+	@echo '                                                                           '
+	@echo '             make eicu-gz datadir="/path/to/data/"                         '
+	@echo '                                                                           '
+	@echo '             e.g. make eicu-gz datadir="/data/eicu/"                       '
 	@echo '---------------------------------------------------------------------------'
 	@echo '                                                                           '
 
