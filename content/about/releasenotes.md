@@ -21,7 +21,7 @@ The current version of the database is v1.0. When referencing this version, we r
 
 # eICU Collaborative Research Database v1.0
 
-The first public release of the eICU Collaborative Research Database is v1.0. It was made available on 4 March 2017. 
+The first public release of the eICU Collaborative Research Database is v1.0. It was made available on 4 March 2017 and included the following tables: `admissionDx`, `apacheApsVar`, `apachePatientResult`, `apachePredVar`, `carePlanCareProvider`, `carePlanEOL`, `carePlanGeneral`, `carePlanGoal`, `carePlanInfectiousDisease`, `diagnosis`, `hospital`, `lab`, `pastHistory`, `patient`, `treatment`, `vitalAperiodic`, `vitalPeriodic`
 
 # eICU Collaborative Research Database v0.1
 
