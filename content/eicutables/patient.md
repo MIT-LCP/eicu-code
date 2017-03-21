@@ -18,10 +18,21 @@ toc = "true"
 
 * PATIENT on `patientUnitStayID`
 
-<!-- # Important considerations
+# Important considerations
 
-* To follow.
- -->
+All stays are centered on ICU admission. That is, there is *no* `unitAdmitOffset` column: it is 0 for all `patientUnitStayID`. Note that within a hospital admission, distinct unit stays can be linked by `patientHealthSystemStayID`. Keep in mind that offsets are still based upon `patientUnitStayID`, for example:
+
+`patientUnitStayID` | `patientHealthSystemStayID` | `unitDischargeOffset` | `hospitalAdmitOffset` | `hospitalDischargeOffset` | Comment
+--- | --- | --- | --- | --- | ---
+2 | 800 | 4320 | -5040 | 14400 | The *second* ICU stay.
+10 | 800 | 2160 | -720 | 13680 | The *first* ICU stay.
+
+The hospital course for this patient was: patient admitted to hospital, 720 minutes pass, first ICU admission (`patientUnitStayID` = 10), 2160 minutes pass followed by ICU discharge (`unitDischargeOffset` = 2160), second ICU admission occurring 5040 minutes after hospital admission and 2880 (5040-2160) minutes after the previous ICU admission, second ICU discharge (4320+5040=9360 minutes after hospital admission), followed by hospital discharge (14400 minutes after hospital discharge).
+
+Here we have two patient stays within the same hospitalization. Note that the first ICU stay has a *larger* `hospitalAdmitOffset`, because this stay occurred closer to hospital admission (i.e. it was first).
+
+There is no systematic method for chronologically ordering `patientHealthSystemStayID` for the same patient within the same year.
+
 # Table columns
 
 Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
