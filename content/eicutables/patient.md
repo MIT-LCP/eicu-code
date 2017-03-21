@@ -24,12 +24,19 @@ All stays are centered on ICU admission. That is, there is *no* `unitAdmitOffset
 
 `patientUnitStayID` | `patientHealthSystemStayID` | `unitDischargeOffset` | `hospitalAdmitOffset` | `hospitalDischargeOffset` | Comment
 --- | --- | --- | --- | --- | ---
-2 | 800 | 4320 | -5040 | 14400 | The *second* ICU stay.
-10 | 800 | 2160 | -720 | 13680 | The *first* ICU stay.
+2 | 800 | 4320 | -5040 | 10960 | The *second* ICU stay.
+10 | 800 | 2160 | -720 | 15280 | The *first* ICU stay.
 
-The hospital course for this patient was: patient admitted to hospital, 720 minutes pass, first ICU admission (`patientUnitStayID` = 10), 2160 minutes pass followed by ICU discharge (`unitDischargeOffset` = 2160), second ICU admission occurring 5040 minutes after hospital admission and 2880 (5040-2160) minutes after the previous ICU admission, second ICU discharge (4320+5040=9360 minutes after hospital admission), followed by hospital discharge (14400 minutes after hospital discharge).
+The hospital course for this patient was:
 
-Here we have two patient stays within the same hospitalization. Note that the first ICU stay has a *larger* `hospitalAdmitOffset`, because this stay occurred closer to hospital admission (i.e. it was first).
+* patient admitted to hospital
+* first ICU admission (`patientUnitStayID` = 10) at 720 minutes after hospital admission (`hospitalAdmitOffset` = -720)
+* first ICU discharge (`unitDischargeOffset` = 2160) at 720+2160 minutes after hospital admission (`unitDischargeOffset` - `hospitalAdmitOffset` = 2160 - (-720) = 2880)
+* second ICU admission (`patientUnitStayID` = 2) at 5040 minutes after hospital admission (`hospitalAdmitOffset` = -5040)
+* second ICU discharge (`unitDischargeOffset` = 4320) at 9360 minutes after hospital admission (`unitDischargeOffset` - `hospitalAdmitOffset` = 4320 - (-5040) = 9360)
+* hospital discharge, total length of stay = (10960 - (-5040)) = (15280 - (-720)) = 16000
+
+Note that the first ICU stay has a *larger* `hospitalAdmitOffset`, because this stay occurred closer to hospital admission (i.e. it was first). Also note that there is no correlation between `patientUnitStayID` and the order of patient stays.
 
 There is no systematic method for chronologically ordering `patientHealthSystemStayID` for the same patient within the same year.
 
