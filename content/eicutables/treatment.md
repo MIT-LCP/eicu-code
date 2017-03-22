@@ -20,7 +20,7 @@ The treatment table allows users to document, in a structured format, specific a
 
 * PATIENT on `patientUnitStayID`
 
- # Important considerations
+# Important considerations
 
 The treatment table can only be populated directly into eCareManager as structured text. Absence of a treatment documented in this table should not be used as evidence a specific treatment was not administered. 
 Data includes patient treatment information including date/time, whether the treatment was active upon patient discharge, and the path of the treatment e.g.: neurologic | ICH/ cerebral infarct|thrombolytics | tenecteplase, cardiovascular | arrhythmias | antiarrhythmics | atropine, etc.
