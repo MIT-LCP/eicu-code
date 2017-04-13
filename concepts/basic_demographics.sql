@@ -3,8 +3,6 @@
 -- Description: Extracts patient unique identifier, gender, age, 
 --              admission diagnosis, hospital mortality and 
 --              icu length of stay.
--- Matthieu Komorowski, LCP MIT, 12/23/2016
--- eICU-CRD v0.1
 -- ------------------------------------------------------------------  
 
 SELECT pt.patientunitstayid, pt.age, pt.apacheadmissiondx, 
