@@ -12,7 +12,7 @@ toc = "true"
 
 # hospital
 
-**Purpose:** The hospital tables contains details of hospitals covered by the the eICU telehealth program.
+**Purpose:** The hospital table contains details of hospitals covered by the the eICU telehealth program.
 
 **Links to:**
 
