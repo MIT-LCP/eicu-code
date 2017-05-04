@@ -26,7 +26,7 @@ The eICU Collaborative Research Database v1.1 was released on 4 May 2017. Issues
 * #57: an updated version of the [hospital](https://eicu-crd.mit.edu/eicutables/hospital/) table was added  
 * #56: the [admissiondrug](https://eicu-crd.mit.edu/eicutables/admissiondrug/) table was released  
 * #55: the [allergy](https://eicu-crd.mit.edu/eicutables/allergy/) table was released  
-* #54: the [infusionDrug](https://eicu-crd.mit.edu/eicutables/infusiondrug/) table was released  
+* #54: the [infusionDrug](https://eicu-crd.mit.edu/eicutables/infusionDrug/) table was released  
 
 # eICU Collaborative Research Database v1.0
 
