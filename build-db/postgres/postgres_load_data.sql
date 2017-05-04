@@ -7,10 +7,22 @@
 \set ON_ERROR_STOP 1
 
 --------------------------------------------------------
+--  Load Data for Table ADMISSIONDRUG
+--------------------------------------------------------
+
+\copy ADMISSIONDRUG FROM 'admissiondrug.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
 --  Load Data for Table ADMISSIONDX
 --------------------------------------------------------
 
 \copy ADMISSIONDX FROM 'admissionDx.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table ALLERGY
+--------------------------------------------------------
+
+\copy ALLERGY FROM 'allergy.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table APACHEAPSVAR
@@ -73,6 +85,12 @@
 \copy HOSPITAL FROM 'hospital.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
+--  Load Data for Table INFUSIONDRUG
+--------------------------------------------------------
+
+\copy INFUSIONDRUG FROM 'infusiondrug.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
 --  Load Data for Table LAB
 --------------------------------------------------------
 
@@ -85,7 +103,7 @@
 \copy PASTHISTORY FROM 'pastHistory.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
---  Load Data for Table PATIENTS
+--  Load Data for Table PATIENT
 --------------------------------------------------------
 
 \copy PATIENT FROM 'patient.csv' DELIMITER ',' CSV HEADER NULL ''

@@ -7,10 +7,22 @@
 \set ON_ERROR_STOP 1
 
 --------------------------------------------------------
+--  Load Data for Table ADMISSIONDRUG
+--------------------------------------------------------
+
+\copy ADMISSIONDRUG FROM program 'gzip -c -d admissiondrug.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
 --  Load Data for Table ADMISSIONDX
 --------------------------------------------------------
 
 \copy ADMISSIONDX FROM program 'gzip -c -d admissionDx.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table ALLERGY
+--------------------------------------------------------
+
+\copy ALLERGY FROM program 'gzip -c -d allergy.csv.gz' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table APACHEAPSVAR
@@ -73,6 +85,12 @@
 \copy HOSPITAL FROM program 'gzip -c -d hospital.csv.gz' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
+--  Load Data for Table INFUSIONDRUG
+--------------------------------------------------------
+
+\copy INFUSIONDRUG FROM program 'gzip -c -d infusiondrug.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
 --  Load Data for Table LAB
 --------------------------------------------------------
 
@@ -85,7 +103,7 @@
 \copy PASTHISTORY FROM program 'gzip -c -d pastHistory.csv.gz' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
---  Load Data for Table PATIENTS
+--  Load Data for Table PATIENT
 --------------------------------------------------------
 
 \copy PATIENT FROM program 'gzip -c -d patient.csv.gz' DELIMITER ',' CSV HEADER NULL ''
