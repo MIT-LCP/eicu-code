@@ -17,7 +17,15 @@ This page lists changes implemented in sequential updates to the eICU Collaborat
 
 # Current version
 
-The current version of the database is v1.0. When referencing this version, we recommend using the full title: eICU Collaborative Research Database v1.0.
+The current version of the database is v1.1. When referencing this version, we recommend using the full title: eICU Collaborative Research Database v1.1.
+
+# eICU Collaborative Research Database v1.1
+
+The eICU Collaborative Research Database v1.1 was released on 4 May 2017. Issues addressed include:
+- #57: an updated version of the [hospital](https://eicu-crd.mit.edu/eicutables/hospital/) table was added
+- #56: the [admissiondrug](https://eicu-crd.mit.edu/eicutables/admissiondrug/) table was released
+- #55: the [allergy](https://eicu-crd.mit.edu/eicutables/allergy/) table was released
+- #54: the [infusionDrug](https://eicu-crd.mit.edu/eicutables/infusiondrug/) table was released
 
 # eICU Collaborative Research Database v1.0
 
