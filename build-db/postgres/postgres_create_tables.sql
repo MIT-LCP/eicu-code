@@ -25,16 +25,16 @@ CREATE TABLE admissiondrug
   drugoffset BIGINT NOT NULL,
   drugenteredyear SMALLINT NOT NULL,
   drugenteredtime24 VARCHAR(8),
-  drugenteredtime VARCHAR(20)
+  drugenteredtime VARCHAR(20),
   drugenteredoffset BIGINT NOT NULL,
   drugnotetype VARCHAR(255),
-  specialtytype VARCHAR(255)
+  specialtytype VARCHAR(255),
   usertype VARCHAR(255) NOT NULL,
   rxincluded VARCHAR(5),
-  writtenineicu VARCHAR(5)
+  writtenineicu VARCHAR(5),
   drugname VARCHAR(255) NOT NULL,
   drugdosage NUMERIC(11,4),
-  drugunit VARCHAR(1000)
+  drugunit VARCHAR(1000),
   drugadmitfrequency VARCHAR(1000) NOT NULL,
   drughiclseqno BIGINT
 ) ;
@@ -72,16 +72,16 @@ CREATE TABLE allergy
   allergyoffset BIGINT NOT NULL,
   allergyenteredyear SMALLINT NOT NULL,
   allergyenteredtime24 VARCHAR(8),
-  allergyenteredtime VARCHAR(20)
+  allergyenteredtime VARCHAR(20),
   allergyenteredoffset BIGINT NOT NULL,
   allergynotetype VARCHAR(255),
-  specialtytype VARCHAR(255)
+  specialtytype VARCHAR(255),
   usertype VARCHAR(255) NOT NULL,
   rxincluded VARCHAR(5),
-  writtenineicu VARCHAR(5)
+  writtenineicu VARCHAR(5),
   drugname VARCHAR(255) NOT NULL,
   allergytype VARCHAR(255),
-  allergyname VARCHAR(255)
+  allergyname VARCHAR(255),
   drughiclseqno BIGINT
 ) ;
 
