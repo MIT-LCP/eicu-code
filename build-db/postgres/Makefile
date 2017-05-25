@@ -125,7 +125,7 @@ eicu-create-user:
 	@echo '-- Creating user --'
 	@echo '-------------------'
 	@echo ''
-	DBUSER="$(DBUSER)" DBNAME="$(DBNAME)" DBPASS="$(DBPASS)" ./create_eicu.sh
+	DBUSER="$(DBUSER)" DBNAME="$(DBNAME)" DBPASS="$(DBPASS)" DBSCHEMA=$(DBSCHEMA) ./create_eicu.sh
 
 eicu-build:
 	@echo ''
