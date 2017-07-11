@@ -154,13 +154,6 @@ eicu-build:
 	@sleep 2
 	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_indexes.sql --username="$(DBUSER)" --host="$(DBHOST)"
 	@echo ''
-	@echo '--------------------'
-	@echo '-- Adding comments --'
-	@echo '--------------------'
-	@echo ''
-	@sleep 2
-	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_comments.sql --username="$(DBUSER)" --host="$(DBHOST)"
-	@echo ''
 	@echo '----------------'
 	@echo '-- Check data --'
 	@echo '----------------'
@@ -194,13 +187,6 @@ eicu-build-gz:
 	@echo ''
 	@sleep 2
 	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_indexes.sql --username="$(DBUSER)" --host="$(DBHOST)"
-	@echo ''
-	@echo '--------------------'
-	@echo '-- Adding comments --'
-	@echo '--------------------'
-	@echo ''
-	@sleep 2
-	PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_add_comments.sql --username="$(DBUSER)" --host="$(DBHOST)"
 	@echo ''
 	@echo '----------------'
 	@echo '-- Check data --'
