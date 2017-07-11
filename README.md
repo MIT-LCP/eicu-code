@@ -14,7 +14,7 @@ We encourage users to share concepts they have extracted by writing code which g
 
 ## License
 
-By committing your code to the eICU Code Repository you agree to release the code under the [MIT License attached to the repository](https://github.com/mit-eicu/eicu-code/blob/master/LICENSE).
+By committing your code to the [eICU Code Repository](https://github.com/mit-eicu/eicu-code) you agree to release the code under the [MIT License attached to the repository](https://github.com/mit-eicu/eicu-code/blob/master/LICENSE).
 
 ## Coding style
 
