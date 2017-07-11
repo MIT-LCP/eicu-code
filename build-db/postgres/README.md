@@ -1,7 +1,6 @@
-# Create mini version of eICU in a local Postgres database
+# Create eICU Collaborative Research Database with Postgres
 
-This folder creates a version of the eICU database in a local PostgreSQL database.
-Before you can create this version, you need to first have the eICU tables in csv files available on the computer somewhere.
+This folder loads the eICU Collaborative Research Database into a local PostgreSQL database system. Before you can create this version, you need to first need to download the CSV tables from PhysioNet.
 
 ## Instructions for use
 
