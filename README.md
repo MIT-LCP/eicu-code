@@ -12,6 +12,10 @@ Our team has worked hard to create and share the eICU Collaborative Research Dat
 
 We encourage users to share concepts they have extracted by writing code which generates a materialized view. These materialized views can then be used by researchers around the world to speed up data extraction.
 
+## License
+
+By committing your code to the eICU Code Repository you agree to release the code under the [MIT License attached to the repository](https://github.com/mit-eicu/eicu-code/blob/master/LICENSE).
+
 ## Coding style
 
 Please refer to the [style guide](https://github.com/MIT-eICU/eicu-code/blob/master/styleguide.md) for guidelines on formatting your code for the repository.
