@@ -44,8 +44,8 @@ There is no systematic method for chronologically ordering `patientHealthSystemS
 
 Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
-`patientUnitStayID` | int | NOT NULL | surrogate key for the patient | PK | C
-`patientHealthSystemStayID` | int | NOT NULL | surrogate key for the patient health system stay | FK | C
+`patientUnitStayID` | int | NOT NULL | surrogate key for ICU Stay | PK | C
+`patientHealthSystemStayID` | int | NOT NULL | surrogate key for the patient health system stay (hospital stay) | FK | C
 `gender` | varchar(25) | NULL | gender of the patient: Male, Female, Unknown, Other, NULL |  | S
 `age` | varchar(10) | NULL | age of the patient in full years. If the patient is over 89 years old specify "> 89" e.g.: 79, 36, 52, "> 89", etc. |  | T
 `ethnicity` | varchar(50) | NULL | picklist ethnicity of the patient: Asian, Caucasian, African American, Native American, Hispanic, Other/Unknown, NULL |  | S
