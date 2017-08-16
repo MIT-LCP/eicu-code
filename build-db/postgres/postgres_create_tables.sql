@@ -379,6 +379,39 @@ CREATE TABLE lab
 	labresultrevisedtime VARCHAR(20),
 	labresultrevisedoffset BIGINT
 ) ;
+
+--------------------------------------------------------
+--  DDL for Table MEDICATION
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS medication CASCADE;
+CREATE TABLE medication
+(
+    medicationid BIGINT NOT NULL,
+    patientunitstayid BIGINT NOT NULL,
+    drugorderyear INT NOT NULL,
+    drugordertime24 VARCHAR(12) NOT NULL,
+    drugordertime VARCHAR(12) NOT NULL,
+    drugorderoffset INT NOT NULL,
+    drugstartyear INT,
+    drugstarttime24 VARCHAR(12) NOT NULL,
+    drugstarttime VARCHAR(12) NOT NULL,
+    drugstartoffset INT NOT NULL,
+    drugivadmixture VARCHAR(6) NOT NULL,
+    drugordercancelled VARCHAR(6) NOT NULL,
+    drugname VARCHAR(220) NOT NULL,
+    drughiclseqno INT,
+    dosage VARCHAR(60) NOT NULL,
+    routeadmin VARCHAR(120) NOT NULL,
+    loadingdose VARCHAR(120) NOT NULL,
+    prn VARCHAR(6) NOT NULL,
+    drugstopyear INT,
+    drugstoptime24 VARCHAR(12) NOT NULL,
+    drugstoptime VARCHAR(12) NOT NULL,
+    drugstopoffset INT NOT NULL,
+    gtc INT NOT NULL
+) ;
+
 --------------------------------------------------------
 --  DDL for Table PASTHISTORY
 --------------------------------------------------------
