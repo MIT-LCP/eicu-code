@@ -13,11 +13,17 @@ toc = "true"
 
 # Release notes
 
-This page lists changes implemented in sequential updates to the eICU Collaborative Research Database. Issues are tracked using a unique issue number, usually of the form #100, #101, etc.
+This page lists changes implemented in sequential updates to the eICU Collaborative Research Database. Issues are tracked using a unique issue number, usually of the form #100, #101, etc (this issue number relates to a private 'building' repository).
 
 # Current version
 
-The current version of the database is v1.1. When referencing this version, we recommend using the full title: eICU Collaborative Research Database v1.1.
+The current version of the database is v1.2. When referencing this version, we recommend using the full title: eICU Collaborative Research Database v1.2.
+
+# eICU Collaborative Research Database v1.2
+
+The eICU Collaborative Research Database v1.2 was released on 16 August 2017. The only change was: 
+
+* #62: the [medication] table (https://eicu-crd.mit.edu/eicutables/medication/) table was added  
 
 # eICU Collaborative Research Database v1.1
 
