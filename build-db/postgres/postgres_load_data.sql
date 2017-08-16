@@ -97,6 +97,12 @@
 \copy LAB FROM 'lab.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
+--  Load Data for Table MEDICATION
+--------------------------------------------------------
+
+\copy medication FROM 'medication.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
 --  Load Data for Table PASTHISTORY
 --------------------------------------------------------
 
