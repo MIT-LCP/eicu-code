@@ -23,7 +23,7 @@ The current version of the database is v1.2. When referencing this version, we r
 
 The eICU Collaborative Research Database v1.2 was released on 16 August 2017. The only change was: 
 
-* #62: the [medication] table (https://eicu-crd.mit.edu/eicutables/medication/) table was added  
+* #62: the [medication](https://eicu-crd.mit.edu/eicutables/medication/) table was added  
 
 # eICU Collaborative Research Database v1.1
 
