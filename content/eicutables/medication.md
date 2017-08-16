@@ -12,7 +12,7 @@ toc = "true"
 
 # medication
 
-**Purpose:** The medications table reflects the active medication orders for patients. These are orders but dot necessarily reflect administration to the patient. Titration of continuous infusion medications can be obtained in the infusionDrug table. 
+**Purpose:** The medications table reflects the active medication orders for patients. These are orders but do not necessarily reflect administration to the patient. Titration of continuous infusion medications can be obtained in the [infusionDrug](http://eicu-crd.mit.edu/eicutables/infusionDrug/) table. 
 
 **Links to:**
 
