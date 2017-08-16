@@ -97,6 +97,12 @@
 \copy LAB FROM program 'gzip -c -d lab.csv.gz' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
+--  Load Data for Table LAB
+--------------------------------------------------------
+
+\copy medication FROM program 'gzip -c -d medication.csv.gz' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
 --  Load Data for Table PASTHISTORY
 --------------------------------------------------------
 
