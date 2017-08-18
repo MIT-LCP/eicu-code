@@ -19,7 +19,7 @@ Once your [application to access the eICU Collaborative Research Database](http:
 
 ## Data and build scripts
 
-The eICU Collaborative Research Database is provided as a collection of comma-separated (CSV) files, along with scripts to help users import the data into a database system. Scripts are available in the [eICU code repository](https://github.com/mit-eicu/eicu-code) for Postgres: https://github.com/mit-eicu/eicu-code
+The eICU Collaborative Research Database is provided as a collection of comma-separated (CSV) files, along with scripts to help users import the data into a database system. Scripts are available in the [eICU code repository](https://github.com/mit-lcp/eicu-code) for Postgres: https://github.com/mit-lcp/eicu-code
 
 ## Tutorial
 

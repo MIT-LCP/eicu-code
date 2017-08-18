@@ -35,7 +35,7 @@ psql postgres
 
 ## 4. Create an empty database containing the database schema
 
-From this point onwards we will be referring to scripts in the '[buildeicu](https://github.com/MIT-eicu/eicu-code/tree/master/buildeicu)' directory of the [eICU code repository](https://github.com/MIT-eicu/eicu-code/).
+From this point onwards we will be referring to scripts in the '[buildeicu](https://github.com/mit-lcp/eicu-code/tree/master/buildeicu)' directory of the [eICU code repository](https://github.com/mit-lcp/eicu-code/).
 
 After connecting with psql, create a new user. Next, create a eICU database with a schema for eICU:
 

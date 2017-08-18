@@ -50,7 +50,6 @@ The following tables form part of the eICU schema:
 **physicalExam**                | from note, noteItem
 **respiratoryCare**             | from respFlowsheetCareStatusHistory
 **respiratoryCharting**         | from respFlowsheetColumn respFlowsheetCell, respFlowsheetCustomLabel
-**ssaDMF**                      | (Social Security Death Master File matching data)
 **treatment**                   | from patientDXRxItemSet, patientDxRx, patientDxRxLeaf, and vrefDxRx
 **vitalAperiodic**              | from vitalSignAperiodic
 **vitalPeriodic**               | from vitalSignPeriodic5minute

@@ -25,7 +25,7 @@ To fix an issue or to contribute new content, please either select the 'Edit thi
 
 ## How can I share code that I have written for the eICU Collaborative Research Database?
 
-We have created a repository on GitHub to hold eICU Collaborative Research Database code: https://github.com/MIT-eicu/eicu-code. The structure of the repository will develop over time as new contributions are made.
+We have created a repository on GitHub to hold eICU Collaborative Research Database code: https://github.com/mit-lcp/eicu-code. The structure of the repository will develop over time as new contributions are made.
 
 ## How can I highlight an issue relating to the eICU Collaborative Research Database?
 
