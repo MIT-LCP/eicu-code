@@ -6,10 +6,10 @@ This folder loads the eICU Collaborative Research Database into a local PostgreS
 
 First ensure that Postgres is running on your computer. For installation instructions, see: [http://www.postgresql.org/download/](http://www.postgresql.org/download/)
 
-Once Postgres is installed, clone the [eicu-code](https://github.com/mit-eicu/eicu-code) repository into a local directory using the following command:
+Once Postgres is installed, clone the [eicu-code](https://github.com/mit-lcp/eicu-code) repository into a local directory using the following command:
 
 ``` bash
-git clone https://github.com/mit-eicu/eicu-code.git
+git clone https://github.com/mit-lcp/eicu-code.git
 ```
 
 Change to the ```postgres/``` directory and use ```make``` to run the Makefile, which contains instructions for creating eICU in a local Postgres database. For instructions on using the Makefile, run the following command:

@@ -6,19 +6,19 @@ This is a repository of code shared by the research community. The repository is
 
 Our team has worked hard to create and share the eICU Collaborative Research Database. We encourage you to share the code that you use for data processing and analysis. Sharing code helps to make studies reproducible and promotes collaborative research. To contribute, please:
 
-- Fork the repository using the following link: https://github.com/mit-eicu/eicu-code/fork. For a background on GitHub forks, see: https://help.github.com/articles/fork-a-repo/
+- Fork the repository using the following link: https://github.com/mit-lcp/eicu-code/fork. For a background on GitHub forks, see: https://help.github.com/articles/fork-a-repo/
 - Commit your changes to the forked repository.
-- Submit a pull request to the [eICU code repository](https://github.com/mit-eicu/eicu-code), using the method described at: https://help.github.com/articles/using-pull-requests/
+- Submit a pull request to the [eICU code repository](https://github.com/mit-lcp/eicu-code), using the method described at: https://help.github.com/articles/using-pull-requests/
 
 We encourage users to share concepts they have extracted by writing code which generates a materialized view. These materialized views can then be used by researchers around the world to speed up data extraction.
 
 ## License
 
-By committing your code to the [eICU Code Repository](https://github.com/mit-eicu/eicu-code) you agree to release the code under the [MIT License attached to the repository](https://github.com/mit-eicu/eicu-code/blob/master/LICENSE).
+By committing your code to the [eICU Code Repository](https://github.com/mit-lcp/eicu-code) you agree to release the code under the [MIT License attached to the repository](https://github.com/mit-lcp/eicu-code/blob/master/LICENSE).
 
 ## Coding style
 
-Please refer to the [style guide](https://github.com/mit-eicu/eicu-code/blob/master/styleguide.md) for guidelines on formatting your code for the repository.
+Please refer to the [style guide](https://github.com/mit-lcp/eicu-code/blob/master/styleguide.md) for guidelines on formatting your code for the repository.
 
 
 
