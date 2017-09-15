@@ -12,6 +12,8 @@ toc = "true"
 
 # microLab
 
+**This table is not currently available in the public dataset.**
+
 **Purpose:** Microbiology data.
 
 **Links to:**

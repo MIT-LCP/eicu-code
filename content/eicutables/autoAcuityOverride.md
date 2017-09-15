@@ -12,6 +12,8 @@ toc = "true"
 
 # autoAcuityOverride
 
+**This table is not currently available in the public dataset.**
+
 **Purpose:** A general ranking of the acuity of a given patient. The eICU physician/nurse can override a given acuity measure and replace it with what they feel is more appropriate, for example they can overwrite a "high" acuity and replace it with a "medium" acuity.
 
 **Links to:**

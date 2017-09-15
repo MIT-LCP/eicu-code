@@ -12,6 +12,8 @@ toc = "true"
 
 # nurseCharting
 
+**This table is not currently available in the public dataset.**
+
 **Purpose:** Large table that contains information entered in a semi-structured form by the nurse.  The three columns `nursingchartcelltypecat`, `nursingchartcelltypevallabel` and `nursingchartcelltypevalname` provide an organised structure for the data, but `nursingchartvalue` are free text entry and therefore fairly unstructured.
 
 **Links to:**

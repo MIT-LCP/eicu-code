@@ -12,6 +12,8 @@ toc = "true"
 
 # autoAcuityQuickEntry
 
+**This table is not currently available in the public dataset.**
+
 **Purpose:** The eCareManager software contains an algorithm which continuously calculates an automated acuity score. In order to be assigned an acuity score, patients need certain measurements in the database (e.g. GCS). However sometimes these values are not integrated. The quick entry feature allows a care provider to quickly enter the needed data so that it can be used to generate an acuity score. The record of these entries are stored in this table and can be used to supplement data unavailable through traditional documentation sources. 
 
 **Links to:**

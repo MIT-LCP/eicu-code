@@ -12,6 +12,8 @@ toc = "true"
 
 # intakeOutput
 
+**This table is not currently available in the public dataset.**
+
 **Purpose:** Intake and output recorded for patients. Entered from the nursing flowsheet (either manually or interfaced into the hospital system).
 
 **Links to:**
