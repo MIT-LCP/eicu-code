@@ -43,7 +43,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `predictedHospitalMortality` | varchar(50) | NULL | Predicted Hospital Mortality from Apache API |  | S
 `actualHospitalMortality` | varchar(50) | NULL | Actual Hospital Mortality |  | S
 `predictedHospitalLOS` | float(53) | NULL | Predicted Hospital Length of Stay from Apache API |  | S
-`actualHospitalLOS` | float(53) | NULL | Actual Hospital Length of Stay. Value is 30 when when > 30 days. |  | S
+`actualHospitalLOS` | float(53) | NULL | Actual Hospital Length of Stay. Value is 50 when when > 50 days. |  | S
 `preopMI` | int | NULL | Indicates if patient has pre –Operative Myocardial Infarction |  | S
 `preopCardiacCath` | int | NULL | Indicates if patient has pre –Operative cardiac catheterization |  | S
 `PTCAwithin24h` | int | NULL | 0/1. 1- Patient had PTCA with 24 hrs |  | S
