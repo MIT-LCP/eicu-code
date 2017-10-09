@@ -48,9 +48,9 @@ help:
 	@echo '                                                                           '
 
 
-eicu-gz: eicu-check-gz eicu-create-user eicu-build-gz
+eicu-gz: eicu-check-gz eicu-build-gz
 
-eicu: eicu-check eicu-create-user eicu-build
+eicu: eicu-check eicu-build
 
 eicu-download:
 	@echo '-----------------------------------------------'
@@ -58,7 +58,14 @@ eicu-download:
 	@echo '-- (requires a valid PhysioNetWorks account) --'
 	@echo '-----------------------------------------------'
 	@echo ''
+ifeq ("$(physionetuser)","")
+	@echo 'Cannot download data: physionetuser variable is unset.'
+	@echo 'Call the makefile again with physionetuser=<USERNAME>'
+	@echo ' e.g. make eicu-download datadir=/path/to/data physionetuser=hello@physionet.org'
+else
 	wget --user ${physionetuser} --ask-password -P ${datadir} -A csv.gz -m -p -E -k -K -np -nd  "$(PHYSIONETURL)"
+endif
+
 
 #This is fairly inelegant and could be tidied with a for loop and an if to check for gzip,
 #but need to maintain compatability with Windows, which baffling lacks these things
