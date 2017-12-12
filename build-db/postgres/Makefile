@@ -152,7 +152,7 @@ eicu-build:
 	@echo '------------------'
 	@echo ''
 	@sleep 2
-	cd $(datadir) && PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f $(CURDIR)/postgres_load_data.sql --username="$(DBUSER)" --host="$(DBHOST)" -e
+	cd $(datadir) && PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_load_data.sql --username="$(DBUSER)" --host="$(DBHOST)" -e
 	@echo ''
 	@echo '--------------------'
 	@echo '-- Adding indexes --'
@@ -186,7 +186,7 @@ eicu-build-gz:
 	@echo '-------------------------------------'
 	@echo ''
 	@sleep 2
-	cd $(datadir) && PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f $(CURDIR)/postgres_load_data_gz.sql --username="$(DBUSER)" --host="$(DBHOST)" -e
+	cd $(datadir) && PGPASSWORD=$(DBPASS) psql "dbname=${DBNAME} options=--search_path=${DBSCHEMA}" -f postgres_load_data_gz.sql --username="$(DBUSER)" --host="$(DBHOST)" -e
 	@echo ''
 	@echo '--------------------'
 	@echo '-- Adding indexes --'
