@@ -18,8 +18,65 @@ Change to the ```postgres/``` directory and use ```make``` to run the Makefile, 
 make help
 ```
 
-For example, to create the database from a set of zipped CSV files in the "/path/to/data/" directory, run the following command:
+### Download data
+``` bash
+physionetuser=<PYSIONETUSER> make eicu-download datadir=<DATA_PATH>
+```
+
+### Check data exists
+
+Checks that a subset of the required files exists.
+If the files are gzipped check with the following command - 
+``` bash
+make eicu-check-gz datadir=<DATA_PATH>
+```
+
+If the files are not compressed check with - 
+``` bash
+make eicu-check datadir=<DATA_PATH>
+```
+
+### Create user in the database
+
+Runs the `create_eicu.sh` script which creates user, database and schema according to a given DBUSER (optional users `postgres` as default), DBPASS, DBSCHEMA and DBNAME. Please note that the database name, schema, user, password, etc. are defined in the beginning of the Makefile. If you would like to user non default values and run this script you will have to change it there.
 
 ``` bash
-make eicu datadir="/path/to/data/"
+make eicu-create-user
+```
+
+### Build Database
+
+Build the database in 4 phases -
+1. Create tables
+2. Loads data
+3. Add indices
+4. Validate
+
+
+To load gzipped data use -  
+``` bash
+make eicu-gz datadir=<DATA_PATH>
+```
+
+To load non-compressed data - 
+``` bash
+make eicu datadir=<DATA_PATH>
+```
+
+
+## Suggested flow
+
+Assuming postgres is already installed and running
+
+1. Download data
+``` bash
+physionetuser=<PYSIONETUSER> make eicu-download datadir=<DATA_PATH>
+```
+2. Create user, database and schema -
+``` bash
+make eicu-create-user
+```
+3. Build database -
+``` bash
+make eicu-gz datadir=<DATA_PATH>
 ```
