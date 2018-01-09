@@ -4,7 +4,8 @@
 --
 -- -------------------------------------------------------------------------------
 
-\set ON_ERROR_STOP 1
+-- Change to the directory containing the data files
+\cd :datadir
 
 --------------------------------------------------------
 --  Load Data for Table ADMISSIONDRUG
