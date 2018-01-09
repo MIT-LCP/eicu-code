@@ -68,7 +68,7 @@ Assuming postgres is already installed and running
 
 1. Download data
 ``` bash
-make eicu-download physionetuser=<PYSIONETUSER> datadir=<DATA_PATH> 
+make eicu-download physionetuser=<PYSIONETUSER> datadir=<DATA_PATH>
 ```
 2. Create user, database and schema -
 ``` bash
