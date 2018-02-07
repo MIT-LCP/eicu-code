@@ -1,0 +1,34 @@
+---
+title: "carePlan_getItemValues"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Connect to database.
+
+```{r}
+require("RPostgreSQL")
+drv <- dbDriver("PostgreSQL")
+con <- dbConnect(drv, dbname = "eicu",
+                 host = "localhost", port = 5432,
+                 user = "josephpark", password = rstudioapi::askForPassword("Database password"),
+                 options = "--search_path=eicu")
+dbExistsTable(con, "patient")
+```
+
+Write cplitemvalues to file "possible_status" for inspection on which items indicate patient code status.
+All cplitemvalues that were chosen were in cplgroup = 'Care Limitation' (all cplitemvalues in this cplgroup was used),
+  except cplitemvalue = 'End of life', which was in cplgroup = 'Ordered Protocols'.
+
+```{r, connection = con}
+library(dplyr)
+carePlanGeneral_tbl <- tbl(con, "careplangeneral")
+possible_status <- carePlanGeneral_tbl %>% 
+  group_by(cplitemvalue) %>%
+  summarize(n=n()) %>%
+  arrange(desc(n))
+write.csv(possible_status, "possible_status.csv")
+```
