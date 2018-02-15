@@ -1,3 +1,5 @@
+-- NOT SUPPORTED
+
 SELECT "cplitemvalue", count(*) AS "n"
 FROM "careplangeneral"
 GROUP BY "cplitemvalue"

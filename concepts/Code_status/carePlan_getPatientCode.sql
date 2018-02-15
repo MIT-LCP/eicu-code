@@ -1,3 +1,5 @@
+-- NOT SUPPORTED
+
 SELECT "patientunitstayid", "cplitemoffset", string_agg("cplitemvalue", ', ') AS "cplitemvalue"
 FROM (SELECT *
 FROM (SELECT "patientunitstayid" AS "patientunitstayid", "cplitemoffset" AS "cplitemoffset", "cplgroup" AS "cplgroup", "cplitemvalue" AS "cplitemvalue"
