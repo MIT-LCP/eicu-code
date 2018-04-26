@@ -7,14 +7,14 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Unreleased tables"
 +++
 
 # respiratoryCharting
 
 **This table is not currently available in the public dataset.**
 
-**Purpose:** 
+**Purpose:**
 Data provided in the respiratory chart includes date/time, chart type (e.g. respiratory flow setting, vent data), and respiratory values.
 
 **Links to:**

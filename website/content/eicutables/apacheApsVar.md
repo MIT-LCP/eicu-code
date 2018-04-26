@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # apacheApsVar
@@ -33,9 +33,9 @@ toc = "true"
 
 * APACHE III, introduced in 1991, improved the equation by changing the number and weights of the APS and revising the measurement of chronic health status. The APACHE day refers to the time period in which clinical variables can be used in the algorithms.
 
-* APACHE IVa further improved the equations and has been described as having the highest discrimination of any other adult risk adjustment model (SAPS 3, SOFA, MPM III).  
+* APACHE IVa further improved the equations and has been described as having the highest discrimination of any other adult risk adjustment model (SAPS 3, SOFA, MPM III).
 
-* APACHE defines hospital mortality by an admission. discharge, transfer (ADT) hospital disposition as "expired" or "dead". ICU mortality is defined as a unit dispostion in the ADT system as "expired" or "dead". Some patients will have more than one ICU admission. For each ICU admission the patient will have a disposition of either dead (expired) or alive.  
+* APACHE defines hospital mortality by an admission. discharge, transfer (ADT) hospital disposition as "expired" or "dead". ICU mortality is defined as a unit dispostion in the ADT system as "expired" or "dead". Some patients will have more than one ICU admission. For each ICU admission the patient will have a disposition of either dead (expired) or alive.
 
 <!-- - Maybe say that APACHE IVa was updated using 2006–2008 patient data (Kramer CCM 2014 DOI: 10.1097/CCM.0b013e3182a66a49) -->
 

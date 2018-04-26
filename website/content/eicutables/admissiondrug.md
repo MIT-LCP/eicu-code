@@ -7,12 +7,12 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # admissiondrug
 
-**Purpose:** admissionDrug contains details of medications that a patient was taking prior to admission to the ICU. This table includes admission drug information for a patient such as the drug name, dosage, timeframe during which the drug was administered, the user type and specialty of the clinician entering the data, and the note type where the information was entered.  
+**Purpose:** admissionDrug contains details of medications that a patient was taking prior to admission to the ICU. This table includes admission drug information for a patient such as the drug name, dosage, timeframe during which the drug was administered, the user type and specialty of the clinician entering the data, and the note type where the information was entered.
 
 **Links to:**
 
@@ -20,7 +20,7 @@ toc = "true"
 
 # Important considerations
 
-* Extremely infrequently used. 
+* Extremely infrequently used.
 
 # Table columns
 

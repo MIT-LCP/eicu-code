@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # nurseCharting
@@ -22,7 +22,7 @@ toc = "true"
 
  # Important considerations
 
-* Nurse charting data can be entered directy into the system or can represent interfaced data from charting in the bedside EMR. 
+* Nurse charting data can be entered directy into the system or can represent interfaced data from charting in the bedside EMR.
 
 # Table columns
 

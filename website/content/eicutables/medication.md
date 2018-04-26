@@ -7,12 +7,12 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # medication
 
-**Purpose:** The medications table reflects the active medication orders for patients. These are orders but do not necessarily reflect administration to the patient. Titration of continuous infusion medications can be obtained in the [infusionDrug](http://eicu-crd.mit.edu/eicutables/infusionDrug/) table. 
+**Purpose:** The medications table reflects the active medication orders for patients. These are orders but do not necessarily reflect administration to the patient. Titration of continuous infusion medications can be obtained in the [infusionDrug](http://eicu-crd.mit.edu/eicutables/infusionDrug/) table.
 
 **Links to:**
 
@@ -20,7 +20,7 @@ toc = "true"
 
 # Important considerations
 
-* The majority of hospitals have an HL7 medication interface system in place which automatically synchronizes the orders with eCareManager as they are verified by the pharmacist in the source pharmacy system. For hospitals without a medication interface, the eICU staff may enter a selection of medications to facilitate population management and completeness for reporting purposes. 
+* The majority of hospitals have an HL7 medication interface system in place which automatically synchronizes the orders with eCareManager as they are verified by the pharmacist in the source pharmacy system. For hospitals without a medication interface, the eICU staff may enter a selection of medications to facilitate population management and completeness for reporting purposes.
 
 # Table columns
 

@@ -7,15 +7,15 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Unreleased tables"
 +++
 
 # physicalExam
 
 **This table is not currently available in the public dataset.**
 
-**Purpose:** 
-The physical exam section allows users to document results of a physical exam. 
+**Purpose:**
+The physical exam section allows users to document results of a physical exam.
 
 **Links to:**
 
@@ -23,9 +23,9 @@ The physical exam section allows users to document results of a physical exam.
 
 # Important considerations
 
-Data for physical exam are entered directly into eCareManager. The choices for the physical exam include Not Performed, Performed-Free Text, and Performed-Structured, however the free text sections are not included in the research database. The Structured option allows a large variety of pick list selections and specific text entry boxes to create a structured physical exam. 
+Data for physical exam are entered directly into eCareManager. The choices for the physical exam include Not Performed, Performed-Free Text, and Performed-Structured, however the free text sections are not included in the research database. The Structured option allows a large variety of pick list selections and specific text entry boxes to create a structured physical exam.
 
-Physical Exam: The table below lists the data displayed in the Constitutional Data field and the selection criteria for this data (e.g., most recent 15 minute mean value). The values for heart rate, blood pressure, temperature, respiratory rate and O2 sat include the 24 hour range as well as the current values. 
+Physical Exam: The table below lists the data displayed in the Constitutional Data field and the selection criteria for this data (e.g., most recent 15 minute mean value). The values for heart rate, blood pressure, temperature, respiratory rate and O2 sat include the 24 hour range as well as the current values.
 
 # Table columns
 

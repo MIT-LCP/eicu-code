@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Unreleased tables"
 +++
 
 # customLab
@@ -27,17 +27,17 @@ toc = "true"
 # Table columns
 
 Name | Datatype | Null option | Comment | Key
----- | ---- | ---- | ---- | ---- 
+---- | ---- | ---- | ---- | ----
 `customlabid`       | bigint     | not null |  |  PK
 `patientunitstayid` | bigint     | not null |  |  FK
-`labotheryear`      | smallint   | not null |  | 
-`labothertime24`    | chvar(8)   | not null |  | 
-`labothertime`      | chvar(20)  | not null |  | 
-`labotheroffset`    | bigint     | not null |  | 
-`labothertypeid`    | bigint     | not null |  | 
-`labothername`      | chvar(64)  |          |  | 
-`labotherresult`    | chvar(64)  |          |  | 
-`labothervaluetext` | chvar(128) |          |  | 
+`labotheryear`      | smallint   | not null |  |
+`labothertime24`    | chvar(8)   | not null |  |
+`labothertime`      | chvar(20)  | not null |  |
+`labotheroffset`    | bigint     | not null |  |
+`labothertypeid`    | bigint     | not null |  |
+`labothername`      | chvar(64)  |          |  |
+`labotherresult`    | chvar(64)  |          |  |
+`labothervaluetext` | chvar(128) |          |  |
 
 
 <!--
@@ -52,7 +52,7 @@ Name | Datatype | Null option | Comment | Key
  labothertypeid    | bigint                 | not null |
  labothername      | chvar(64)  |          |
  labotherresult    | chvar(64)  |          |
- labothervaluetext | chvar(128) |          |   
+ labothervaluetext | chvar(128) |          |
 
 -->
 

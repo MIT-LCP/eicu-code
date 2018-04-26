@@ -7,13 +7,13 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # pastHistory
 
-**Purpose:** 
-Provides information related a patient's relevant past medical history. 
+**Purpose:**
+Provides information related a patient's relevant past medical history.
 
 
 **Links to:**
@@ -45,8 +45,8 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 
  Detailed description
 
-Data include Past History date/time (as offset), note type, root path (e.g. notes/Progress Notes/Past History/Organ Systems/Hematology/Oncology (A)/Cancer Therapy/Chemotherapy/Cis-platinum, etc.), picklist values (e.g. Performed, Not Performed, Not Obtainable, No Health Problems, etc.) and text (e.g. COPD  - Moderate, CHF, Medication dependent). 
-Data entry fields are organized by the following organ systems: 
+Data include Past History date/time (as offset), note type, root path (e.g. notes/Progress Notes/Past History/Organ Systems/Hematology/Oncology (A)/Cancer Therapy/Chemotherapy/Cis-platinum, etc.), picklist values (e.g. Performed, Not Performed, Not Obtainable, No Health Problems, etc.) and text (e.g. COPD  - Moderate, CHF, Medication dependent).
+Data entry fields are organized by the following organ systems:
 •         Neurologic
 •         Cardiovascular
 •         Pulmonary
@@ -55,4 +55,3 @@ Data entry fields are organized by the following organ systems:
 •         Hematology/Oncology
 •         Endocrine
 •         Rheumatic
-

@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # hospital
@@ -30,6 +30,3 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `numbedscategory` | int |   | number of beds |   | S
 `teachingstatus` | int |   | teaching status of hospital |   | S
 `region` | int |   | region of hospital |   | S
-
-
-

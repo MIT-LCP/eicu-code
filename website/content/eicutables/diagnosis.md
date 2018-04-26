@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # diagnosis
@@ -24,7 +24,7 @@ The diagnosis.md table contains a list of diagnoses that were documented for eac
 
 # Important considerations
 
-The diagnosis.med table contains diagnoses that were documented in the ICU stay by clinical staff and may or may not be consistent with diagnoses that were coded and used for professional billing or hospital reimbursment purposes. This table does not include diagnoses that may have been documented prior to or after the ICU stay. This table does not indicate which diagnoses were resolved or ruled-out nor does it provide a diagnosis time frame when/if a diagnosis was removed. 
+The diagnosis.med table contains diagnoses that were documented in the ICU stay by clinical staff and may or may not be consistent with diagnoses that were coded and used for professional billing or hospital reimbursment purposes. This table does not include diagnoses that may have been documented prior to or after the ICU stay. This table does not indicate which diagnoses were resolved or ruled-out nor does it provide a diagnosis time frame when/if a diagnosis was removed.
 
 * To follow.
 

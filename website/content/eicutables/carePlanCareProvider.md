@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # carePlanCareProvider
@@ -40,9 +40,8 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 
 # Detailed description
 
-Care Plan Provider data includes type (e.g. Admitting, Consultant); specialty (e.g. cardiology), a managing physician indicator, and intervention category which denotes the level of oversight and intervention authorized for eICU clinicians for the patient by a managing physician. 
+Care Plan Provider data includes type (e.g. Admitting, Consultant); specialty (e.g. cardiology), a managing physician indicator, and intervention category which denotes the level of oversight and intervention authorized for eICU clinicians for the patient by a managing physician.
 
-Managing Physician designates the physician who has the overall charge of the patient’s care. In many instances, the managing physician will be the admitting physician. If a consultant, such as an intensivist, is managing care, the consultant should be designated as the managing physician. Only one managing physician at a time may be assigned to the patient. If a managing physician is not selected, the admitting physician will be employed as managing. 
+Managing Physician designates the physician who has the overall charge of the patient’s care. In many instances, the managing physician will be the admitting physician. If a consultant, such as an intensivist, is managing care, the consultant should be designated as the managing physician. Only one managing physician at a time may be assigned to the patient. If a managing physician is not selected, the admitting physician will be employed as managing.
 
-Consultants with specialties and intervention categories are provided. Intervention category denotes the level of oversight and intervention authorized for eICU clinicians for a patient by the managing physician. 
-
+Consultants with specialties and intervention categories are provided. Intervention category denotes the level of oversight and intervention authorized for eICU clinicians for a patient by the managing physician.

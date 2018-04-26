@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # allergy
@@ -49,7 +49,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 # Detailed description
 
 The allergy table includes patient data entry date/time, note type, specialty type, user type, drug information, etc.
-Allergy data for the patient can be entered on notes that contain a section for allergies.  All allergies (drug and non-drug) can be entered along with necessary pre-admission medications. If a patient reports an allergy to a drug class, a selection from that class (e.g., Penicillin G) may be chosen. The exact nature of the allergy (e.g., allergic to “all penicillins”) may have halso been described with text in the Patient Description field but this field has been excluded to reduce risk of sharing PHI. 
+Allergy data for the patient can be entered on notes that contain a section for allergies.  All allergies (drug and non-drug) can be entered along with necessary pre-admission medications. If a patient reports an allergy to a drug class, a selection from that class (e.g., Penicillin G) may be chosen. The exact nature of the allergy (e.g., allergic to “all penicillins”) may have halso been described with text in the Patient Description field but this field has been excluded to reduce risk of sharing PHI.
 
 Allergy entry is optional. The Daily Progress Note is the most efficient way to enter allergies. Drug allergies entered in other Notes will display here; any allergies listed here will display in subsequent Notes and on a Patient Profile.
-

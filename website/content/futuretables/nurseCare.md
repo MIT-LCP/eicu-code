@@ -7,29 +7,29 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Unreleased tables"
 +++
 
 # nurseCare
 
 **This table is not currently available in the public dataset.**
 
-**Purpose:** 
+**Purpose:**
 The Nursing Care Flowsheet provides the capability for nurses to document patient care information for the following categories:
 
-- Nutrition  
-- Activity  
-- Hygiene/ADLs  
-- Respiratory  
-- Incision/Wound Care  
-- Line Care  
-- Drain/Tube Care  
-- Safety  
-- Alarms On  
-- Isolation Precautions  
-- Equipment  
-- Restraints  
-- Other Nursing Care Data  
+- Nutrition
+- Activity
+- Hygiene/ADLs
+- Respiratory
+- Incision/Wound Care
+- Line Care
+- Drain/Tube Care
+- Safety
+- Alarms On
+- Isolation Precautions
+- Equipment
+- Restraints
+- Other Nursing Care Data
 
 **Links to:**
 

@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Tables in eICU-CRD"
 +++
 
 # lab
@@ -20,7 +20,7 @@ toc = "true"
 
 # Important considerations
 
-It is possible some rarely obtained lab measurements are not interfaced into the system and therefore will not be available in the database. Absence of a rare lab measurement, such as serum lidocaine concentrations, would not indicate the lab was not drawn. However, absence of a platelet count would indicate the value was not obtained. 
+It is possible some rarely obtained lab measurements are not interfaced into the system and therefore will not be available in the database. Absence of a rare lab measurement, such as serum lidocaine concentrations, would not indicate the lab was not drawn. However, absence of a platelet count would indicate the value was not obtained.
 
 # Table columns
 

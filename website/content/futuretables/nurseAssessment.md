@@ -7,14 +7,14 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Tables in eICU"
+    parent = "Unreleased tables"
 +++
 
 # nurseAssessment
 
 **This table is not currently available in the public dataset.**
 
-**Purpose:** 
+**Purpose:**
 
 The Nursing Assessment Flowsheet provides the capability to assess and document patient items such as pain, psychosocial status, patient/family education, neurologic, cardiovascular, respiratory, oral/GI/GU, skin, and other nursing assessment data along with date/time.
 
@@ -45,7 +45,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `cellAttribute` | varchar(255) | NOT NULL | attribute for the nurse assessment entry selected in eCareManager |  | S
 `cellAttributeValue` | varchar(7500) | NULL | value for the nurse assessment attribute selected for the nurse assessment entry in eCareManager |  | S
 
-<!-- 
+<!--
 # Detailed description
 
 * To follow. -->
