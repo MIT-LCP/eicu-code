@@ -13,6 +13,5 @@ parent = "Data details"
 
 # Inputs and Outputs
 
-* The `medication` table is essentially an interface to the prescriptions data.
-
+* The `medication` table is essentially an interface to pharmacy data - i.e. prescribed medications.
 * The `intakeoutput` and `infusiondrug` tables should be used for fluids and drugs, respectively. It is a challenge to decide whether a hospital is actually collecting and archiving data in the `infusiondrug` table.
