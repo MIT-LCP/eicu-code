@@ -23,6 +23,13 @@ When using the dataset, please include the standard citation for PhysioNet:
 Goldberger AL, Amaral LAN, Glass L, Hausdorff JM, Ivanov PCh, Mark RG, Mietus JE, Moody GB, Peng C-K, Stanley HE. PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals. Circulation 101(23):e215-e220 [Circulation Electronic Pages; http://circ.ahajournals.org/content/101/23/e215.full]; 2000 (June 13).
 ```
 
+# Ethical approval
+
+The database is released under the Health Insurance Portability and
+Accountability Act (HIPAA) safe harbor provision.
+The re-identification risk was certified as meeting safe harbor
+standards by Privacert (Cambridge, MA) (HIPAA Certification no. 1031219-2).
+
 # Research groups
 
 - [MIT Lab for Computational Physiology](http://lcp.mit.edu/)
