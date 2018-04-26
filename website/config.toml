@@ -1,7 +1,7 @@
 languageCode = "en-us"
 title = "eICU Collaborative Research Database"
 theme = "eicu-data"
-baseurl = "http://eicu-crd.physionet.org"
+baseurl = "https://eicu-crd.mit.edu"
 canonifyurls = "false"
 
 [[menu.main]]
@@ -19,11 +19,6 @@ canonifyurls = "false"
     pre = "<i class='fa fa-columns'></i>"
     weight = 30
     url = "/eicutables/"
-[[menu.main]]
-    name = "Data details"
-    pre = "<i class='fa fa-cog'></i>"
-    weight = 20
-    url = "/eicudata/"
 [[menu.main]]
     name = "Community"
     pre = "<i class='fa fa-group'></i>"
