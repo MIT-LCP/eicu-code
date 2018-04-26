@@ -15,19 +15,24 @@ canonifyurls = "false"
     weight = 10
     url = "/gettingstarted/"
 [[menu.main]]
-    name = "Tables in eICU"
+    name = "Tables in eICU-CRD"
     pre = "<i class='fa fa-columns'></i>"
     weight = 30
     url = "/eicutables/"
 [[menu.main]]
+    name = "Unreleased tables"
+    pre = "<i class='fa fa-columns'></i>"
+    weight = 40
+    url = "/futuretables/"
+[[menu.main]]
     name = "Community"
     pre = "<i class='fa fa-group'></i>"
-    weight = 40
+    weight = 50
     url = "/community/"
 [[menu.main]]
     name = "Tutorials"
     pre = "<i class='fa fa-cubes'></i>"
-    weight = 50
+    weight = 60
     url = "/tutorials/"
 [[menu.main]]
     name = "Help"
