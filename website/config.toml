@@ -21,7 +21,7 @@ canonifyurls = "false"
     url = "/eicutables/"
 [[menu.main]]
     name = "Unreleased tables"
-    pre = "<i class='fa fa-columns'></i>"
+    pre = "<i class='fa fa-dolly'></i>"
     weight = 40
     url = "/futuretables/"
 [[menu.main]]
