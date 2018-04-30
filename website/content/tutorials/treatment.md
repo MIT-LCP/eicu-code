@@ -19,4 +19,4 @@ https://github.com/MIT-LCP/eicu-code/tree/master/notebooks
 
 Note: if you do not see any content, your browser may be blocking javascript necessary for viewing the notebook. To circumvent this, either allow javascript to run on this site, or navigate to the notebook using the above GitHub link.
 
-<iframe src="http://nbviewer.jupyter.org/github/MIT-LCP/eicu-code/blob/master/notebooks/treatment.ipynb" width="100%" height="800" scrolling="yes"></iframe>
+<iframe src="https://nbviewer.jupyter.org/github/MIT-LCP/eicu-code/blob/master/notebooks/treatment.ipynb" width="100%" height="800" scrolling="yes"></iframe>
