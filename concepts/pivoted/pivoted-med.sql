@@ -53,7 +53,7 @@ with vw0 as
     , drugname, drughiclseqno, gtc
 
     -- delivery info
-    , dosage, routeadmin, frequency, prn
+    , dosage, routeadmin, prn
     -- , loadingdose
   from medication m
   -- only non-zero dosages
