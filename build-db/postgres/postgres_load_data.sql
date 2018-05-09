@@ -11,7 +11,7 @@
 --  Load Data for Table ADMISSIONDRUG
 --------------------------------------------------------
 
-\copy ADMISSIONDRUG FROM 'admissiondrug.csv' DELIMITER ',' CSV HEADER NULL ''
+\copy ADMISSIONDRUG FROM 'admissionDrug.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table ADMISSIONDX
@@ -74,6 +74,12 @@
 \copy CAREPLANINFECTIOUSDISEASE FROM 'carePlanInfectiousDisease.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
+--  Load Data for Table CUSTOMLAB
+--------------------------------------------------------
+
+\copy CUSTOMLAB FROM 'customLab.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
 --  Load Data for Table DIAGNOSIS
 --------------------------------------------------------
 
@@ -89,19 +95,55 @@
 --  Load Data for Table INFUSIONDRUG
 --------------------------------------------------------
 
-\copy INFUSIONDRUG FROM 'infusiondrug.csv' DELIMITER ',' CSV HEADER NULL ''
+\copy INFUSIONDRUG FROM 'infusionDrug.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table INFUSIONDRUG
+--------------------------------------------------------
+
+\copy intakeoutput FROM 'intakeOutput.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table LAB
 --------------------------------------------------------
 
-\copy LAB FROM 'lab.csv' DELIMITER ',' CSV HEADER NULL ''
+\copy lab FROM 'lab.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table MEDICATION
 --------------------------------------------------------
 
 \copy medication FROM 'medication.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table MICROLAB
+--------------------------------------------------------
+
+\copy microlab FROM 'microLab.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table NOTE
+--------------------------------------------------------
+
+\copy note FROM 'note.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table NURSEASSESSMENT
+--------------------------------------------------------
+
+\copy nurseassessment FROM 'nurseAssessment.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table NURSECARE
+--------------------------------------------------------
+
+\copy nursecare FROM 'nurseCare.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table NURSECHARTING
+--------------------------------------------------------
+
+\copy nursecharting FROM 'nurseCharting.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table PASTHISTORY
@@ -114,6 +156,24 @@
 --------------------------------------------------------
 
 \copy PATIENT FROM 'patient.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table PHYSICALEXAM
+--------------------------------------------------------
+
+\copy physicalexam FROM 'physicalExam.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table RESPIRATORYCARE
+--------------------------------------------------------
+
+\copy respiratorycare FROM 'respiratoryCare.csv' DELIMITER ',' CSV HEADER NULL ''
+
+--------------------------------------------------------
+--  Load Data for Table RESPIRATORYCHARTING
+--------------------------------------------------------
+
+\copy respiratorycharting FROM 'respiratoryCharting.csv' DELIMITER ',' CSV HEADER NULL ''
 
 --------------------------------------------------------
 --  Load Data for Table TREATMENT

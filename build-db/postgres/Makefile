@@ -62,13 +62,32 @@ eicu-gz: eicu-check-gz eicu-build-gz
 
 eicu: eicu-check eicu-build
 
-create-user:
+initialize:
 	@echo ''
-	@echo '-------------------'
-	@echo '-- Creating user --'
-	@echo '-------------------'
+	@echo '------------------'
+	@echo '-- Initializing --'
+	@echo '------------------'
 	@echo ''
+	@echo 'This creates the user, database, and schema, as necessary.'
 	DBUSER="$(DBUSER)" DBNAME="$(DBNAME)" DBPASS="$(DBPASS)" DBSCHEMA="$(DBSCHEMA)" DBHOST="$(DBHOST)" DBPORT="$(DBPORT)" ./create_eicu_user.sh
+
+create-database:
+	@echo ''
+	@echo '-----------------------'
+	@echo '-- Creating database --'
+	@echo '-----------------------'
+	@echo ''
+	@echo 'This step only needs to be performed once.'
+	createdb -O "$(DBUSER)" "$(DBNAME)"
+
+create-schema:
+	@echo ''
+	@echo '---------------------'
+	@echo '-- Creating schema --'
+	@echo '---------------------'
+	@echo ''
+	@sleep 2
+	psql "$(DBSTRING)" -v ON_ERROR_STOP=1 -c "CREATE SCHEMA $(DBSCHEMA) AUTHORIZATION $(DBUSER);"
 
 eicu-download:
 	@echo '-----------------------------------------------'
@@ -93,8 +112,8 @@ eicu-check-gz:
 	@echo '-- Checking for data --'
 	@echo '-----------------------'
 	@echo ''
-ifeq ("$(wildcard $(datadir)admissiondrug.csv.gz)","")
-	@echo "Unable to find $(datadir)admissiondrug.csv.gz - exiting before build."; exit 1
+ifeq ("$(wildcard $(datadir)admissionDrug.csv.gz)","")
+	@echo "Unable to find $(datadir)admissionDrug.csv.gz - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)admissionDx.csv.gz)","")
 	@echo "Unable to find $(datadir)admissionDx.csv.gz - exiting before build."; exit 1
@@ -126,14 +145,20 @@ endif
 ifeq ("$(wildcard $(datadir)carePlanInfectiousDisease.csv.gz)","")
 	@echo "Unable to find $(datadir)carePlanInfectiousDisease.csv.gz - exiting before build."; exit 1
 endif
+ifeq ("$(wildcard $(datadir)customLab.csv.gz)","")
+	@echo "Unable to find $(datadir)customLab.csv.gz - exiting before build."; exit 1
+endif
 ifeq ("$(wildcard $(datadir)diagnosis.csv.gz)","")
 	@echo "Unable to find $(datadir)diagnosis.csv.gz - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)hospital.csv.gz)","")
 	@echo "Unable to find $(datadir)hospital.csv.gz - exiting before build."; exit 1
 endif
-ifeq ("$(wildcard $(datadir)infusiondrug.csv.gz)","")
+ifeq ("$(wildcard $(datadir)infusionDrug.csv.gz)","")
 	@echo "Unable to find $(datadir)infusiondrug.csv.gz - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)intakeOutput.csv.gz)","")
+	@echo "Unable to find $(datadir)intakeOutput.csv.gz - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)lab.csv.gz)","")
 	@echo "Unable to find $(datadir)lab.csv.gz - exiting before build."; exit 1
@@ -141,11 +166,35 @@ endif
 ifeq ("$(wildcard $(datadir)medication.csv.gz)","")
 	@echo "Unable to find $(datadir)medication.csv.gz - exiting before build."; exit 1
 endif
+ifeq ("$(wildcard $(datadir)microLab.csv.gz)","")
+	@echo "Unable to find $(datadir)microLab.csv.gz - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)note.csv.gz)","")
+	@echo "Unable to find $(datadir)note.csv.gz - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)nurseAssessment.csv.gz)","")
+	@echo "Unable to find $(datadir)nurseAssessment.csv.gz - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)nurseCare.csv.gz)","")
+	@echo "Unable to find $(datadir)nurseCare.csv.gz - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)nurseCharting.csv.gz)","")
+	@echo "Unable to find $(datadir)nurseCharting.csv.gz - exiting before build."; exit 1
+endif
 ifeq ("$(wildcard $(datadir)pastHistory.csv.gz)","")
 	@echo "Unable to find $(datadir)pastHistory.csv.gz - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)patient.csv.gz)","")
 	@echo "Unable to find $(datadir)patient.csv.gz - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)physicalExam.csv.gz)","")
+	@echo "Unable to find $(datadir)physicalExam.csv.gz - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)respiratoryCare.csv.gz)","")
+	@echo "Unable to find $(datadir)respiratoryCare.csv.gz - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)respiratoryCharting.csv.gz)","")
+	@echo "Unable to find $(datadir)respiratoryCharting.csv.gz - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)treatment.csv.gz)","")
 	@echo "Unable to find $(datadir)treatment.csv.gz - exiting before build."; exit 1
@@ -156,6 +205,7 @@ endif
 ifeq ("$(wildcard $(datadir)vitalPeriodic.csv.gz)","")
 	@echo "Unable to find $(datadir)vitalPeriodic.csv.gz - exiting before build."; exit 1
 endif
+	@echo 'All data present!'
 
 
 eicu-check:
@@ -164,17 +214,17 @@ eicu-check:
 	@echo '-- Checking for data --'
 	@echo '-----------------------'
 	@echo ''
-ifeq ("$(wildcard $(datadir)admissiondrug.csv)","")
-	@echo "Unable to find $(datadir)admissiondrug.csv - exiting before build."; exit 1
+ifeq ("$(wildcard $(datadir)admissionDrug.csv)","")
+	@echo "Unable to find $(datadir)admissionDrug.csv - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)admissionDx.csv)","")
 	@echo "Unable to find $(datadir)admissionDx.csv - exiting before build."; exit 1
 endif
-ifeq ("$(wildcard $(datadir)apacheApsVar.csv)","")
-	@echo "Unable to find $(datadir)apacheApsVar.csv - exiting before build."; exit 1
-endif
 ifeq ("$(wildcard $(datadir)allergy.csv)","")
 	@echo "Unable to find $(datadir)allergy.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)apacheApsVar.csv)","")
+	@echo "Unable to find $(datadir)apacheApsVar.csv - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)apachePatientResult.csv)","")
 	@echo "Unable to find $(datadir)apachePatientResults.csv - exiting before build."; exit 1
@@ -197,14 +247,20 @@ endif
 ifeq ("$(wildcard $(datadir)carePlanInfectiousDisease.csv)","")
 	@echo "Unable to find $(datadir)carePlanInfectiousDisease.csv - exiting before build."; exit 1
 endif
+ifeq ("$(wildcard $(datadir)customLab.csv)","")
+	@echo "Unable to find $(datadir)customLab.csv - exiting before build."; exit 1
+endif
 ifeq ("$(wildcard $(datadir)diagnosis.csv)","")
 	@echo "Unable to find $(datadir)diagnosis.csv - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)hospital.csv)","")
 	@echo "Unable to find $(datadir)hospital.csv - exiting before build."; exit 1
 endif
-ifeq ("$(wildcard $(datadir)infusiondrug.csv)","")
+ifeq ("$(wildcard $(datadir)infusionDrug.csv)","")
 	@echo "Unable to find $(datadir)infusiondrug.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)intakeOutput.csv)","")
+	@echo "Unable to find $(datadir)intakeOutput.csv - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)lab.csv)","")
 	@echo "Unable to find $(datadir)lab.csv - exiting before build."; exit 1
@@ -212,11 +268,35 @@ endif
 ifeq ("$(wildcard $(datadir)medication.csv)","")
 	@echo "Unable to find $(datadir)medication.csv - exiting before build."; exit 1
 endif
+ifeq ("$(wildcard $(datadir)microLab.csv)","")
+	@echo "Unable to find $(datadir)microLab.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)note.csv)","")
+	@echo "Unable to find $(datadir)note.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)nurseAssessment.csv)","")
+	@echo "Unable to find $(datadir)nurseAssessment.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)nurseCare.csv)","")
+	@echo "Unable to find $(datadir)nurseCare.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)nurseCharting.csv)","")
+	@echo "Unable to find $(datadir)nurseCharting.csv - exiting before build."; exit 1
+endif
 ifeq ("$(wildcard $(datadir)pastHistory.csv)","")
 	@echo "Unable to find $(datadir)pastHistory.csv - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)patient.csv)","")
 	@echo "Unable to find $(datadir)patient.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)physicalExam.csv)","")
+	@echo "Unable to find $(datadir)physicalExam.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)respiratoryCare.csv)","")
+	@echo "Unable to find $(datadir)respiratoryCare.csv - exiting before build."; exit 1
+endif
+ifeq ("$(wildcard $(datadir)respiratoryCharting.csv)","")
+	@echo "Unable to find $(datadir)respiratoryCharting.csv - exiting before build."; exit 1
 endif
 ifeq ("$(wildcard $(datadir)treatment.csv)","")
 	@echo "Unable to find $(datadir)treatment.csv - exiting before build."; exit 1
@@ -227,6 +307,7 @@ endif
 ifeq ("$(wildcard $(datadir)vitalPeriodic.csv)","")
 	@echo "Unable to find $(datadir)vitalPeriodic.csv - exiting before build."; exit 1
 endif
+	@echo 'All data present!'
 
 eicu-build:
 	@echo ''

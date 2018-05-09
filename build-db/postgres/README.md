@@ -20,7 +20,7 @@ make help
 
 ### Download data
 ``` bash
-physionetuser=<PYSIONETUSER> make eicu-download datadir=<DATA_PATH>
+physionetuser=<PHYSIONETUSER> make eicu-download datadir=<DATA_PATH>
 ```
 
 ### Check data exists

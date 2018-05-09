@@ -19,13 +19,7 @@ CREATE TABLE admissiondrug
 (
   admissiondrugid INT NOT NULL,
   patientunitstayid INT NOT NULL,
-  drugyear SMALLINT NOT NULL,
-  drugtime24 VARCHAR(8) NOT NULL,
-  drugtime VARCHAR(20) NOT NULL,
   drugoffset INT  NOT NULL,
-  drugenteredyear SMALLINT NOT NULL,
-  drugenteredtime24 VARCHAR(8),
-  drugenteredtime VARCHAR(20),
   drugenteredoffset INT  NOT NULL,
   drugnotetype VARCHAR(255),
   specialtytype VARCHAR(255),
@@ -36,7 +30,7 @@ CREATE TABLE admissiondrug
   drugdosage NUMERIC(11,4),
   drugunit VARCHAR(1000),
   drugadmitfrequency VARCHAR(1000) NOT NULL,
-  drughiclseqno BIGINT
+  drughiclseqno INT
 ) ;
 
 --------------------------------------------------------
@@ -46,11 +40,8 @@ CREATE TABLE admissiondrug
 DROP TABLE IF EXISTS admissiondx CASCADE;
 CREATE TABLE admissiondx
 (
-  patientunitstayid INT NOT NULL,
   admissiondxid INT NOT NULL,
-  admitdxenteredyear SMALLINT NOT NULL,
-  admitdxenteredtime24 VARCHAR(8) NOT NULL,
-  admitdxenteredtime VARCHAR(20) NOT NULL,
+  patientunitstayid INT NOT NULL,
   admitdxenteredoffset INT NOT NULL,
   admitdxpath VARCHAR(500) NOT NULL,
   admitdxname VARCHAR(255),
@@ -66,13 +57,7 @@ CREATE TABLE allergy
 (
   allergyid INT NOT NULL,
   patientunitstayid INT NOT NULL,
-  allergyyear SMALLINT NOT NULL,
-  allergytime24 VARCHAR(8) NOT NULL,
-  allergytime VARCHAR(20) NOT NULL,
   allergyoffset INT NOT NULL,
-  allergyenteredyear SMALLINT NOT NULL,
-  allergyenteredtime24 VARCHAR(8),
-  allergyenteredtime VARCHAR(20),
   allergyenteredoffset INT NOT NULL,
   allergynotetype VARCHAR(255),
   specialtytype VARCHAR(255),
@@ -82,7 +67,7 @@ CREATE TABLE allergy
   drugname VARCHAR(255) NOT NULL,
   allergytype VARCHAR(255),
   allergyname VARCHAR(255),
-  drughiclseqno BIGINT
+  drughiclseqno INT
 ) ;
 
 
@@ -93,8 +78,8 @@ CREATE TABLE allergy
 DROP TABLE IF EXISTS apacheapsvar CASCADE;
 CREATE TABLE apacheapsvar
 (
+  apacheapsvarid INT,
 	patientunitstayid INT,
-	apacheapsvarid INT,
 	intubated SMALLINT,
 	vent SMALLINT,
 	dialysis SMALLINT,
@@ -121,18 +106,18 @@ CREATE TABLE apacheapsvar
 	fio2 DOUBLE PRECISION
 ) ;
 --------------------------------------------------------
---  DDL for Table APACHEPATIENTRESULTS
+--  DDL for Table APACHEPATIENTRESULT
 --------------------------------------------------------
 
 DROP TABLE IF EXISTS apachepatientresult CASCADE;
 CREATE TABLE apachepatientresult
 (
+  apachepatientresultsid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
-	apachepatientresultsid INT NOT NULL,
 	physicianspeciality VARCHAR(50),
 	physicianinterventioncategory VARCHAR(50),
-	acutephysiologyscore BIGINT,
-	apachescore BIGINT,
+	acutephysiologyscore INT,
+	apachescore INT,
 	apacheversion VARCHAR(5) NOT NULL,
 	predictedicumortality VARCHAR(50),
 	actualicumortality VARCHAR(50),
@@ -142,9 +127,9 @@ CREATE TABLE apachepatientresult
 	actualhospitalmortality VARCHAR(50),
 	predictedhospitallos DOUBLE PRECISION,
 	actualhospitallos DOUBLE PRECISION,
-	preopmi BIGINT,
-	preopcardiaccath BIGINT,
-	ptcawithin24h BIGINT,
+	preopmi INT,
+	preopcardiaccath INT,
+	ptcawithin24h INT,
 	unabridgedunitlos DOUBLE PRECISION,
 	unabridgedhosplos DOUBLE PRECISION,
 	actualventdays DOUBLE PRECISION,
@@ -158,8 +143,8 @@ CREATE TABLE apachepatientresult
 DROP TABLE IF EXISTS apachepredvar CASCADE;
 CREATE TABLE apachepredvar
 (
+  apachepredvarid INT,
 	patientunitstayid INT,
-	apachepredvarid INT,
 	sicuday SMALLINT,
 	saps3day1 SMALLINT,
 	saps3today SMALLINT,
@@ -220,9 +205,6 @@ CREATE TABLE careplancareprovider
 (
 	cplcareprovderid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
-	careprovidersaveyear SMALLINT NOT NULL,
-	careprovidersavetime24 VARCHAR(8) NOT NULL,
-	careprovidersavetime VARCHAR(20) NOT NULL,
 	careprovidersaveoffset INT NOT NULL,
 	providertype VARCHAR(255),
 	specialty VARCHAR(255),
@@ -237,15 +219,9 @@ CREATE TABLE careplancareprovider
 DROP TABLE IF EXISTS careplaneol CASCADE;
 CREATE TABLE careplaneol
 (
+  cpleolid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
-	cpleolid INT NOT NULL,
-	cpleolsaveyear SMALLINT NOT NULL,
-	cpleolsavetime24 VARCHAR(8) NOT NULL,
-	cpleolsavetime VARCHAR(20) NOT NULL,
 	cpleolsaveoffset INT NOT NULL,
-	cpleoldiscussionyear SMALLINT,
-	cpleoldiscussiontime24 VARCHAR(8),
-	cpleoldiscussiontime VARCHAR(20),
 	cpleoldiscussionoffset INT,
 	activeupondischarge VARCHAR(10)
 ) ;
@@ -256,12 +232,9 @@ CREATE TABLE careplaneol
 DROP TABLE IF EXISTS careplangeneral CASCADE;
 CREATE TABLE careplangeneral
 (
+  cplgeneralid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
 	activeupondischarge VARCHAR(10) NOT NULL,
-	cplgeneralid INT NOT NULL,
-	cplitemyear SMALLINT NOT NULL,
-	cplitemtime24 VARCHAR(8) NOT NULL,
-	cplitemtime VARCHAR(20) NOT NULL,
 	cplitemoffset INT NOT NULL,
 	cplgroup VARCHAR(255) NOT NULL,
 	cplitemvalue VARCHAR(1024)
@@ -275,9 +248,6 @@ CREATE TABLE careplangoal
 (
 	cplgoalid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
-	cplgoalyear SMALLINT NOT NULL,
-	CPLGOALTIME24 VARCHAR(8) NOT NULL,
-	CPLGOALTIME VARCHAR(20) NOT NULL,
 	CPLGOALoffset INT NOT NULL,
 	CPLGOALCATEGORY VARCHAR(255),
 	CPLGOALVALUE VARCHAR(1000),
@@ -291,17 +261,29 @@ CREATE TABLE careplangoal
 DROP TABLE IF EXISTS careplaninfectiousdisease CASCADE;
 CREATE TABLE careplaninfectiousdisease
 (
+  cplinfectid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
 	activeupondischarge VARCHAR(10) NOT NULL,
-	cplinfectid INT NOT NULL,
-	cplinfectdiseaseyear SMALLINT NOT NULL,
-	cplinfectdiseasetime24 VARCHAR(8) NOT NULL,
-	cplinfectdiseasetime VARCHAR(20) NOT NULL,
 	cplinfectdiseaseoffset INT NOT NULL,
 	infectdiseasesite VARCHAR(64),
 	infectdiseaseassessment VARCHAR(64),
 	responsetotherapy VARCHAR(32),
 	treatment VARCHAR(32)
+) ;
+--------------------------------------------------------
+--  DDL for Table CUSTOMLAB
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS customlab CASCADE;
+CREATE TABLE customlab
+(
+	customlabid INT NOT NULL,
+	patientunitstayid INT NOT NULL,
+	labotheroffset INT NOT NULL,
+	labothertypeid INT NOT NULL,
+	labothername VARCHAR(64),
+	labotherresult VARCHAR(64),
+	labothervaluetext VARCHAR(128)
 ) ;
 --------------------------------------------------------
 --  DDL for Table DIAGNOSIS
@@ -310,12 +292,9 @@ CREATE TABLE careplaninfectiousdisease
 DROP TABLE IF EXISTS diagnosis CASCADE;
 CREATE TABLE diagnosis
 (
+  diagnosisid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
 	activeupondischarge VARCHAR(64),
-	diagnosisid INT NOT NULL,
-	diagnosisyear SMALLINT NOT NULL,
-	diagnosistime24 VARCHAR(8) NOT NULL,
-	diagnosistime VARCHAR(20) NOT NULL,
 	diagnosisoffset INT NOT NULL,
 	diagnosisstring VARCHAR(200) NOT NULL,
 	icd9code VARCHAR(100),
@@ -341,11 +320,8 @@ CREATE TABLE hospital
 DROP TABLE IF EXISTS infusiondrug CASCADE;
 CREATE TABLE infusiondrug
 (
-  patientunitstayid INT NOT NULL,
   infusiondrugid INT NOT NULL,
-  infusionyear SMALLINT NOT NULL,
-  infusiontime24 VARCHAR(8) NOT NULL,
-  infusiontime VARCHAR(20) NOT NULL,
+  patientunitstayid INT NOT NULL,
   infusionoffset INT NOT NULL,
   drugname VARCHAR(255) NOT NULL,
   drugrate VARCHAR(255),
@@ -356,27 +332,42 @@ CREATE TABLE infusiondrug
 ) ;
 
 --------------------------------------------------------
+--  DDL for Table INTAKEOUTPUT
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS intakeoutput CASCADE;
+CREATE TABLE intakeoutput
+(
+	intakeoutputid INT NOT NULL,
+  patientunitstayid INT NOT NULL,
+	intakeoutputoffset INT NOT NULL,
+	intaketotal NUMERIC(12,4),
+	outputtotal NUMERIC(12,4),
+	dialysistotal NUMERIC(12,4),
+	nettotal NUMERIC(12,4),
+	intakeoutputentryoffset INT NOT NULL,
+	cellpath VARCHAR(500),
+	celllabel VARCHAR(255),
+	cellvaluenumeric NUMERIC(12,4) NOT NULL,
+	cellvaluetext VARCHAR(255) NOT NULL
+) ;
+
+--------------------------------------------------------
 --  DDL for Table LAB
 --------------------------------------------------------
 
 DROP TABLE IF EXISTS lab CASCADE;
 CREATE TABLE lab
 (
+  labid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
-	labid INT NOT NULL,
-	labresultyear SMALLINT NOT NULL,
-	labresulttime24 VARCHAR(8) NOT NULL,
-	labresulttime VARCHAR(20) NOT NULL,
 	labresultoffset INT NOT NULL,
-	labtypeid DECIMAL(3,0) NOT NULL,
+	labtypeid NUMERIC(3,0) NOT NULL,
 	labname VARCHAR(256),
-	labresult DECIMAL(11,4),
+	labresult NUMERIC(11,4),
 	labresulttext VARCHAR(255),
 	labmeasurenamesystem VARCHAR(255),
 	labmeasurenameinterface VARCHAR(255),
-	labresultrevisedyear SMALLINT,
-	labresultrevisedtime24 VARCHAR(8),
-	labresultrevisedtime VARCHAR(20),
 	labresultrevisedoffset INT
 ) ;
 
@@ -389,27 +380,103 @@ CREATE TABLE medication
 (
     medicationid INT NOT NULL,
     patientunitstayid INT NOT NULL,
-    drugorderyear INT NOT NULL,
-    drugordertime24 VARCHAR(12) NOT NULL,
-    drugordertime VARCHAR(12) NOT NULL,
     drugorderoffset INT NOT NULL,
-    drugstartyear INT,
-    drugstarttime24 VARCHAR(12) NOT NULL,
-    drugstarttime VARCHAR(12) NOT NULL,
     drugstartoffset INT NOT NULL,
     drugivadmixture VARCHAR(6) NOT NULL,
     drugordercancelled VARCHAR(6) NOT NULL,
-    drugname VARCHAR(220) NOT NULL,
+    drugname VARCHAR(220),
     drughiclseqno INT,
-    dosage VARCHAR(60) NOT NULL,
-    routeadmin VARCHAR(120) NOT NULL,
+    dosage VARCHAR(60),
+    routeadmin VARCHAR(120),
+    frequency VARCHAR(255),
     loadingdose VARCHAR(120) NOT NULL,
     prn VARCHAR(6) NOT NULL,
-    drugstopyear INT,
-    drugstoptime24 VARCHAR(12) NOT NULL,
-    drugstoptime VARCHAR(12) NOT NULL,
     drugstopoffset INT NOT NULL,
     gtc INT NOT NULL
+) ;
+
+--------------------------------------------------------
+--  DDL for Table MICROLAB
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS microlab CASCADE;
+CREATE TABLE microlab
+(
+    microlabid INT NOT NULL,
+    patientunitstayid INT NOT NULL,
+  	culturetakenoffset INT NOT NULL,
+  	culturesite VARCHAR(255) NOT NULL,
+  	organism VARCHAR(255) NOT NULL,
+  	antibiotic VARCHAR(255),
+  	sensitivitylevel VARCHAR(255)
+) ;
+
+--------------------------------------------------------
+--  DDL for Table NOTE
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS note CASCADE;
+CREATE TABLE note
+(
+	NOTEID INT NOT NULL,
+	patientunitstayid INT NOT NULL,
+	NOTEOFFSET INT NOT NULL,
+	NOTEENTEREDOFFSET INT NOT NULL,
+	NOTETYPE VARCHAR(50) NOT NULL,
+	NOTEPATH VARCHAR(255) NOT NULL,
+	NOTEVALUE VARCHAR(150),
+	NOTETEXT VARCHAR(500)
+) ;
+
+--------------------------------------------------------
+--  DDL for Table NURSEASSESSMENT
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS NURSEASSESSMENT CASCADE;
+CREATE TABLE NURSEASSESSMENT
+(
+	nurseassessid INT NOT NULL,
+	patientunitstayid INT NOT NULL,
+	NURSEASSESSOFFSET INT NOT NULL,
+	NURSEASSESSENTRYOFFSET INT NOT NULL,
+	CELLATTRIBUTEPATH VARCHAR(255) NOT NULL,
+	CELLLABEL VARCHAR(255) NOT NULL,
+	CELLATTRIBUTE VARCHAR(255) NOT NULL,
+	CELLATTRIBUTEVALUE VARCHAR(4000)
+) ;
+
+--------------------------------------------------------
+--  DDL for Table NURSECARE
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS NURSECARE CASCADE;
+CREATE TABLE NURSECARE
+(
+  nursecareid INT NOT NULL,
+	patientunitstayid INT NOT NULL,
+	CELLLABEL VARCHAR(255) NOT NULL,
+	NURSECAREOFFSET INT NOT NULL,
+	NURSECAREENTRYOFFSET INT NOT NULL,
+	CELLATTRIBUTEPATH VARCHAR(255) NOT NULL,
+	CELLATTRIBUTE VARCHAR(255) NOT NULL,
+	CELLATTRIBUTEVALUE VARCHAR(4000)
+) ;
+
+--------------------------------------------------------
+--  DDL for Table NURSECHARTING
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS NURSECHARTING CASCADE;
+CREATE TABLE NURSECHARTING
+(
+  nursingchartid BIGINT NOT NULL,
+	patientunitstayid INT NOT NULL,
+	NURSINGCHARTOFFSET INT NOT NULL,
+	NURSINGCHARTENTRYOFFSET INT NOT NULL,
+	NURSINGCHARTCELLTYPECAT VARCHAR(255) NOT NULL,
+	NURSINGCHARTCELLTYPEVALLABEL VARCHAR(255),
+	NURSINGCHARTCELLTYPEVALNAME VARCHAR(255),
+	NURSINGCHARTVALUE VARCHAR(255)
 ) ;
 
 --------------------------------------------------------
@@ -421,13 +488,7 @@ CREATE TABLE pasthistory
 (
 	pasthistoryid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
-	pasthistoryyear SMALLINT NOT NULL,
-	pasthistorytime24 VARCHAR(8) NOT NULL,
-	pasthistorytime VARCHAR(20) NOT NULL,
 	pasthistoryoffset INT NOT NULL,
-	pasthistoryenteredyear SMALLINT NOT NULL,
-	pasthistoryenteredtime24 VARCHAR(8) NOT NULL,
-	pasthistoryenteredtime VARCHAR(20) NOT NULL,
 	pasthistoryenteredoffset INT NOT NULL,
 	pasthistorynotetype VARCHAR(40),
 	pasthistorypath VARCHAR(255) NOT NULL,
@@ -441,43 +502,111 @@ CREATE TABLE pasthistory
 DROP TABLE IF EXISTS patient CASCADE;
 CREATE TABLE patient
 (
-	patientunitstayid BIGINT,
-	patienthealthsystemstayid BIGINT,
+	patientunitstayid INT,
+	patienthealthsystemstayid INT,
 	gender VARCHAR(25),
 	age VARCHAR(10),
 	ethnicity VARCHAR(50),
-	hospitalid BIGINT,
-	wardid BIGINT,
+	hospitalid INT,
+	wardid INT,
 	apacheadmissiondx VARCHAR(1000),
-	admissionheight DECIMAL(10,2),
-	hospitaladmityear SMALLINT,
+	admissionheight NUMERIC(10,2),
 	hospitaladmittime24 VARCHAR(8),
-	hospitaladmittime VARCHAR(20),
 	hospitaladmitoffset INT,
 	hospitaladmitsource VARCHAR(30),
 	hospitaldischargeyear SMALLINT,
 	hospitaldischargetime24 VARCHAR(8),
-	hospitaldischargetime VARCHAR(20),
 	hospitaldischargeoffset INT,
 	hospitaldischargelocation VARCHAR(100),
 	hospitaldischargestatus VARCHAR(10),
 	unittype VARCHAR(50),
-	unitadmityear SMALLINT,
 	unitadmittime24 VARCHAR(8),
-	unitadmittime VARCHAR(20),
 	unitadmitsource VARCHAR(100),
-	unitvisitnumber BIGINT,
+	unitvisitnumber INT,
 	unitstaytype VARCHAR(15),
-	admissionweight DECIMAL(10,2),
-	dischargeweight DECIMAL(10,2),
-	unitdischargeyear SMALLINT,
+	admissionweight NUMERIC(10,2),
+	dischargeweight NUMERIC(10,2),
 	unitdischargetime24 VARCHAR(8),
-	unitdischargetime VARCHAR(20),
 	unitdischargeoffset INT,
 	unitdischargelocation VARCHAR(100),
 	unitdischargestatus VARCHAR(10),
 	uniquepid VARCHAR(10)
 ) ;
+
+--------------------------------------------------------
+--  DDL for Table PHYSICALEXAM
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS physicalexam CASCADE;
+CREATE TABLE physicalexam
+(
+	physicalexamid INT,
+	patientunitstayid INT NOT NULL,
+	physicalexamoffset INT NOT NULL,
+	physicalexampath VARCHAR(255) NOT NULL,
+	physicalexamvalue VARCHAR(100),
+	physicalexamtext VARCHAR(500)
+) ;
+
+--------------------------------------------------------
+--  DDL for Table RESPIRATORYCARE
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS RESPIRATORYCARE CASCADE;
+CREATE TABLE RESPIRATORYCARE
+(
+  RESPCAREID INT,
+	PATIENTUNITSTAYID INT,
+	RESPCARESTATUSOFFSET INT,
+	CURRENTHISTORYSEQNUM INT,
+	AIRWAYTYPE VARCHAR(30),
+	AIRWAYSIZE VARCHAR(10),
+	AIRWAYPOSITION VARCHAR(32),
+	CUFFPRESSURE NUMERIC(5,1),
+	VENTSTARTOFFSET INT,
+	VENTENDOFFSET INT,
+	PRIORVENTSTARTOFFSET INT,
+	PRIORVENTENDOFFSET INT,
+	APNEAPARAMS VARCHAR(80),
+	LOWEXHMVLIMIT NUMERIC(11,4),
+	HIEXHMVLIMIT NUMERIC(11,4),
+	LOWEXHTVLIMIT NUMERIC(11,4),
+	HIPEAKPRESLIMIT NUMERIC(11,4),
+	LOWPEAKPRESLIMIT NUMERIC(11,4),
+	HIRESPRATELIMIT NUMERIC(11,4),
+	LOWRESPRATELIMIT NUMERIC(11,4),
+	SIGHPRESLIMIT NUMERIC(11,4),
+	LOWIRONOXLIMIT NUMERIC(11,4),
+	HIGHIRONOXLIMIT NUMERIC(11,4),
+	MEANAIRWAYPRESLIMIT NUMERIC(11,4),
+	PEEPLIMIT NUMERIC(11,4),
+	CPAPLIMIT NUMERIC(11,4),
+	SETAPNEAINTERVAL VARCHAR(80),
+	SETAPNEATV VARCHAR(80),
+	SETAPNEAIPPEEPHIGH VARCHAR(80),
+	SETAPNEARR VARCHAR(80),
+	SETAPNEAPEAKFLOW VARCHAR(80),
+	SETAPNEAINSPTIME VARCHAR(80),
+	SETAPNEAIE VARCHAR(80),
+	SETAPNEAFIO2 VARCHAR(80)
+) ;
+
+--------------------------------------------------------
+--  DDL for Table RESPIRATORYCHARTING
+--------------------------------------------------------
+
+DROP TABLE IF EXISTS RESPIRATORYCHARTING CASCADE;
+CREATE TABLE RESPIRATORYCHARTING
+(
+  RESPCHARTID INT,
+	PATIENTUNITSTAYID INT,
+	RESPCHARTOFFSET INT,
+	RESPCHARTENTRYOFFSET INT,
+	RESPCHARTTYPECAT VARCHAR(255),
+	RESPCHARTVALUELABEL VARCHAR(255),
+	RESPCHARTVALUE VARCHAR(1000)
+) ;
+
 --------------------------------------------------------
 --  DDL for Table TREATMENT
 --------------------------------------------------------
@@ -485,11 +614,8 @@ CREATE TABLE patient
 DROP TABLE IF EXISTS treatment CASCADE;
 CREATE TABLE treatment
 (
-	patientunitstayid BIGINT,
-	treatmentid BIGINT,
-	treatmentyear SMALLINT,
-	treatmenttime24 VARCHAR(8),
-	treatmenttime VARCHAR(20),
+  treatmentid INT,
+	patientunitstayid INT,
 	treatmentoffset INT,
 	treatmentstring VARCHAR(200),
 	activeupondischarge VARCHAR(10)
@@ -501,11 +627,8 @@ CREATE TABLE treatment
 DROP TABLE IF EXISTS vitalaperiodic CASCADE;
 CREATE TABLE vitalaperiodic
 (
+  vitalaperiodicid INT NOT NULL,
 	patientunitstayid INT NOT NULL,
-	vitalaperiodicid INT NOT NULL,
-	observationyear SMALLINT NOT NULL,
-	observationtime24 VARCHAR(8) NOT NULL,
-	observationtime VARCHAR(20) NOT NULL,
 	observationoffset INT NOT NULL,
 	noninvasivesystolic DOUBLE PRECISION,
 	noninvasivediastolic DOUBLE PRECISION,
@@ -525,26 +648,23 @@ CREATE TABLE vitalaperiodic
 DROP TABLE IF EXISTS vitalperiodic CASCADE;
 CREATE TABLE vitalperiodic
 (
-	patientunitstayid BIGINT,
-	vitalperiodicid BIGINT,
-	observationyear SMALLINT,
-	observationtime24 VARCHAR(8),
-	observationtime VARCHAR(20),
+  vitalperiodicid BIGINT,
+	patientunitstayid INT,
 	observationoffset INT,
-	temperature DECIMAL(11,4),
-	sao2 BIGINT,
-	heartrate BIGINT,
-	respiration BIGINT,
-	cvp BIGINT,
-	etco2 BIGINT,
-	systemicsystolic BIGINT,
-	systemicdiastolic BIGINT,
-	systemicmean BIGINT,
-	pasystolic BIGINT,
-	padiastolic BIGINT,
-	pamean BIGINT,
+	temperature NUMERIC(11,4),
+	sao2 INT,
+	heartrate INT,
+	respiration INT,
+	cvp INT,
+	etco2 INT,
+	systemicsystolic INT,
+	systemicdiastolic INT,
+	systemicmean INT,
+	pasystolic INT,
+	padiastolic INT,
+	pamean INT,
 	st1 DOUBLE PRECISION,
 	st2 DOUBLE PRECISION,
 	st3 DOUBLE PRECISION,
-	icp BIGINT
+	icp INT
 ) ;
