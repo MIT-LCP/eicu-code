@@ -20,10 +20,10 @@ canonifyurls = "false"
     weight = 30
     url = "/eicutables/"
 [[menu.main]]
-    name = "Unreleased tables"
+    name = "Schema"
     pre = "<i class='fa fa-table'></i>"
     weight = 40
-    url = "/futuretables/"
+    url = "https://mit-lcp.github.io/eicu-schema-spy/"
 [[menu.main]]
     name = "Community"
     pre = "<i class='fa fa-group'></i>"
