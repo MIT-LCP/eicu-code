@@ -12,8 +12,6 @@ toc = "true"
 
 # note
 
-**This table is not currently available in the public dataset.**
-
 **Purpose:** There are several types of notes which can be entered in the system. The detailed description provides a list of the possible Note types and their intended use. Notes are generally entered by the physician or physician extender primarily responsible for the documentation of the patient’s unit care.
 
 

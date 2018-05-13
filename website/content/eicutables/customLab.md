@@ -12,8 +12,6 @@ toc = "true"
 
 # customLab
 
-**This table is not currently available in the public dataset.**
-
 **Purpose:** Standardized labs are included in the 'lab' table. Laboratory measurements that are not configured within the standard interface (for example, unmapped tests) are included in the customLab table.
 
 **Links to:**

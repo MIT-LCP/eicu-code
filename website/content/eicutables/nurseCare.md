@@ -12,8 +12,6 @@ toc = "true"
 
 # nurseCare
 
-**This table is not currently available in the public dataset.**
-
 **Purpose:**
 The Nursing Care Flowsheet provides the capability for nurses to document patient care information for the following categories:
 

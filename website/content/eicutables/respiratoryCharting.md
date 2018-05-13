@@ -12,8 +12,6 @@ toc = "true"
 
 # respiratoryCharting
 
-**This table is not currently available in the public dataset.**
-
 **Purpose:**
 Data provided in the respiratory chart includes date/time, chart type (e.g. respiratory flow setting, vent data), and respiratory values.
 

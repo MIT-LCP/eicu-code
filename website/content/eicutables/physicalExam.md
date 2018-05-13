@@ -12,8 +12,6 @@ toc = "true"
 
 # physicalExam
 
-**This table is not currently available in the public dataset.**
-
 **Purpose:**
 The physical exam section allows users to document results of a physical exam.
 

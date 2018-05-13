@@ -15,7 +15,6 @@ toc = "true"
 **Purpose:**
 Provides information related a patient's relevant past medical history.
 
-
 **Links to:**
 
 * PATIENT on `patientUnitStayID`
