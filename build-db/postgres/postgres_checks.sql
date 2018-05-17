@@ -16,12 +16,22 @@ select 'careplaneol'               as tbl,      1433 as row_count UNION
 select 'careplangeneral'           as tbl,   3115018 as row_count UNION
 select 'careplangoal'              as tbl,    504139 as row_count UNION
 select 'careplaninfectiousdisease' as tbl,      8056 as row_count UNION
+SELECT 'customlab'                 as tbl,      1082 AS row_count  UNION
 select 'diagnosis'                 as tbl,   2710672 as row_count UNION
 select 'hospital'                  as tbl,       208 as row_count UNION
 select 'infusiondrug'              as tbl,   4803719 as row_count UNION
+SELECT 'intakeoutput'              as tbl,  12030289 AS row_count UNION
 select 'lab'                       as tbl,  39132531 as row_count UNION
 select 'medication'                as tbl,   7301853 as row_count UNION
+SELECT 'microlab'                  as tbl,     16996 AS row_count UNION
+SELECT 'note'                      as tbl,   2254179 AS row_count UNION
+SELECT 'nurseassessment'           as tbl,  15602498 AS row_count UNION
+SELECT 'nursecare'                 as tbl,   8311132 AS row_count UNION
+SELECT 'nursecharting'             as tbl, 151604232 AS row_count UNION
 select 'pasthistory'               as tbl,   1149180 as row_count UNION
+SELECT 'physicalexam'              as tbl,   9212316 AS row_count UNION
+SELECT 'respiratorycare'           as tbl,    865381 AS row_count UNION
+SELECT 'respiratorycharting'       as tbl,  20168176 AS row_count UNION
 select 'patient'                   as tbl,    200859 as row_count UNION
 select 'treatment'                 as tbl,   3688745 as row_count UNION
 select 'vitalaperiodic'            as tbl,  25075074 as row_count UNION
@@ -40,12 +50,22 @@ select 'careplaneol'               as tbl, count(*) as row_count from careplaneo
 select 'careplangeneral'           as tbl, count(*) as row_count from careplangeneral           UNION
 select 'careplangoal'              as tbl, count(*) as row_count from careplangoal              UNION
 select 'careplaninfectiousdisease' as tbl, count(*) as row_count from careplaninfectiousdisease UNION
+SELECT 'customlab'                 as tbl, COUNT(*) AS row_count FROM customlab                 UNION
 select 'diagnosis'                 as tbl, count(*) as row_count from diagnosis                 UNION
 select 'hospital'                  as tbl, count(*) as row_count from hospital                  UNION
 select 'infusiondrug'              as tbl, count(*) as row_count from infusiondrug              UNION
+SELECT 'intakeoutput'              as tbl, COUNT(*) AS row_count FROM intakeoutput              UNION
 select 'lab'                       as tbl, count(*) as row_count from lab                       UNION
 select 'medication'                as tbl, count(*) as row_count from medication                UNION
+SELECT 'microlab'                  as tbl, COUNT(*) AS row_count FROM microlab                  UNION
+SELECT 'note'                      as tbl, COUNT(*) AS row_count FROM note                      UNION
+SELECT 'nurseassessment'           as tbl, COUNT(*) AS row_count FROM nurseassessment           UNION
+SELECT 'nursecare'                 as tbl, COUNT(*) AS row_count FROM nursecare                 UNION
+SELECT 'nursecharting'             as tbl, COUNT(*) AS row_count FROM nursecharting             UNION
 select 'pasthistory'               as tbl, count(*) as row_count from pasthistory               UNION
+SELECT 'physicalexam'              as tbl, COUNT(*) AS row_count FROM physicalexam              UNION
+SELECT 'respiratorycare'           as tbl, COUNT(*) AS row_count FROM respiratorycare           UNION
+SELECT 'respiratorycharting'       as tbl, COUNT(*) AS row_count FROM respiratorycharting       UNION
 select 'patient'                   as tbl, count(*) as row_count from patient                   UNION
 select 'treatment'                 as tbl, count(*) as row_count from treatment                 UNION
 select 'vitalaperiodic'            as tbl, count(*) as row_count from vitalaperiodic            UNION
