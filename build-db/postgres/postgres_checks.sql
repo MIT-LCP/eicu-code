@@ -17,7 +17,7 @@ select 'careplangeneral'           as tbl,   3115018 as row_count UNION
 select 'careplangoal'              as tbl,    504139 as row_count UNION
 select 'careplaninfectiousdisease' as tbl,      8056 as row_count UNION
 select 'diagnosis'                 as tbl,   2710672 as row_count UNION
-select 'hospital'                  as tbl,       459 as row_count UNION
+select 'hospital'                  as tbl,       208 as row_count UNION
 select 'infusiondrug'              as tbl,   4803719 as row_count UNION
 select 'lab'                       as tbl,  39132531 as row_count UNION
 select 'medication'                as tbl,   7301853 as row_count UNION
