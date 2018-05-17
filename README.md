@@ -1,4 +1,4 @@
-# eICU Collaborative Research Database Code Repository
+# eICU Collaborative Research Database Code Repository [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1249016.svg)](https://doi.org/10.5281/zenodo.1249016)
 
 This is a repository of code shared by the research community. The repository is intended to be a central hub for sharing, refining, and reusing code used for analysis of the [eICU Collaborative Research Database](http://eicu-crd.mit.edu). To find out more about database, please see: http://eicu-crd.mit.edu
 
@@ -19,7 +19,3 @@ By committing your code to the [eICU Code Repository](https://github.com/mit-lcp
 ## Coding style
 
 Please refer to the [style guide](https://github.com/mit-lcp/eicu-code/blob/master/styleguide.md) for guidelines on formatting your code for the repository.
-
-
-
-
