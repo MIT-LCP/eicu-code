@@ -7,7 +7,7 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Unreleased tables"
+    parent = "Tables in eICU-CRD"
 +++
 
 # physicalExam

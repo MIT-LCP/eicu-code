@@ -7,14 +7,14 @@ toc = "true"
 
 [menu]
   [menu.main]
-    parent = "Unreleased tables"
+    parent = "Tables in eICU-CRD"
 +++
 
 # nurseAssessment
 
 **Purpose:**
 
-The Nursing Assessment Flowsheet provides the capability to assess and document patient items such as pain, psychosocial status, patient/family education, neurologic, cardiovascular, respiratory, oral/GI/GU, skin, and other nursing assessment data along with date/time.
+The Nursing Assessment Flowsheet provides the capability to assess and document patient items such as pain, psychosocial status, patient/family education, neurologic, cardiovascular, respiratory, oral/GI/GU, skin, and other nursing assessment data.
 
 **Links to:**
 
