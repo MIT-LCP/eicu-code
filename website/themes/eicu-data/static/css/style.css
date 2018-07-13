@@ -173,7 +173,7 @@ input:focus, textarea:focus { outline: none; }
 /*sidebar navigation*/
 
 #sidebar {
-    width: 214px;
+    /* width: 214px; */
     height: 100%;
     position: fixed;
     background: #ffffff;
