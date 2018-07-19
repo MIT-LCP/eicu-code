@@ -20,7 +20,7 @@ canonifyurls = "false"
     weight = 30
     url = "/eicutables/"
 [[menu.main]]
-    name = "Schema"
+    name = "SchemaSpy"
     pre = "<i class='fa fa-table'></i>"
     weight = 40
     url = "https://mit-lcp.github.io/eicu-schema-spy/"
