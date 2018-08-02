@@ -28,13 +28,6 @@ Please don't include author names or dates, which are tracked in the commit hist
 
 For more detail, following the guidelines at: http://www.sqlstyle.guide/
 
-These onlines 'beautifiers' automatically correct the style of your SQL:
-- http://www.dpriver.com/pp/sqlformat.htm
-- https://www.freeformatter.com/sql-formatter.html
-- http://www.sql-format.com/
-- https://sqlformat.org/
-
-
 ## Python
 
 Following PEP8 guidelines is recommended. Read more here: https://www.python.org/dev/peps/pep-0008/
