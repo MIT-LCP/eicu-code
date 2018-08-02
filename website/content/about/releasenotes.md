@@ -21,7 +21,7 @@ The current version of the database is v2.0. When referencing this version, we r
 
 # eICU Collaborative Research Database v2.0
 
-The eICU Collaboratvie Research Database v2.0 was released on 17 May 2018. This was a major release which involved a schema change, potentially breaking compatibility with existing code.
+The eICU Collaborative Research Database v2.0 was released on 17 May 2018. This was a major release which involved a schema change, potentially breaking compatibility with existing code.
 
 Changes include:
 

@@ -17,9 +17,9 @@ The eICU Collaborative Research Database is provided through the work of researc
 
 ## How can I help to improve the website and documentation?
 
-The eICU Collaborative Research Database website and documentation are hosted publicly in GitHub (https://github.com/MIT-LCP/eicu-website). 
+The eICU Collaborative Research Database website and documentation are hosted publicly in GitHub (https://github.com/MIT-LCP/eicu-code/website). 
 
-To raise an issue or to suggest an improvement, please create a new issue at: https://github.com/MIT-eicu/eicu-website/issues
+To raise an issue or to suggest an improvement, please create a new issue at: https://github.com/MIT-eicu/eicu-code/issues
 
 To fix an issue or to contribute new content, please either select the 'Edit this page' item in the left hand menu of the website or [submit a pull request in GitHub](https://help.github.com/articles/using-pull-requests/).
 

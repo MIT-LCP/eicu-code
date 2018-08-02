@@ -34,7 +34,7 @@
             <span>Issues & help</span></a> </li>
             -->
             {{ if .IsPage }}
-            {{ $File := .File }}  {{with $File.Path }}<li><a href="https://github.com/mit-eicu/eicu-website/edit/master/content/{{ $File.Dir }}{{ $File.LogicalName }}" target="blank"><i class='fa fa-edit'></i> Edit this page</a> </li>{{end}}
+            {{ $File := .File }}  {{with $File.Path }}<li><a href="https://github.com/mit-eicu/eicu-code/edit/master/website/content/{{ $File.Dir }}{{ $File.LogicalName }}" target="blank"><i class='fa fa-edit'></i> Edit this page</a> </li>{{end}}
             {{ end }}
         </ul>
         <!-- sidebar menu end-->
