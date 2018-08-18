@@ -32,17 +32,11 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
 `intakeOutputID` | int | IDENTITY | surrogate key for the intake output data | PK | C
-`intakeOutputYear` | smallint | NOT NULL | the observation year for the I and O value |  | T
-`intakeOutputTime24` | time(0) | NOT NULL | time in 24 hour format of the intake output column e.g.: "12:45", "15:30", "3:45" |  | T
-`intakeOutputTime` | varchar(20) | NOT NULL | observation time frame for the I and O value: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `intakeOutputOffset` | int | NOT NULL | number of minutes from unit admit time that the I and O value was observed |  | C
 `intakeTotal` | decimal(12,4) | NULL | total intake value e.g.: 150.0000, 326.0000, 142.0000, etc. |  | S
 `outputTotal` | decimal(12,4) | NULL | total output value e.g.: 230.0000, 350.0000, 150.0000, etc. |  | S
 `dialysisTotal` | decimal(12,4) | NULL | total dialysis value e.g.: -96.0000, -2300.0000, 0.0000, etc. |  | S
 `netTotal` | decimal(12,4) | NULL | calculated net value of: intakeTotal – outputTotal + dialysisTotal |  | S
-`intakeOutputEntryYear` | smallint | NOT NULL | year when the I and O value was entered |  | T
-`intakeOutputEntryTime24` | time(0) | NOT NULL | time in 24 hour format of when the intake output column was entered e.g.: "12:45", "15:30", "3:45" |  | T
-`intakeOutputEntryTime` | varchar(20) | NOT NULL | time frame when the I and O value was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `intakeOutputEntryOffset` | int | NOT NULL | number of minutes from unit admit time that the I and O value was entered |  | C
 `cellPath` | varchar(500) | NOT NULL | the root path of info from the label in I and O e.g.: flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Blood Products (ml)|pRBCs, flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Nutrition (ml)|Parenteral TNA, flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|CSF, etc. |  | S
 `cellLabel` | varchar(255) | NOT NULL | The predefined row label text from I and O e.g.: Enteral flush/meds panda, D5 0.45 NS w/20 mEq KCL 1000 ml, Continuous infusion meds, etc. |  | S

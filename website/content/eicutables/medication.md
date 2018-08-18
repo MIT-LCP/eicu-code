@@ -28,13 +28,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
 `medicationID` | int | IDENTITY | surrogate key for drugs | PK | C
-`drugOrderYear` | smallint | NOT NULL | year when the drug was ordered |  | T
-`drugOrderTime24` | time(0) | NOT NULL | time in 24 hour format of when the drug was ordered e.g.: "12:45", "15:30", "3:45" |  | T
-`drugOrderTime` | varchar(20) | NOT NULL | time frame when the drug was ordered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `drugOrderOffset` | int | NOT NULL | number of minutes from unit admit time that the drug was ordered |  | C
-`drugStartYear` | smallint | NOT NULL | year when the drug was started |  | T
-`drugStartTime24` | time(0) | NOT NULL | time in 24 hour format of when the drug started e.g.: "12:45", "15:30", "3:45" |  | T
-`drugStartTime` | varchar(20) | NOT NULL | time frame when the drug was started: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `drugStartOffset` | int | NOT NULL | number of minutes from unit admit time that the drug was started |  | C
 `drugIVAdmixture` | varchar(3) | NOT NULL | contains "Yes" if an IV admixture, "No" otherwise |  | S
 `drugOrderCancelled` | varchar(3) | NOT NULL | contains "Yes" if drug order was cancelled, "No" otherwise |  | S
@@ -45,9 +39,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `frequency` | varchar(255) | NOT NULL | the picklist frequency with which the drug is taken e.g.: Every 6 hour(s), twice a day, four times per day, etc. |  | S
 `loadingDose` | varchar(100) | NOT NULL | the loading dose of the drug e.g.: 0 mg, 2 mg, 2 units, etc. |  | S
 `PRN` | varchar(25) | NOT NULL | denotes whether the medication was PRN or not: Yes, No, or BLANK |  | S
-`drugStopYear` | smallint | NULL | year when the drug was stopped |  | T
-`drugStopTime24` | time(0) | NULL | time in 24 hour format of when the drug was stopped e.g.: "12:45", "15:30", "3:45" |  | T
-`drugStopTime` | varchar(20) | NULL | time frame when the drug was stopped: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `drugStopOffset` | int | NULL | number of minutes from unit admit time that the drug was stopped |  | C
 `GTC` | int | NULL | The NDDF GTC code associated with the drug |  | S
 

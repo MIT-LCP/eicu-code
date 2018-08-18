@@ -30,9 +30,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table | FK | C
 `admissionDxID` | int | IDENTITY | surrogate key for the admission diagnosis | PK | C
-`admitDxEnteredYear` | smallint | NOT NULL | year when the admission diagnosis was entered |   | T
-`admitDxEnteredTime24` | time(0) | NOT NULL | time in 24 hour format of when the admission Dx was entered e.g.: “12:45”, “15:30”, “3:45” |   | T
-`admitDxEnteredTime` | varchar(20) | NOT NULL | time frame when the admission diagnosis was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |   | T
 `admitDxEnteredOffset` | int | NOT NULL | number of minutes from unit admit time that the admission diagnosis was entered |   | C
 `admitDxPath` | varchar(500) | NOT NULL | the admission diagnosis' item's full path e.g.: admission diagnosis |  |  All
 `admitDxName` | varchar(255) | NULL | admission diagnosis' item's name e.g.: Angina, stable (asymp or stable pattern of symptoms w/meds) |   | S

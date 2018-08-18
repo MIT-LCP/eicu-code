@@ -28,9 +28,6 @@ Name | Datatype | Null option | Comment | Key
 ---- | ---- | ---- | ---- | ----
 `customlabid`       | bigint     | not null |  |  PK
 `patientunitstayid` | bigint     | not null |  |  FK
-`labotheryear`      | smallint   | not null |  |
-`labothertime24`    | chvar(8)   | not null |  |
-`labothertime`      | chvar(20)  | not null |  |
 `labotheroffset`    | bigint     | not null |  |
 `labothertypeid`    | bigint     | not null |  |
 `labothername`      | chvar(64)  |          |  |

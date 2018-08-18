@@ -31,9 +31,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
 `treatmentID` | int | IDENTITY | surrogate key for the treatment | PK | C
-`treatmentYear` | smallint | NOT NULL | year when the treatment was entered |  | T
-`treatmentTime24` | time(0) | NOT NULL | time in 24 hour format of when the treatment event was entered e.g.: "12:45", "15:30", "3:45" |  | T
-`treatmentTime` | varchar(20) | NOT NULL | time frame when the treatment was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `treatmentOffset` | int | NOT NULL | number of minutes from unit admit time that the treatment was entered |  | C
 `treatmentString` | varchar(200) | NOT NULL | the path of the treatment e.g.: neurologic|ICH/ cerebral infarct|thrombolytics|tenecteplase, cardiovascular|arrhythmias|antiarrhythmics|atropine, etc. |  | S
 `activeUponDischarge` | varchar(10) | NOT NULL | denotes whether the treatment was active upon discharge from the unit: True or False |  | S

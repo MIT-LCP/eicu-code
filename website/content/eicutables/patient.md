@@ -53,33 +53,25 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `wardID` | int | NOT NULL | surrogate key for the ward associated with the patient unit stay |  | C
 `apacheAdmissionDx` | varchar(1000) | NULL | Full path string of admission diagnosis for patients unit stay e.g.: Pulmonary valve surgery, Chest pain, unknown origin, Restrictive lung disease (i.e., Sarcoidosis, pulmonary fibrosis), etc. |  | S
 `admissionHeight` | decimal(10,2) | NULL | admission height of the patient in cm e.g.: 160.0000, 182.9000, 175.3000, etc. |  | S
-`hospitalAdmitYear` | smallint | NOT NULL | year of the hospital admit date |  | T
 `hospitalAdmitTime24` | time(0) | NOT NULL | time in 24 hour format of the hospital admit e.g.: "12:45", "15:30", "3:45" |  | T
-`hospitalAdmitTime` | varchar(20) | NOT NULL | time frame of the hospital admit date: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `hospitalAdmitOffset` | int | NOT NULL | number of minutes from unit admit time that the patient was admitted to the hospital |  | C
 `hospitalAdmitSource` | varchar(30) | NULL | location from where the patient was admitted to the hospital e.g.: Direct Admit, Floor, Chest Pain Center. etc. |  | S
 `hospitalDischargeYear` | smallint | NOT NULL | year of the hospital discharge date |  | T
 `hospitalDischargeTime24` | time(0) | NOT NULL | time in 24 hour format of when the hospital discharge event occurred e.g.: "12:45", "15:30", "3:45" |  | T
-`hospitalDischargeTime` | varchar(20) | NOT NULL | time frame of the hospital discharge date: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `hospitalDischargeOffset` | int | NOT NULL | number of minutes from unit admit time that the patient was discharged from the hospital |  | C
 `hospitalDischargeLocation` | varchar(100) | NULL | Structured list of location where the patient was discharged to from the hospital e.g.: Home, Nursing Home, Death, etc. |  | S
 `hospitalDischargeStatus` | varchar(10) | NULL | specifies patient’s condition upon leaving the hospital: Alive, Expired, or NULL |  | S
 `unitType` | varchar(50) | NULL | the picklist unit type of the unit e.g.: MICU,Cardiovascular ICU,SDU/Step down,VICU,Neuro ICU,CCU,Virtual ICU,SICU,ICU,CCU-CTICU,Mobile ICU,CTICU,CSICU,Test ICU,Vent ICU,Burn-Trauma ICU |  | S
-`unitAdmitYear` | smallint | NOT NULL | year of the unit admit date |  | T
 `unitAdmitTime24` | time(0) | NOT NULL | time in 24 hour format of when the unit admit event occurred e.g.: "12:45", "15:30", "3:45" |  | T
-`unitAdmitTime` | varchar(20) | NOT NULL | time frame of the unit admit date: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `unitAdmitSource` | varchar(100) | NULL | picklist location from where the patient was admitted e.g.: Emergency Room, Recovery Room, Direct Admit, etc. |  | S
 `unitVisitNumber` | int | NOT NULL | identifies the visit number of the patient, i.e. if the patient's hospital stay has multiple unit stays |  | C
 `unitStayType` | varchar(15) | NULL | patient's unit stay type: stepdown/other, readmit for undo, admit, pre-admit, transfer, readmit |  | S
 `admissionWeight` | decimal(10,2) | NULL | admission weight of the patient in kilograms e.g.: 69.7000, 70.9000, 173.0000, etc. |  | S
 `dischargeWeight` | decimal(10,2) | NULL | patient weight at time of unit discharge in kilograms e.g.: 69.7000, 70.9000, 173.0000, etc. |  | S
-`unitDischargeYear` | smallint | NOT NULL | year of the unit discharge date |  | T
 `unitDischargeTime24` | time(0) | NOT NULL | time in 24 hour format of when the unit discharge event occurred e.g.: "12:45", "15:30", "3:45" |  | T
-`unitDischargeTime` | varchar(20) | NOT NULL | time frame of the unit discharge date: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `unitDischargeOffset` | int | NOT NULL | number of minutes from unit admit time that the patient was discharged from the unit |  | C
 `unitDischargeLocation` | varchar(100) | NULL | Structured list of locations where the patient was discharged to from the unit e.g.: Other ICU (CABG), Other Hospital, Telemetry, Other Internal, Other ICU, Floor, Step-Down Unit (SDU), etc. |  | S
 `unitDischargeStatus` | varchar(10) | NULL | specifies patient’s condition upon leaving the unit: Alive, Expired, or NULL |  | S
-`auditEtlRunID` | uniqueidentifier | NULL | Internal ID of the ETL run that imported the patient’s data i.e. 32 character GUID. |  | C
 `uniquepid` | varchar(10) | NOT NULL | ID for a unique patient. |  | C
 
 

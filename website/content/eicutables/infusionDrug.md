@@ -29,9 +29,6 @@ Name | Datatype | Null Option | Comment | Is Key| Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table | FK | C
 `infusionDrugID` | int | IDENTITY | surrogate key for infusion drugs | PK | C
-`infusionYear` | smallint | NOT NULL | year of the infusion drug column date |  | T
-`infusionTime24` | time(0) | NOT NULL | time in 24 hour format of when the infusion drug was entered e.g.: "12:45", "15:30", "3:45" |  | T
-`infusionTime` | varchar(20) | NOT NULL | time frame of the infusion drug column date: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `infusionOffset` | int | NOT NULL | number of minutes from unit admit time that infusion drug column was entered |  | C
 `drugName` | varchar(255) | NOT NULL | picklist name of the infusion drug e.g.: Heparin (units/hr), Vasopressin (units/min), Propofol (mcg/kg/min), etc. |  | S
 `drugRate` | varchar(255) | NULL | rate of the infusion drug e.g.: 1300, .7, 0.49, etc. |  | S

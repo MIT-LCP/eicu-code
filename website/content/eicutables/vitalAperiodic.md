@@ -37,9 +37,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
 `vitalAperiodicID` | int | IDENTITY | surrogate key for the aperiodic value | PK | C
-`observationYear` | smallint | NOT NULL | year when the aperiodic value was entered |  | T
-`observationTime24` | time(0) | NOT NULL | time in 24 hour format of the vital sign obsesrvation date e.g.: "12:45", "15:30", "3:45" |  | T
-`observationTime` | varchar(20) | NOT NULL | time frame when the aperiodic value was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `observationOffset` | int | NOT NULL | number of minutes from unit admit time that the aperiodic value was entered |  | C
 `nonInvasiveSystolic` | real | NULL | patient's non invasive systolic value e.g.: 78, 102, 87, etc. |  | S
 `nonInvasiveDiastolic` | real | NULL | patient's non invasive diastolic value e.g.: 40, 59, 49, etc. |  | S

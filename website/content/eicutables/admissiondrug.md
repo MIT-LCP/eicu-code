@@ -28,13 +28,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `admissionDrugID` | int | IDENTITY | surrogate key for the admission drug | PK | C
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table | FK | C
-`drugYear` | smallint | NOT NULL | year when the admission drug was administered |  | T
-`drugTime24` | time(0) | NOT NULL | time in 24 hour format of when the drug was administered e.g.: “12:45”, “15:30”, “3:45” |  | T
-`drugTime` | varchar(20) | NOT NULL | time frame when the admission drug was administered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `drugOffset` | int | NOT NULL | number of minutes from unit admit time that the admission drug was administered |  | C
-`drugEnteredYear` | smallint | NOT NULL | year when the admission drug was entered |  | T
-`drugEnteredTime24` | time(0) | NOT NULL | time in 24 hour format of when the admission drug was admnistered e.g.: “12:45”, “15:30”, “3:45” |  | T
-`drugEnteredTime` | varchar(20) | NOT NULL | time frame when the admission drug was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `drugEnteredOffset` | int | NOT NULL | number of minutes from unit admit time that the admission drug was entered |  | C
 `drugNoteType` | varchar(255) | NOT NULL | unique note picklist types e.g.: Comprehensive Progress Admission Intubation |  | S
 `specialtyType` | varchar(255) | NOT NULL | physician specialty picklist types e.g.: anesthesiology gastroenterology oncology |  | S

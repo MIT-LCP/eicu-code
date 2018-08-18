@@ -29,13 +29,7 @@ toc = "true"
 Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table | FK | C
-`cplEolID` | int | IDENTITY | surrogate key for care plan EOL discussion | PK | C
-`cplEolSaveYear` | smallint | NOT NULL | year when the EOL discussion was entered |  | T
-`cplEolSaveTime24` | time(0) | NOT NULL | time in 24 hour format of when the EOL discussion was saved e.g.: “12:45”, “15:30”, “3:45” |  | T
-`cplEolSaveTime` | varchar(20) | NOT NULL | time frame when the EOL discussion was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `cplEolSaveOffset` | int | NOT NULL | number of minutes from unit admit time that the EOL discussion was entered |  | C
-`cplEolDiscussionYear` | smallint | NULL | year when the EOL discussion occurred |  | T
-`cplEolDiscussionTime24` | time(0) | NULL | time in 24 hour format of when the EOL discussion occurred e.g.: “12:45”, “15:30”, “3:45” |  | T
 `cplEolDiscussionTime` | varchar(20) | NULL | time frame when the EOL discussion occurred: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `cplEolDiscussionOffset` | int | NULL | number of minutes from unit admit time that the EOL discussion occurred |  | C
 `activeUponDischarge` | varchar(10) | NULL | denotes if the EOL discussion was active upon discharge: True or False |  | S

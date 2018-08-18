@@ -28,9 +28,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `cplCareProviderID` | int | IDENTITY | surrogate key for care plan care provider | PK | C
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table | Fk | C
-`careProviderSaveYear` | smallint | NOT NULL | year when the care provider was entered |  | T
-`careProviderSaveTime24` | time(0) | NOT NULL | time in 24 hour format of when the care provider was entered e.g.: “12:45”, “15:30”, “3:45” |  | T
-`careProviderSaveTime` | varchar(20) | NOT NULL | time frame when the care provider was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `careProviderSaveOffset` | int | NOT NULL | number of minutes from unit admit time that the care provider was entered |  | C
 `providerType` | varchar(255) | NULL | the picklist type of the care provider: Admitting Consultant Referring Primary |  | S
 `specialty` | varchar(255) | NULL | the picklist specialty of the care provider e.g.: cardiology unknown obstetrics/gynecology |  | S

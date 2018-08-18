@@ -28,13 +28,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `allergyID` | int | IDENTITY | surrogate key for the allergy | PK | C
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table | FK | C
-`allergyYear` | smallint | NOT NULL | year when the allergy was detected |   | T
-`allergyTime24` | time(0) | NOT NULL | time in 24 hour format of when the allergy was detected e.g.: “12:45”, “15:30”, “3:45” |   | T
-`allergyTime` | varchar(20) | NOT NULL | time frame when the allergy was detected: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |   | T
 `allergyOffset` | int | NOT NULL | number of minutes from unit admit time that the allergy was detected |   | C
-`allergyEnteredYear` | smallint | NOT NULL | year when the allergy was entered |   | T
-`allergyEnteredTime24` | time(0) | NOT NULL | time in 24 hour format of when the allergy was entered e.g.: “12:45”, “15:30”, “3:45” |   | T
-`allergyEnteredTime` | varchar(20) | NOT NULL | time frame when the allergy was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |   | T
 `allergyEnteredOffset` | int | NOT NULL | number of minutes from unit admit time that the allergy was entered |   | C
 `allergyNoteType` | varchar(255) | NOT NULL | unique note picklist types e.g.: Comprehensive Progress Admission Intubation |   | S
 `specialtyType` | varchar(255) | NOT NULL | physician specialty picklist types e.g.: anesthesiology gastroenterology oncology |   | S

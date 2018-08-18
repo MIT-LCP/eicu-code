@@ -33,9 +33,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table| FK | C
 `activeUponDischarge` | varchar(10) | NOT NULL | denotes if the item was active upon discharge: True or False |  | S
 `cplGeneralID` | int | IDENTITY | surrogate key for care plan general items | PK | C
-`cplItemYear` | smallint | NOT NULL | year when the care plan general item was entered |  | T
-`cplItemTime24` | time(0) | NOT NULL | time in 24 hour format of when the careplan event was entered e.g.: “12:45”, “15:30”, “3:45” |  | T
-`cplItemTime` | varchar(20) | NOT NULL | time frame when the care plan general item was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `cplItemOffset` | int | NOT NULL | number of minutes from unit admit time that the care plan general item was entered |  | C
 `cplGroup` | varchar(255) | NOT NULL | the picklist group type in care plan where the value was selected / entered e.g.: Activity, Critical Care Discharge/Transfer Planning, Daily Goals/Safety Risks/Discharge Requirements, Safety/Restraints, Acuity, etc. |  | S
 `cplItemValue` | varchar(1024) | NULL | the picklist value selected / entered into the care plan group e.g.: Very low mortality risk, Non-invasive ventilation, Parenteral - bolus prn |  | S

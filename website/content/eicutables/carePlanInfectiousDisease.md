@@ -31,9 +31,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table| FK | C
 `activeUponDischarge` | varchar(10) | NOT NULL | denotes whether the infectious disease was active upon discharge: True or False |  | S
 `cplInfectID` | int | IDENTITY | surrogate key for care plan infectious diseases | PK | C
-`cplInfectDiseaseYear` | smallint | NOT NULL | year when the infectious disease was entered |  | T
-`cplInfectDiseaseTime24` | time(0) | NOT NULL | time in 24 hour format of when the care plan infectious disease was entered e.g.: "12:45", "15:30", "3:45" |  | T
-`cplInfectDiseaseTime` | datetime | NOT NULL | time frame when the infectious disease was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `cplInfectDiseaseOffset` | int | NOT NULL | number of minutes from unit admit time that the infectious disease was entered |  | C
 `infectDiseaseSite` | varchar(255) | NULL | The picklist site of the infectious disease e.g.: Intra-abdominal, Blood, Catheter related bloodstream, etc. |  | S
 `infectDiseaseAssessment` | varchar(255) | NULL | the picklist assessment of the infectious disease: Definite infection, Probable infection or Possible infection |  | S

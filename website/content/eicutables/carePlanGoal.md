@@ -30,9 +30,6 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `cplGoalID` | int | IDENTITY | surrogate key for care plan goal | PK | C
 `patientUnitStayID` | int | NOT NULL | a globally unique identifier (GUID) used as a foreign key link to the patient table | FK | C
-`cplGoalYear` | smallint | NOT NULL | date name when the care plan goal was entered |  | T
-`cplGoalTime24` | time(0) | NOT NULL | time in 24 hour format of when the care plan goal was entered e.g.: “12:45”, “15:30”, “3:45” |  | T
-`cplGoalTime` | varchar(20) | NOT NULL | time frame when the care plan goal was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `cplGoalOffset` | int | NOT NULL | number of minutes from unit admit time that the care plan goal was entered |  | C
 `cplGoalCategory` | varchar(255) | NULL | the picklist category the goal is associated with e.g.: Nutrition/Skin, Pulmonary, Cardiovascular, etc. |  | S
 `cplGoalValue` | varchar(1000) | NULL | the string builder value of the goal e.g.: Vital signs within normal parameters, Orient patient to unit, Pulse oximetry within ordered parameters, etc. |  | S

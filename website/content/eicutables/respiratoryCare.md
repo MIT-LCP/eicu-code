@@ -29,22 +29,13 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
 `respCareID` | int | IDENTITY | surrogate key for the respiratory data | PK | C
-`respCareStatusYear` | smallint | NOT NULL | year when the respiratory value was entered |  | T
-`respCareStatusTime24` | time(0) | NOT NULL | time in 24 hour format of when the respiratory care event occurred e.g.: "12:45", "15:30", "3:45" |  | T
-`respCareStatusTime` | varchar(20) | NOT NULL | time frame when the respiratory value was entered: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `respCareStatusOffset` | int | NOT NULL | number of minutes from unit admit time that the respiratory value was entered |  | C
 `currentHistorySeqNum` | int | NULL | the sequence number of the records for historical ordering |  | S
 `airwayType` | varchar(30) | NULL | the airway picklist type input into the respiratory care status e.g.: Laryngectomy, Tracheostomy, Oral ETT, etc. |  | S
 `airwaySize` | varchar(10) | NULL | the picklist airway size input into the respiratory care status e.g.: 35F, 9.5, NULL |  | S
 `airwayPosition` | varchar(32) | NULL | picklist airway position for the patient e.g.: 23 @ lip, 26 @ teeth, 20, etc. |  | S
 `cuffPressure` | decimal(5,1) | NULL | the picklist cuff pressure of the patient e.g.: 23.0, 22.0, NULL, etc. |  | S
-`ventStartYear` | smallint | NULL | year when the vent started |  | T
-`ventStartTime24` | time(0) | NULL | time in 24 hour format of when the vent start occured e.g.: "12:45", "15:30", "3:45" |  | T
-`ventStartTime` | varchar(20) | NULL | time frame when the vent started: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `ventStartOffset` | int | NULL | number of minutes from unit admit time that the vent was started |  | C
-`ventEndYear` | smallint | NULL | year when the vent ended |  | T
-`ventEndTime24` | time(0) | NULL | time in 24 hour format of when the vent event ended e.g.: "12:45", "15:30", "3:45" |  | T
-`ventEndTime` | varchar(20) | NULL | time frame when the vent ended: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `ventEndOffset` | int | NULL | number of minutes from unit admit time that the vent was ended |  | C
 `priorVentStartYear` | smallint | NULL | year when the prior vent started |  | T
 `priorVentStartTime24` | time(0) | NULL | time in 24 hour format of when the prior vent start event occurred e.g.: "12:45", "15:30", "3:45" |  | T
