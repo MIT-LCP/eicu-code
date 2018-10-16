@@ -3,6 +3,7 @@ title = "eICU Collaborative Research Database"
 theme = "eicu-data"
 baseurl = "https://eicu-crd.mit.edu"
 canonifyurls = "false"
+googleAnalytics = "UA-87592301-5"
 
 [[menu.main]]
     name = "About"
