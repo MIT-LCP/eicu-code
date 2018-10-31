@@ -21,6 +21,7 @@ toc = "true"
 # Important considerations
 
 * Absence of measurement does not indicate absence of intake or output.
+* The `intakeTotal`, `outputTotal`, `diaslysisTotal`, and `netTotal` are *cumulative* measurements up to the current offset. The value measured for the given row is stored in `cellValueNumeric` and `cellValueText`
 * When several entries are recorded at the same time for a patient, the values in intaketotal, outputtotal, dialysistotal and nettotal are duplicated!
 * outputtotal does not only corrspond to urine output, but also output from drains, blood loss, etc.
 * cellvaluenumeric is always POSITIVE, while dialysistotal is NEGATIVE for fluid removal and POSITIVE when fluid is administered to the patient via the dialysis machine.
@@ -28,20 +29,20 @@ toc = "true"
 
 # Table columns
 
-Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
----- | ---- | ---- | ---- | ---- | ----
-`patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
-`intakeOutputID` | int | IDENTITY | surrogate key for the intake output data | PK | C
-`intakeOutputOffset` | int | NOT NULL | number of minutes from unit admit time that the I and O value was observed |  | C
-`intakeTotal` | decimal(12,4) | NULL | total intake value e.g.: 150.0000, 326.0000, 142.0000, etc. |  | S
-`outputTotal` | decimal(12,4) | NULL | total output value e.g.: 230.0000, 350.0000, 150.0000, etc. |  | S
-`dialysisTotal` | decimal(12,4) | NULL | total dialysis value e.g.: -96.0000, -2300.0000, 0.0000, etc. |  | S
-`netTotal` | decimal(12,4) | NULL | calculated net value of: intakeTotal – outputTotal + dialysisTotal |  | S
-`intakeOutputEntryOffset` | int | NOT NULL | number of minutes from unit admit time that the I and O value was entered |  | C
-`cellPath` | varchar(500) | NOT NULL | the root path of info from the label in I and O e.g.: flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Blood Products (ml)|pRBCs, flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Nutrition (ml)|Parenteral TNA, flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|CSF, etc. |  | S
-`cellLabel` | varchar(255) | NOT NULL | The predefined row label text from I and O e.g.: Enteral flush/meds panda, D5 0.45 NS w/20 mEq KCL 1000 ml, Continuous infusion meds, etc. |  | S
-`cellValueNumeric` | decimal(12,4) | NOT NULL | the value of the I and O row e.g.: 100.0000, 60.9000, 10.0000, etc. |  | S
-`cellValueText` | varchar(255) | NOT NULL | text conversion of the numeric value of the I and O row e.g.: 100, 360, 50 |  | S
+Name | Datatype | Null Option | Comment | Key
+---- | ---- | ---- | ---- | ----
+`patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK
+`intakeOutputID` | int | IDENTITY | surrogate key for the intake output data | PK
+`intakeOutputOffset` | int | NOT NULL | number of minutes from unit admit time that the I and O value was observed |
+`intakeTotal` | decimal(12,4) | NULL | total intake value up to the current offset, e.g.: 150.0000, 326.0000, 142.0000, etc. |
+`outputTotal` | decimal(12,4) | NULL | total output value up to the current offset, e.g.: 230.0000, 350.0000, 150.0000, etc. |
+`dialysisTotal` | decimal(12,4) | NULL | total dialysis value up to the current offset, e.g.: -96.0000, -2300.0000, 0.0000, etc. |
+`netTotal` | decimal(12,4) | NULL | calculated net value of: intakeTotal – outputTotal + dialysisTotal |
+`intakeOutputEntryOffset` | int | NOT NULL | number of minutes from unit admit time that the I and O value was entered |
+`cellPath` | varchar(500) | NOT NULL | the root path of info from the label in I and O e.g.: flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Blood Products (ml)|pRBCs, flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Nutrition (ml)|Parenteral TNA, flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|CSF, etc. |  
+`cellLabel` | varchar(255) | NOT NULL | The predefined row label text from I and O e.g.: Enteral flush/meds panda, D5 0.45 NS w/20 mEq KCL 1000 ml, Continuous infusion meds, etc. |  
+`cellValueNumeric` | decimal(12,4) | NOT NULL | the value of the current I and O row e.g.: 100.0000, 60.9000, 10.0000, etc. |
+`cellValueText` | varchar(255) | NOT NULL | text conversion of the numeric value of the I and O row e.g.: 100, 360, 50 |
 
 <!-- # Detailed description
 
