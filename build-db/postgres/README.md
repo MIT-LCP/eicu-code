@@ -36,13 +36,21 @@ If the files are not compressed check with -
 make eicu-check datadir=<DATA_PATH>
 ```
 
-### Create user in the database
+### Create the user/database/schema (optional)
 
-Runs the `create_eicu_user.sh` script which creates user, database and schema according to a given DBUSER (optional users `postgres` as default), DBPASS, DBSCHEMA and DBNAME. Please note that the database name, schema, user, password, etc. are defined in the beginning of the Makefile. If you would like to user non default values and run this script you will have to change it there.
+Runs the `create_eicu_user.sh` script which creates user, database and schema using the environment variables for DBUSER, DBPASS, DBSCHEMA and DBNAME. The default database name, schema, user, password, etc. are defined at the beginning of the Makefile.
 
 ``` bash
-make create-user
+make initialize
 ```
+
+If you would like to specify a value (e.g. your own user name for the user), you can do so by adding the environment variable set as you would like; e.g.:
+
+```bash
+make initialize DBUSER=myusername DBPASS=mypassword
+```
+
+Note that you will need to continually pass these settings to the subsequent make commands, otherwise the build will fail.
 
 ### Build Database
 
