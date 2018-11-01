@@ -80,7 +80,7 @@ make eicu-download physionetuser=<PYSIONETUSER> datadir=<DATA_PATH>
 ```
 2. Create user, database and schema -
 ``` bash
-make create-user
+make initialize
 ```
 3. Build database -
 ``` bash
