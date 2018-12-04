@@ -1,6 +1,7 @@
 ---
 title: "carePlan_getPatientCode"
 output: html_document
+author: Joseph Park
 ---
 
 ```{r setup, include=FALSE}
@@ -30,6 +31,7 @@ cplitemvalue_code = c('Full therapy', 'Do not resuscitate', 'No CPR', 'No intuba
 ```
 
 Generate table that lists the patient along with code status.
+SQL command was generated using show_query() for patientCodeStatus
 
 ```{r, connection = con}
 patientCodeStatus <- carePlanGeneral_tbl %>%

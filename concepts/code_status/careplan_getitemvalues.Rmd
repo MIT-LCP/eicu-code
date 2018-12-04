@@ -1,6 +1,7 @@
 ---
 title: "carePlan_getItemValues"
 output: html_document
+author: Joseph Park
 ---
 
 ```{r setup, include=FALSE}
@@ -34,6 +35,7 @@ dbExistsTable(con, "patient")
 Write cplitemvalues to file "possible_status" for inspection on which items indicate patient code status.
 All cplitemvalues that were chosen were in cplgroup = 'Care Limitation' (all cplitemvalues in this cplgroup was used),
   except cplitemvalue = 'End of life', which was in cplgroup = 'Ordered Protocols'.
+SQL command was generated using show_query() for possible_status
 
 ```{r, connection = con}
 library(dplyr)
