@@ -15,20 +15,16 @@ toc = "true"
 
 The eICU Collaborative Research Database is made available largely through the work of Philips Healthcare and collaborators at MIT Laboratory for Computational Physiology. If you use the data, code or algorithms, please provide a citation to this project.
 
-<!-- Our recommended citation for the eICU Collaborative Research Database is being prepared for publication. -->
+# eICU Collaborative Research Database citation
 
-When using the dataset, please include the standard citation for PhysioNet:
+If you use the eICU Collaborative Research Database in your work, please cite the following paper:
 
-```
-Goldberger AL, Amaral LAN, Glass L, Hausdorff JM, Ivanov PCh, Mark RG, Mietus JE, Moody GB, Peng C-K, Stanley HE. PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals. Circulation 101(23):e215-e220 [Circulation Electronic Pages; http://circ.ahajournals.org/content/101/23/e215.full]; 2000 (June 13).
-```
+>  The eICU Collaborative Research Database, a freely available multi-center database for critical care research. Pollard TJ, Johnson AEW, Raffa JD, Celi LA, Mark RG and Badawi O. Scientific Data (2018). DOI: <a href="http://dx.doi.org/10.1038/sdata.2018.178">10.1038/sdata.2018.178</a>. Available at: <a href="https://www.nature.com/articles/sdata2018178">https://www.nature.com/articles/sdata2018178</a>
 
 # Ethical approval
 
 The database is released under the Health Insurance Portability and
-Accountability Act (HIPAA) safe harbor provision.
-The re-identification risk was certified as meeting safe harbor
-standards by Privacert (Cambridge, MA) (HIPAA Certification no. 1031219-2).
+Accountability Act (HIPAA) safe harbor provision. The re-identification risk was certified as meeting safe harbor standards by Privacert (Cambridge, MA) (HIPAA Certification no. 1031219-2).
 
 # Research groups
 
