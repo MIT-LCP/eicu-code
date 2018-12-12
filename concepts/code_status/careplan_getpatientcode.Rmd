@@ -17,7 +17,7 @@ port  <- '5432'
 user  <- 'josephpark'
 dbname <- 'eicu'
 schema <- 'eicu'
-options <- paste("--search_path", schema, sep="")
+options <- paste("--search_path=", schema, sep="")
 ```
 
 Connect to database.
