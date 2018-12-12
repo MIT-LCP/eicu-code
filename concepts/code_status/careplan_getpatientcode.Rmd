@@ -8,15 +8,27 @@ author: Joseph Park
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Load configuration settings. Password requested by rstudioapi.
+
+```{r}
+dbdriver <- 'PostgreSQL'
+host  <- 'localhost'
+port  <- '5432'
+user  <- 'josephpark'
+dbname <- 'eicu'
+schema <- 'eicu'
+options <- paste("--search_path", schema, sep="")
+```
+
 Connect to database.
 
 ```{r}
 require("RPostgreSQL")
-drv <- dbDriver("PostgreSQL")
-con <- dbConnect(drv, dbname = "eicu",
-                 host = "localhost", port = 5432,
-                 user = "josephpark", password = rstudioapi::askForPassword("Database password"),
-                 options = "--search_path=eicu")
+drv <- dbDriver(dbdriver)
+con <- dbConnect(drv, dbname = dbname,
+                 host = host, port = port,
+                 user = user, password = rstudioapi::askForPassword("Database password"),
+                 options = options)
 dbExistsTable(con, "patient")
 ```
 
