@@ -15,7 +15,7 @@ toc = "false"
 
 ## PhysioNet
 
-Once your [application to access the eICU Collaborative Research Database](http://eICU.physionet.org/gettingstarted/access/) (eICU-CRD) has been approved, you will be granted access to the 'eICU Collaborative Research Database' project page on PhysioNet: https://physionet.org/works/eICUCollaborativeResearchDatabase/
+Once your [application to access the eICU Collaborative Research Database](/gettingstarted/access/) (eICU-CRD) has been approved, you will be granted access to the 'eICU Collaborative Research Database' project page on PhysioNet: https://physionet.org/works/eICUCollaborativeResearchDatabase/
 
 ## Data and build scripts
 
