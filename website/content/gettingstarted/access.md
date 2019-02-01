@@ -26,7 +26,7 @@ Prior to requesting access to the eICU Collaborative Research Database, you will
 
 - First register on the CITI program website, selecting “Massachusetts Institute of Technology Affiliates” as your organization affiliation: https://www.citiprogram.org/index.cfm?pageID=154&icat=0&ac=0
 - Follow the links to add a Massachusetts Institute of Technology Affiliates course. In the Human Subjects training category, select the “Data or Specimens Only Research” course
-- Complete the course and save a copy of your certificate.
+- Complete the course and save a copy of your completion report.  The completion report lists all modules completed, with dates and scores.
 
 ### Request access to the eICU Collaborative Research Database: 
 
