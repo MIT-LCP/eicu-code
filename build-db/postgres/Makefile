@@ -327,7 +327,7 @@ eicu-build:
 	@echo '------------------'
 	@echo ''
 	@sleep 2
-	psql "$(DBSTRING)" -a -v ON_ERROR_STOP=1 -v datadir=${datadir} -f postgres_load_data_gz.sql
+	psql "$(DBSTRING)" -a -v ON_ERROR_STOP=1 -v datadir=${datadir} -f postgres_load_data.sql
 	@echo ''
 	@echo '--------------------'
 	@echo '-- Adding indexes --'
