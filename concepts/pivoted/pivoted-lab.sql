@@ -15,6 +15,7 @@ with vw0 as
     , 'total bilirubin'
     , 'BUN'
     , 'calcium'
+    , 'chloride'
     , 'creatinine'
     , 'bedside glucose', 'glucose'
     , 'bicarbonate' -- HCO3
@@ -63,6 +64,7 @@ with vw0 as
     OR (lab.labname = 'total bilirubin' and lab.labresult >= 0.2 and lab.labresult <= 70.175)
     OR (lab.labname = 'BUN' and lab.labresult >= 1 and lab.labresult <= 280)
     OR (lab.labname = 'calcium' and lab.labresult > 0 and lab.labresult <= 9999)
+    OR (lab.labname = 'chloride' and lab.labresult > 0 and lab.labresult <= 9999)
     OR (lab.labname = 'creatinine' and lab.labresult >= 0.1 and lab.labresult <= 28.28)
     OR (lab.labname in ('bedside glucose', 'glucose') and lab.labresult >= 25 and lab.labresult <= 1500)
     OR (lab.labname = 'bicarbonate' and lab.labresult >= 0 and lab.labresult <= 9999)
@@ -89,6 +91,7 @@ select
   , MAX(case when labname = 'total bilirubin' then labresult else null end) as bilirubin
   , MAX(case when labname = 'BUN' then labresult else null end) as BUN
   , MAX(case when labname = 'calcium' then labresult else null end) as calcium
+  , MAX(case when labname = 'chloride' then labresult else null end) as chloride
   , MAX(case when labname = 'creatinine' then labresult else null end) as creatinine
   , MAX(case when labname in ('bedside glucose', 'glucose') then labresult else null end) as glucose
   , MAX(case when labname = 'bicarbonate' then labresult else null end) as bicarbonate
