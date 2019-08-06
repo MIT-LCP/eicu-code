@@ -30,6 +30,15 @@ Prior to requesting access to the eICU Collaborative Research Database, you will
 
 ### Request access to the eICU Collaborative Research Database: 
 
-- Create an account on PhysioNet using the following link: https://physionet.org/pnw/login. If you already have a PhysioNetWorks account, [log in to it](https://physionet.org/pnw/login).
-- Follow the instructions on PhysioNet to apply for access to the eICU Collaborative Research Database project, remembering to provide your CITI completion report: https://physionet.org/works/eICUCollaborativeResearchDatabase/access.shtml
+- Register for an account on PhysioNet: https://physionet.org. If you already have a PhysioNet account, [log in](https://physionet.org/login/).
+- Go to the project page at: https://physionet.org/content/eicu-crd/
+- Find the “Files” section in the project description
+- Click "credentialed user" link, then follow the instructions to submit your application for credentialed access. Remember to provide your CITI completion report.
 - When your application has been approved you will receive emails containing instructions for downloading the database from PhysioNetWorks. Approval may take several business days, and will be delayed if your request is missing any required information.
+
+Please be sure to provide all requested information. Submissions that are clearly incomplete, incorrect, or frivolous may be discarded without notice.
+
+If you are a student or a postdoc, you must provide your supervisor’s name and contact information in the "reference" section of the form. If you are not listed in a directory or other easy-to-find page of your organization’s website, please provide the name and contact information of a reference such as a supervisor or colleague. Do not list yourself as reference.
+
+Be sure to upload the completion report from the CITI “Data or Specimens Only Research” training program (PDF or image file). The completion report lists all modules completed, with dates and scores. If you would like to submit multiple pages, please combine them into a single pdf file.
+
