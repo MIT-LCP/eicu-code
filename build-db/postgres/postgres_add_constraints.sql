@@ -10,6 +10,11 @@
 -- Restoring the search path to its default value can be accomplished as follows:
 --  SET search_path TO "$user",public;
 
+ALTER TABLE patient DROP CONSTRAINT IF EXISTS patient_pk_ptunid_id;
+ALTER TABLE patient
+ADD CONSTRAINT patient_pk_ptunit_id
+  PRIMARY KEY (patientunitstayid);
+
 --------------------------------------------------------
 --  DDL for Table ADMISSIONDX
 --------------------------------------------------------
@@ -17,6 +22,26 @@
 ALTER TABLE ADMISSIONDX DROP CONSTRAINT IF EXISTS ADMISSIONDX_fk_ptunit_id;
 ALTER TABLE ADMISSIONDX
 ADD CONSTRAINT ADMISSIONDX_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table ADMISSIONDRUG
+--------------------------------------------------------
+
+ALTER TABLE ADMISSIONDRUG DROP CONSTRAINT IF EXISTS ADMISSIONDRUG_fk_ptunit_id;
+ALTER TABLE ADMISSIONDRUG
+ADD CONSTRAINT ADMISSIONDRUG_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table ALLERGY
+--------------------------------------------------------
+
+ALTER TABLE ALLERGY DROP CONSTRAINT IF EXISTS ALLERGY_fk_ptunit_id;
+ALTER TABLE ALLERGY
+ADD CONSTRAINT ALLERGY_fk_ptunit_id
   FOREIGN KEY (patientunitstayid)
   REFERENCES PATIENT(patientunitstayid);
 
@@ -101,6 +126,16 @@ ADD CONSTRAINT CAREPLANINFECTIOUSDISEASE_fk_ptunit_id
   REFERENCES PATIENT(patientunitstayid);
 
 --------------------------------------------------------
+--  DDL for Table CUSTOMLAB
+--------------------------------------------------------
+
+ALTER TABLE CUSTOMLAB DROP CONSTRAINT IF EXISTS CUSTOMLAB_fk_ptunit_id;
+ALTER TABLE CUSTOMLAB
+ADD CONSTRAINT CUSTOMLAB_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
 --  DDL for Table DIAGNOSIS
 --------------------------------------------------------
 
@@ -117,12 +152,92 @@ ADD CONSTRAINT DIAGNOSIS_fk_ptunit_id
 -- No foreign keys.
 
 --------------------------------------------------------
+--  DDL for Table INFUSIONDRUG
+--------------------------------------------------------
+
+ALTER TABLE INFUSIONDRUG DROP CONSTRAINT IF EXISTS INFUSIONDRUG_fk_ptunit_id;
+ALTER TABLE INFUSIONDRUG
+ADD CONSTRAINT INFUSIONDRUG_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table INTAKEOUTPUT
+--------------------------------------------------------
+
+ALTER TABLE INTAKEOUTPUT DROP CONSTRAINT IF EXISTS INTAKEOUTPUT_fk_ptunit_id;
+ALTER TABLE INTAKEOUTPUT
+ADD CONSTRAINT INTAKEOUTPUT_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
 --  DDL for Table LAB
 --------------------------------------------------------
 
 ALTER TABLE LAB DROP CONSTRAINT IF EXISTS LAB_fk_ptunit_id;
 ALTER TABLE LAB
 ADD CONSTRAINT LAB_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table MEDICATION
+--------------------------------------------------------
+
+ALTER TABLE MEDICATION DROP CONSTRAINT IF EXISTS MEDICATION_fk_ptunit_id;
+ALTER TABLE MEDICATION
+ADD CONSTRAINT MEDICATION_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table MICROLAB
+--------------------------------------------------------
+
+ALTER TABLE MICROLAB DROP CONSTRAINT IF EXISTS MICROLAB_fk_ptunit_id;
+ALTER TABLE MICROLAB
+ADD CONSTRAINT MICROLAB_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table NOTE
+--------------------------------------------------------
+
+ALTER TABLE NOTE DROP CONSTRAINT IF EXISTS NOTE_fk_ptunit_id;
+ALTER TABLE NOTE
+ADD CONSTRAINT NOTE_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table NURSEASSESSMENT
+--------------------------------------------------------
+
+ALTER TABLE NURSEASSESSMENT DROP CONSTRAINT IF EXISTS NURSEASSESSMENT_fk_ptunit_id;
+ALTER TABLE NURSEASSESSMENT
+ADD CONSTRAINT NURSEASSESSMENT_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table NURSECARE
+--------------------------------------------------------
+
+ALTER TABLE NURSECARE DROP CONSTRAINT IF EXISTS NURSECARE_fk_ptunit_id;
+ALTER TABLE NURSECARE
+ADD CONSTRAINT NURSECARE_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table NURSECHARTING
+--------------------------------------------------------
+
+ALTER TABLE NURSECHARTING DROP CONSTRAINT IF EXISTS NURSECHARTING_fk_ptunit_id;
+ALTER TABLE NURSECHARTING
+ADD CONSTRAINT NURSECHARTING_fk_ptunit_id
   FOREIGN KEY (patientunitstayid)
   REFERENCES PATIENT(patientunitstayid);
 
@@ -145,6 +260,36 @@ ALTER TABLE PATIENT
 ADD CONSTRAINT PATIENT_fk_hospital_id
   FOREIGN KEY (hospitalid)
   REFERENCES HOSPITAL(hospitalid);
+
+--------------------------------------------------------
+--  DDL for Table PHYSICALEXAM
+--------------------------------------------------------
+
+ALTER TABLE PHYSICALEXAM DROP CONSTRAINT IF EXISTS PHYSICALEXAM_fk_ptunit_id;
+ALTER TABLE PHYSICALEXAM
+ADD CONSTRAINT PHYSICALEXAM_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table RESPIRATORYCARE
+--------------------------------------------------------
+
+ALTER TABLE RESPIRATORYCARE DROP CONSTRAINT IF EXISTS RESPIRATORYCARE_fk_ptunit_id;
+ALTER TABLE RESPIRATORYCARE
+ADD CONSTRAINT RESPIRATORYCARE_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
+
+--------------------------------------------------------
+--  DDL for Table RESPIRATORYCHARTING
+--------------------------------------------------------
+
+ALTER TABLE RESPIRATORYCHARTING DROP CONSTRAINT IF EXISTS RESPIRATORYCHARTING_fk_ptunit_id;
+ALTER TABLE RESPIRATORYCHARTING
+ADD CONSTRAINT RESPIRATORYCHARTING_fk_ptunit_id
+  FOREIGN KEY (patientunitstayid)
+  REFERENCES PATIENT(patientunitstayid);
 
 --------------------------------------------------------
 --  DDL for Table TREATMENT
