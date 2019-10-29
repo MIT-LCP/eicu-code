@@ -20,7 +20,18 @@ toc = "true"
 
 # Important considerations
 
-Infusion drugs entered directly into the source system (eCareManager) by clinicians must include the concentration of the drug being infused. This is done by entering the "drugAmount" and "volumeOfFluid" and this is independent of the amount being infused (drugRate or infusionRate). Interfaced values from source EMRs may not contain the concentration.
+- Infusion drugs entered directly into the source system (eCareManager) by clinicians must include the concentration of the drug being infused. This is done by entering the "drugAmount" and "volumeOfFluid" and this is independent of the amount being infused (drugRate or infusionRate). Interfaced values from source EMRs may not contain the concentration.
+- Many EHRs will only interface out the infusion rate so you may only get the mL/hr and it may be difficult to get the actual drug rate unless it's a standard concentration drug like 10% propofol. The exact drug name and concentration may be present in the medication table to verify concentration.
+
+Let's take an example row:
+
+infusiondrugid | drugname | drugrate | infusionrate | drugamount | volumeoffluid
+--- | --- | --- | --- | --- | ---
+2001050 | Nitroglycerin (mcg/min) | 10 | 3 | 50 | 250
+
+- Concentration will generally be charted in mg and ml. So for this patient with a `drugamount` = 50 and a `volumeoffluid` = 250, the administration is from a 50 mg/250 mL bottle of the drug.
+- Infusion rate is generally charted as ml/hr. So this patient is receiving 3ml/hr of 50mg/mL of NTG.
+- Drug rate units should be specified and should match the calculation obtained from the infusion rate * concentration (which this does once you convert mg to mcg).
 
 
 # Table columns
