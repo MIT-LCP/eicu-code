@@ -45,7 +45,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `priorVentEndTime24` | time(0) | NULL | time in 24 hour format of when the prior vent event ended e.g.: "12:45", "15:30", "3:45" |  | T
 `priorVentEndTime` | varchar(20) | NULL | time frame when the prior vent ended: 'midnight', 'morning', 'midday', 'noon', 'evening', or 'night' |  | T
 `priorVentEndOffset` | int | NULL | number of minutes from unit admit time that the prior vent was ended |  | C
-`apneaParms` | varchar(80) | NULL | the picklist apnea parameters of the vent e.g.: set, on, done, etc. |  | S
+`apneaParams` | varchar(80) | NULL | the picklist apnea parameters of the vent e.g.: set, on, done, etc. |  | S
 `lowExhMVLimit` | decimal(11,4) | NULL | the low Ex MV Limit of the vent e.g: 5.0000, 200.0000, 3.0000, etc. |  | S
 `hiExhMVLimit` | decimal(11,4) | NULL | the high Ex MV Limit of the vent e.g.: 18.000, 20.0000, 40.0000, etc. |  | S
 `lowExhTVLimit` | decimal(11,4) | NULL | the low Exh TV limit of the vent e.g.: 300.0000, 200.0000, 350.0000, etc. |  | S
