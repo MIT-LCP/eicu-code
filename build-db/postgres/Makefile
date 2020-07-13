@@ -3,8 +3,8 @@
 ## --------------------------------------------------------------------------
 
 # Config
-PHYSIONETURL=https://physionet.org/works/eICUCollaborativeResearchDatabase/files/
-PHYSIONETDEMOURL=https://physionet.org/works/eICUCollaborativeResearchDatabaseDemo/files/
+PHYSIONETURL=https://physionet.org/files/eicu-crd/2.0/
+PHYSIONETDEMOURL=https://physionet.org/files/eicu-crd-demo/2.0/
 
 # Set the following parameters to defaults
 # These will be overwritten by settings passed to the makefile
