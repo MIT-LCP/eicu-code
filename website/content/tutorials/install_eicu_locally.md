@@ -10,7 +10,7 @@ toc = "true"
     parent = "Tutorials"
 +++
 
-# How to install the database in Postgres 
+# How to install the database in Postgres
 
 Prerequisites: *This tutorial assumes that you have already completed the [steps required to gain access](/gettingstarted/access) to the eICU Collaborative Research Database on PhysioNet.*
 
@@ -55,7 +55,7 @@ SET search_path TO EICU;
 
 ## 5. Create a set of empty tables, ready to populate with the data
 
-Refer to the '[postgres_create_tables](https://github.com/MIT-eicu/eicu-building/tree/master/postgres/postgres_create_tables.sql)' script in the eICU code repository to build a set of empty tables. Each table is created by running a ```CREATE TABLE``` command in psql. For example, the caregivers table is created with:
+Refer to the '[postgres_create_tables](https://github.com/MIT-LCP/eicu-code/blob/master/build-db/postgres/postgres_create_tables.sql)' script in the eICU code repository to build a set of empty tables. Each table is created by running a ```CREATE TABLE``` command in psql. For example, the caregivers table is created with:
 
 ``` psql
 -- drop the table if it already exists
@@ -78,7 +78,7 @@ CREATE TABLE ADMISSIONDX
 
 ## 6. Import the CSV data files into the empty tables
 
-Using the [Postgres ```COPY``` or ```\COPY``` commands](https://wiki.postgresql.org/wiki/COPY), you should now be able to import the CSV data into the empty set of tables. Refer to the '[postgres_load_data](https://github.com/MIT-eicu/eicu-building/tree/master/postgres/postgres_load_data.sql)' script in the eICU code repository to import data into the already created empty tables.
+Using the [Postgres ```COPY``` or ```\COPY``` commands](https://wiki.postgresql.org/wiki/COPY), you should now be able to import the CSV data into the empty set of tables. Refer to the '[postgres_load_data](https://github.com/MIT-LCP/eicu-code/blob/master/build-db/postgres/postgres_load_data.sql)' script in the eICU code repository to import data into the already created empty tables.
 
 The script uses the `\COPY` command, which imports the data from the local directory. An example command run is as follows:
 Option 1: import with ```\COPY```
@@ -100,7 +100,7 @@ COPY ADMISSIONDX
 
 ## 7. Add indexes to improve performance
 
-Indexes provide additional structure for the database that can help to improve the speed of queries. The eICU code repository [includes a script with a set of suggested indexes](https://github.com/MIT-eicu/eicu-building/tree/master/postgres/postgres_add_indexes.sql). For example, an index on subject_id and hadm_id can be created for the ADMISSIONS table with the following command:
+Indexes provide additional structure for the database that can help to improve the speed of queries. The eICU code repository [includes a script with a set of suggested indexes](https://github.com/MIT-LCP/eicu-code/blob/master/build-db/postgres/postgres_add_indexes.sql). For example, an index on subject_id and hadm_id can be created for the ADMISSIONS table with the following command:
 
 ``` sql
 -- drop the existing index if it exists
