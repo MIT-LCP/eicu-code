@@ -36,7 +36,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `rxIncluded` | varchar(5) | NOT NULL | Does the Note have associated Rx data: True or False |  | S
 `writtenIneICU` | varchar(5) | NOT NULL | Was the Note written in the eICU: True or False |  | S
 `drugName` | varchar(255) | NOT NULL | name of the selected admission drug e.g.: POTASSIUM CHLORIDE/D5NS METAXALONE PRAVACHOL |  | S
-drugDosage | decimal(11,4) | NULL | dosage of the admission drug e.g.: 20.0000 400.000 |  | S
+`drugDosage` | decimal(11,4) | NULL | dosage of the admission drug e.g.: 20.0000 400.000 |  | S
 `drugUnit` | varchar(1000) | NULL | picklist units of the admission drug e.g.: mg mg/kg patch |  | S
 `drugAdmitFrequency` | varchar(1000) | NULL | picklist frequency with which the admission drug is administred e.g.: PRN twice a day at bedtime |  | S
 `drugHiclSeqno` | int | NULL | HICL sequence number for the drug e.g.: 2734 33199 20492 |  | S
