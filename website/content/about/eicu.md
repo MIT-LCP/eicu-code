@@ -13,7 +13,7 @@ toc = "true"
 
 # eICU Collaborative Research Database
 
-The [Philips eICU program](http://www.usa.philips.com/healthcare/product/HCNOCTN503/eicu-program-telehealth-for-the-intensive-care-unit) is a transformational critical care telehealth program that delivers need-to-know information to caregivers, empowering them to care for the patients. It is a supplement — not a replacement — to the bedside team, and the data utilized by the remote care givers is archived for research purposes.
+The [Philips eICU program](http://www.usa.philips.com/healthcare/product/HCNOCTN503/eicu-program-telehealth-for-the-intensive-care-unit) is a transformational critical care telehealth program that delivers need-to-know information to caregivers, empowering them to care for the patients. It is a supplement — not a replacement — to the bedside team, and the data utilized by the remote care givers are archived for research purposes.
 
 Through this work, we have generated a large database which has potential for facilitating additional research initiatives on patient outcomes, trends, and other best practice protocols in use today at most healthcare facilities. The Philips eICU Research Institute (eRI), which maintains the data, has generously contributed the eICU Collaborative Research Database described here.
 
