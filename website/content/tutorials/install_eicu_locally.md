@@ -22,7 +22,7 @@ On Mac OSX with the [Homebrew package manager](http://brew.sh/), simply type ```
 
 ## 2. Place the CSV data files in a local directory
 
-Assuming that you have completed the [steps required to gain access](/gettingstarted/access), you should be able to access the CSV data files on PhysioNet at:  https://physionet.org/works/eICUCollaborativeResearchDatabase/. Download these files to a local folder and decompress them if necessary.
+Assuming that you have completed the [steps required to gain access](/gettingstarted/access), you should be able to access the CSV data files on PhysioNet at: https://physionet.org/content/eicu-crd/. Download these files to a local folder and decompress them if necessary.
 
 ## 3. Connect to the database with psql
 
@@ -35,7 +35,7 @@ psql postgres
 
 ## 4. Create an empty database containing the database schema
 
-From this point onwards we will be referring to scripts in the '[buildeicu](https://github.com/mit-lcp/eicu-code/tree/master/buildeicu)' directory of the [eICU code repository](https://github.com/mit-lcp/eicu-code/).
+From this point onwards we will be referring to scripts in the '[build-db](https://github.com/mit-lcp/eicu-code/tree/master/build-db)' directory of the [eICU code repository](https://github.com/mit-lcp/eicu-code/).
 
 After connecting with psql, create a new user. Next, create a eICU database with a schema for eICU:
 
