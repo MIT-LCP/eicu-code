@@ -21,6 +21,21 @@ If you use the eICU Collaborative Research Database in your work, please cite th
 
 >  The eICU Collaborative Research Database, a freely available multi-center database for critical care research. Pollard TJ, Johnson AEW, Raffa JD, Celi LA, Mark RG and Badawi O. Scientific Data (2018). DOI: <a href="http://dx.doi.org/10.1038/sdata.2018.178">10.1038/sdata.2018.178</a>. Available at: <a href="https://www.nature.com/articles/sdata2018178">https://www.nature.com/articles/sdata2018178</a>
 
+BibTeX entry:
+
+```
+@article{pollard2018eicu,
+  title={The {eICU Collaborative Research Database}, a freely available multi-center database for critical care research},
+  author={Pollard, Tom J and Johnson, Alistair E W and Raffa, Jesse D and Celi, Leo A and Mark, Roger G and Badawi, Omar},
+  journal={Scientific data},
+  volume={5},
+  number={1},
+  pages={1--13},
+  year={2018},
+  publisher={Nature Publishing Group}
+}
+```
+
 # Ethical approval
 
 Most journals require a statement regarding approval for use of the dataset, and you may consider including the following statement:
