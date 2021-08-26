@@ -23,8 +23,9 @@ If you use the eICU Collaborative Research Database in your work, please cite th
 
 # Ethical approval
 
-The database is released under the Health Insurance Portability and
-Accountability Act (HIPAA) safe harbor provision. The re-identification risk was certified as meeting safe harbor standards by Privacert (Cambridge, MA) (HIPAA Certification no. 1031219-2).
+Most journals require a statement regarding approval for use of the dataset, and you may consider including the following statement:
+
+> The study is exempt from institutional review board approval due to the retrospective design, lack of direct patient intervention, and the security schema, for which the re-identification risk was certified as meeting safe harbor standards by an independent privacy expert (Privacert, Cambridge, MA) (Health Insurance Portability and Accountability Act Certification no. 1031219-2).
 
 # Research groups
 
