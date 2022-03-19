@@ -84,15 +84,15 @@ Each row of this table contains a unique patientUnitStayID  which represents a s
 
 ## eyes
 
-Worst total score ranging from 1-4 with 15 as set point documented in neurologic section under GCS (Glascow coma scale) in the admission note or nursing flowsheet
+Worst total score ranging from 1-4 with 15 as set point documented in neurologic section under GCS (Glasgow coma scale) in the admission note or nursing flowsheet
 
 ## motor
 
-Worst total score ranging from 1-6 with 15 as set point documented in neurologic section under GCS (Glascow coma scale) in the admission note or nursing flowsheet
+Worst total score ranging from 1-6 with 15 as set point documented in neurologic section under GCS (Glasgow coma scale) in the admission note or nursing flowsheet
 
 ## verbal
 
-Worst total score ranging from 1-5 with 15 as set point documented in neurologic section under GCS (Glascow coma scale) in the admission note or nursing flowsheet
+Worst total score ranging from 1-5 with 15 as set point documented in neurologic section under GCS (Glasgow coma scale) in the admission note or nursing flowsheet
 
 Note for GCS eyes, motor, verbal scores: The GCS is determined based upon the patient's best response in each category during a single examination (highest level of integrated physiologic response). When the three component scores are added, the total Glasgow Coma Score ranges from 3 (worst) to 15 (best). The “worst” GCS in APACHE is the GCS assessment resulting in the lowest total score.
 
