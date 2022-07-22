@@ -37,7 +37,9 @@ The following vital signs are referred to as periodic vital signs as they are ca
 
 # Important considerations
 
-vitalPeriodic data represents the 5 minute median values from the bedside vital signs monitors, and is therefore unvalidated data. Unvalidated implies that the data has not been checked and verified by a bedside care provider, i.e. the measurements may be noisy and not reflect true patient state.
+* vitalPeriodic data represents the 5 minute median values from the bedside vital signs monitors, and is therefore unvalidated data. Unvalidated implies that the data has not been checked and verified by a bedside care provider, i.e. the measurements may be noisy and not reflect true patient state.
+
+* The SaO2 column contains Oxygen measurements captured through vital sign monitors, and so should be considered to contain SpO2 values, rather than arterial blood gas measurements.
 
 # Table columns
 
@@ -47,7 +49,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `vitalPeriodicID` | int | IDENTITY | surrogate key for periodic value | PK | C
 `observationOffset` | int | NOT NULL | number of minutes from unit admit time that the periodic value was entered |  | C
 `temperature` | decimal(11,4) | NULL | patient's temperature value in celsius e.g.: 36.1000, 37.8000, 35.5000, etc. |  | S
-`saO2` | int | NULL | patient's saO2 value e.g.: 99, 94, 98, etc. |  | S
+`saO2` | int | NULL | patient's spO2 value e.g.: 99, 94, 98, etc. |  | S
 `heartRate` | int | NULL | patient's heart rate value e.g.: 102, 104, 70, etc. |  | S
 `respiration` | int | NULL | patient's respiration value e.g.: 25, 20, 17, etc. |  | S
 `cvp` | int | NULL | patient's cvp value e.g.: 359, 272, 293, etc. |  | S
