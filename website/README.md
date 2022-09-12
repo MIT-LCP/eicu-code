@@ -24,7 +24,7 @@
 (For LCP lab members only)
 
 1. Add eicu-website to remote
-   After the pull request of the new material is merged into the main branch of eicu-code, pull down the latest version of "main" branch to your local repo. And then run the following command locally. 
+   After the pull request of the new material is merged into the main branch of eicu-code, pull down the latest version of "main" branch to your local repo. And then run the following command locally after filling up the IP address. 
  
    `git remote add eicu-website webuser@<IP address>:/home/webuser/eicu-website.git`
  
@@ -32,14 +32,14 @@
    Run command: `git remote -v`
    should return:
    eicu-website webuser@<IP address>:/home/webuser/eicu-website.git (fetch)
-   eicu-website webuser@<1IP address>:/home/webuser/eicu-website.git (push)
+   eicu-website webuser@<IP address>:/home/webuser/eicu-website.git (push)
    origin   https://www.github.com/MIT-LCP/eicu-code (fetch)
    origin   https://www.github.com/MIT-LCP/eicu-code (push)
  
 2. Sshuttle into the production server
  (Skip if you are within the LCP secure network)
  
-   Run the following command after filling in the  LCP username: `alias sshholyoke="sshuttle -r <Username>helios.mit.edu <IP address, replace last section with 0/24>"`
+   Run the following command after filling in the  LCP username and IP address: `alias sshholyoke="sshuttle -r <Username>helios.mit.edu <IP address, replace last section with 0/24>"`
  
    Run command: `sshholyoke`
  
