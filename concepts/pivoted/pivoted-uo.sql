@@ -77,7 +77,7 @@ select
     , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Straight Cath'
     , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Straight  Cath'
     , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Straight Cath'
-    , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Straight Cath''d'
+    , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Straight Cath'
     , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|straight cath daily'
     , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|straight cathed'
     , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Straight Cathed'
@@ -150,7 +150,7 @@ select
     , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Urine- void'
     , 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Urine, void:'
     ) then 1
-    when cellpath ilike 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|foley%'
+    when cellpath like 'flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|foley%'
     AND lower(cellpath) not like '%pacu%'
     AND lower(cellpath) not like '%or%'
     AND lower(cellpath) not like '%ir%'
