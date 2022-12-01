@@ -27,6 +27,8 @@ toc = "true"
 
 * Acute Physiology Age Chronic Health Evaluation (APACHE) consists of a groups of equations used for predicting outcomes in critically ill patients.
 
+* The apachePatientResult table contains two rows per patientUnitStayId: one for APACHE IV, and one for APACHE IVa.
+
 * APACHE II, III and IV are based on the APS or acute physiology score (which uses 12 physiologic values), age, and chronic health status within one of 56 disease groups. APACHE II is no longer considered valid due to inadequate case mix index adjustments and over estimates mortality because it is based on models from the 1970s-1980s.
 
 * APS points are assigned based upon the "Worst" values (measurement of the degree of physiologic derangement) that a patient exhibits during the APACHE Day. The "Worst" values tend to be those that are furthest away from the APACHE-defined mid-point.
