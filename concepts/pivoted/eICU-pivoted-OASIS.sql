@@ -48,7 +48,7 @@ CREATE TABLE `physionet-data.eicu_crd_derived.pivoted_OASIS` AS
 WITH 
 
 -- Pre-ICU stay LOS -> directly convert from minutes to hours
-pre_ICU_LOS_OASIS AS (
+pre_icu_los_oasis AS (
 SELECT patientunitstayid AS pid_LOS
   ,CASE
       WHEN hospitaladmitoffset > (-0.17*60) THEN 5
@@ -57,7 +57,7 @@ SELECT patientunitstayid AS pid_LOS
       WHEN hospitaladmitoffset BETWEEN (-311.80*60) AND (-24.0*60) THEN 2
       WHEN hospitaladmitoffset < (-311.80*60) THEN 1
       ELSE NULL
-      END AS pre_ICU_LOS_OASIS
+      END AS pre_icu_los_oasis
     FROM `physionet-data.eicu_crd.patient`
 )
 
@@ -74,7 +74,7 @@ SELECT patientunitstayid AS pid_LOS
 )
 
 -- Get the information itself in a second step
-, age_OASIS AS (
+, age_oasis AS (
     SELECT patientunitstayid AS pid_age
     , CASE
     WHEN MAX(age_num) < 24 THEN 0
@@ -83,13 +83,13 @@ SELECT patientunitstayid AS pid_LOS
     WHEN MAX(age_num) BETWEEN 78 AND 89 THEN 9
     WHEN MAX(age_num) > 89 THEN 7
     ELSE NULL
-    END AS age_OASIS
+    END AS age_oasis
     FROM age_numeric
 )
 
 -- GCS, Glasgow Coma Scale
 -- Merge information from two tables into one
-, merged_GCS AS (
+, merged_gcs AS (
     
   SELECT pat_gcs.patientunitstayid, physicalexam.gcs1, pivoted_gcs.gcs2
   FROM `physionet-data.eicu_crd.patient` AS pat_gcs
@@ -116,26 +116,28 @@ SELECT patientunitstayid AS pid_LOS
   ON pivoted_gcs.patientunitstayid = pat_gcs.patientunitstayid
 )
 
--- Only keep minimal GCS from merged_GCS table
-, least_GCS AS (
+-- Only keep minimal gcs from merged_gcs table
+, minimal_gcs AS (
     SELECT patientunitstayid,
-    LEAST(gcs1, gcs2) as gcs
-    FROM merged_GCS
+    CASE WHEN gcs1 < gcs2 THEN gcs1
+     WHEN gcs2 < gcs1 THEN gcs2
+     ELSE gcs1 
+     END AS gcs_min 
+    FROM merged_gcs
 )
 
--- Call merged_GCS table in one go
-, GCS_OASIS AS (
-    SELECT patientunitstayid AS pid_GCS
+-- Call merged_gcs table in one go
+, gcs_oasis AS (
+    SELECT patientunitstayid AS pid_gcs
     , CASE
-    WHEN MIN(gcs) < 8 THEN 10
-    WHEN MIN(gcs) BETWEEN 8 AND 13 THEN 4
-    WHEN MIN(gcs) = 14 THEN 3
-    WHEN MIN(gcs) = 15 THEN 0
+    WHEN gcs_min < 8 THEN 10
+    WHEN gcs_min BETWEEN 8 AND 13 THEN 4
+    WHEN gcs_min = 14 THEN 3
+    WHEN gcs_min = 15 THEN 0
     ELSE NULL
-    END AS GCS_OASIS
-    FROM least_GCS
+    END AS gcs_oasis
+    FROM minimal_gcs
     --WHERE (chartoffset > 0 AND chartoffset <= 1440) -- already considered in step above
-    GROUP BY pid_GCS
 )
 
 -- Elective admission
@@ -164,19 +166,19 @@ SELECT patientunitstayid AS pid_LOS
 
 )
 
-, electivesurgery_OASIS AS (
+, electivesurgery_oasis AS (
   SELECT patientunitstayid AS pid_adm
   , CASE
     WHEN electivesurgery1 = 0 THEN 6
     WHEN electivesurgery1 IS NULL THEN 6
     WHEN adm_elective1 = 0 THEN 6
     ELSE 0
-    END AS electivesurgery_OASIS
+    END AS electivesurgery_oasis
   FROM elective_surgery
 )
 
 -- Heart rate 
-, heartrate_OASIS AS (
+, heartrate_oasis AS (
 SELECT patientunitstayid AS pid_HR
   , CASE
     WHEN MIN(heartrate) < 33 THEN 4
@@ -185,7 +187,7 @@ SELECT patientunitstayid AS pid_HR
     WHEN MAX(heartrate) BETWEEN 107 AND 125 THEN 3
     WHEN MAX(heartrate) > 125 THEN 6
     ELSE NULL
-    END AS heartrate_OASIS
+    END AS heartrate_oasis
   FROM `physionet-data.eicu_crd_derived.pivoted_vital`
   WHERE (chartoffset > 0 AND chartoffset <= 1440) -- consider only first 24h
     AND heartrate IS NOT NULL
@@ -193,7 +195,7 @@ SELECT patientunitstayid AS pid_HR
 )
 
 -- Mean arterial pressure
-, MAP_OASIS AS (
+, map_oasis AS (
   SELECT patientunitstayid AS pid_MAP
   , CASE
     WHEN MIN(ibp_mean) < 20.65 THEN 4
@@ -208,14 +210,14 @@ SELECT patientunitstayid AS pid_HR
     WHEN MIN(nibp_mean) BETWEEN 61.33 AND 143.44 THEN 0
     WHEN MAX(nibp_mean) >143.44 THEN 3
     ELSE NULL
-    END AS MAP_OASIS
+    END AS map_oasis
   FROM `physionet-data.eicu_crd_derived.pivoted_vital`
   WHERE (chartoffset > 0 AND chartoffset <= 1440) -- consider only first 24h
   GROUP BY pid_MAP
 )
 
 -- Respiratory rate
-, respiratoryrate_OASIS AS (
+, respiratoryrate_oasis AS (
 SELECT patientunitstayid AS pid_RR
   , CASE
     WHEN MIN(respiratoryrate) < 6 THEN 10
@@ -225,7 +227,7 @@ SELECT patientunitstayid AS pid_RR
     WHEN MAX(respiratoryrate) BETWEEN 31 AND 44 THEN 6
     WHEN MAX(respiratoryrate) > 44 THEN 9
     ELSE NULL
-    END AS respiratoryrate_OASIS
+    END AS respiratoryrate_oasis
 
   FROM `physionet-data.eicu_crd_derived.pivoted_vital`
   WHERE (chartoffset > 0 AND chartoffset <= 1440) -- consider only first 24h
@@ -234,7 +236,7 @@ SELECT patientunitstayid AS pid_RR
 )
 
 -- Temperature 
-, temperature_OASIS AS (
+, temperature_oasis AS (
   SELECT patientunitstayid AS pid_temp
   , CASE
     WHEN MIN(temperature) < 33.22 THEN 3
@@ -245,7 +247,7 @@ SELECT patientunitstayid AS pid_RR
     WHEN MAX(temperature) BETWEEN 36.89 AND 39.88 THEN 2
     WHEN MAX(temperature) >39.88 THEN 6
     ELSE NULL
-    END AS temperature_OASIS
+    END AS temperature_oasis
   FROM `physionet-data.eicu_crd_derived.pivoted_vital`
   WHERE (chartoffset > 0 AND chartoffset <= 1440) -- consider only first 24h
     AND temperature IS NOT NULL
@@ -253,7 +255,7 @@ SELECT patientunitstayid AS pid_RR
 )
 
 -- Urine output
-, urineoutput_OASIS AS (
+, urineoutput_oasis AS (
   SELECT patientunitstayid AS pid_urine
   , CASE
     WHEN SUM(urineoutput) <671 THEN 10
@@ -262,7 +264,7 @@ SELECT patientunitstayid AS pid_RR
     WHEN SUM(urineoutput) BETWEEN 2544 AND 6896 THEN 0
     WHEN SUM(urineoutput) >6896 THEN 8
     ELSE NULL
-    END AS urineoutput_OASIS
+    END AS urineoutput_oasis
 
   FROM `physionet-data.eicu_crd_derived.pivoted_uo`
   WHERE (chartoffset > 0 AND chartoffset <= 1440) -- consider only first 24h
@@ -329,7 +331,7 @@ SELECT patientunitstayid AS pid_RR
 )
 
 -- Call merged vent table in one go
-, VENT_OASIS AS (
+, vent_oasis AS (
     SELECT patientunitstayid AS pid_vent
     , CASE
     WHEN vent_1 = 1 THEN 9
@@ -337,121 +339,121 @@ SELECT patientunitstayid AS pid_RR
     WHEN vent_3 = 1 THEN 9
     WHEN vent_4 = 1 THEN 9
     ELSE 0
-    END AS VENT_OASIS
+    END AS vent_oasis
     FROM merged_vent
     --WHERE (chartoffset > 0 AND chartoffset <= 1440) -- already considered in step above
 )
 
-, cohort_OASIS AS (
+, cohort_oasis AS (
   SELECT cohort.patientunitstayid, 
-  pre_ICU_LOS_OASIS.pre_ICU_LOS_OASIS, 
-  age_OASIS.age_OASIS, 
-  GCS_OASIS.GCS_OASIS,
-  heartrate_OASIS.heartrate_OASIS,
-  MAP_OASIS.MAP_OASIS,
-  respiratoryrate_OASIS.respiratoryrate_OASIS,
-  temperature_OASIS.temperature_OASIS,
-  urineoutput_OASIS.urineoutput_OASIS,
-  VENT_OASIS.VENT_OASIS,
-  electivesurgery_OASIS.electivesurgery_OASIS
-  FROM  `physionet-data.eicu_crd.patient` AS cohort
+  pre_icu_los_oasis.pre_icu_los_oasis, 
+  age_oasis.age_oasis, 
+  gcs_oasis.gcs_oasis,
+  heartrate_oasis.heartrate_oasis,
+  map_oasis.map_oasis,
+  respiratoryrate_oasis.respiratoryrate_oasis,
+  temperature_oasis.temperature_oasis,
+  urineoutput_oasis.urineoutput_oasis,
+  vent_oasis.vent_oasis,
+  electivesurgery_oasis.electivesurgery_oasis
+  FROM `physionet-data.eicu_crd.patient` AS cohort
 
-  LEFT JOIN pre_ICU_LOS_OASIS
-  ON cohort.patientunitstayid = pre_ICU_LOS_OASIS.pid_LOS
+  LEFT JOIN pre_icu_los_oasis
+  ON cohort.patientunitstayid = pre_icu_los_oasis.pid_LOS
 
-  LEFT JOIN age_OASIS
-  ON cohort.patientunitstayid = age_OASIS.pid_age 
+  LEFT JOIN age_oasis
+  ON cohort.patientunitstayid = age_oasis.pid_age 
 
-  LEFT JOIN GCS_OASIS
-  ON cohort.patientunitstayid = GCS_OASIS.pid_GCS 
+  LEFT JOIN gcs_oasis
+  ON cohort.patientunitstayid = gcs_oasis.pid_gcs 
 
-  LEFT JOIN heartrate_OASIS
-  ON cohort.patientunitstayid = heartrate_OASIS.pid_HR 
+  LEFT JOIN heartrate_oasis
+  ON cohort.patientunitstayid = heartrate_oasis.pid_HR 
 
-  LEFT JOIN MAP_OASIS
-  ON cohort.patientunitstayid = MAP_OASIS.pid_MAP 
+  LEFT JOIN map_oasis
+  ON cohort.patientunitstayid = map_oasis.pid_MAP 
 
-  LEFT JOIN respiratoryrate_OASIS
-  ON cohort.patientunitstayid = respiratoryrate_OASIS.pid_RR
+  LEFT JOIN respiratoryrate_oasis
+  ON cohort.patientunitstayid = respiratoryrate_oasis.pid_RR
 
-  LEFT JOIN temperature_OASIS
-  ON cohort.patientunitstayid = temperature_OASIS.pid_temp
+  LEFT JOIN temperature_oasis
+  ON cohort.patientunitstayid = temperature_oasis.pid_temp
 
-  LEFT JOIN urineoutput_OASIS
-  ON cohort.patientunitstayid = urineoutput_OASIS.pid_urine
+  LEFT JOIN urineoutput_oasis
+  ON cohort.patientunitstayid = urineoutput_oasis.pid_urine
 
-  LEFT JOIN VENT_OASIS
-  ON cohort.patientunitstayid = VENT_OASIS.pid_vent
+  LEFT JOIN vent_oasis
+  ON cohort.patientunitstayid = vent_oasis.pid_vent
 
-  LEFT JOIN electivesurgery_OASIS
-  ON cohort.patientunitstayid = electivesurgery_OASIS.pid_adm
+  LEFT JOIN electivesurgery_oasis
+  ON cohort.patientunitstayid = electivesurgery_oasis.pid_adm
 
 )
 
 , score_impute AS (
 
-SELECT cohort_OASIS.*,
+SELECT cohort_oasis.*,
 
-  IFNULL(pre_ICU_LOS_OASIS, 0) AS pre_ICU_LOS_OASIS_Imp,
-  IFNULL(age_OASIS, 0) AS age_OASIS_Imp, 
-  IFNULL(GCS_OASIS, 0) AS GCS_OASIS_Imp, 
-  IFNULL(heartrate_OASIS, 0) AS heartrate_OASIS_Imp,
-  IFNULL(MAP_OASIS, 0) AS MAP_OASIS_Imp,
-  IFNULL(respiratoryrate_OASIS, 0) AS respiratoryrate_OASIS_Imp,
-  IFNULL(temperature_OASIS, 0) AS temperature_OASIS_Imp, 
-  IFNULL(urineoutput_OASIS, 0) AS urineoutput_OASIS_Imp, 
-  IFNULL(VENT_OASIS, 0) AS VENT_OASIS_Imp, 
-  IFNULL(electivesurgery_OASIS, 0) AS electivesurgery_OASIS_Imp, 
+  IFNULL(pre_icu_los_oasis, 0) AS pre_icu_los_oasis_imp,
+  IFNULL(age_oasis, 0) AS age_oasis_imp, 
+  IFNULL(gcs_oasis, 0) AS gcs_oasis_imp, 
+  IFNULL(heartrate_oasis, 0) AS heartrate_oasis_imp,
+  IFNULL(map_oasis, 0) AS map_oasis_imp,
+  IFNULL(respiratoryrate_oasis, 0) AS respiratoryrate_oasis_imp,
+  IFNULL(temperature_oasis, 0) AS temperature_oasis_imp, 
+  IFNULL(urineoutput_oasis, 0) AS urineoutput_oasis_imp, 
+  IFNULL(vent_oasis, 0) AS vent_oasis_imp, 
+  IFNULL(electivesurgery_oasis, 0) AS electivesurgery_oasis_imp, 
 
-FROM cohort_OASIS
+FROM cohort_oasis
 )
 
 --Compute overall score
--- OASIS_NULL -> only cases where all components have a Non-NULL value
--- OASIS_Imp -> Imputation in case of NULL values, with 0's (common approach for severity of illness scores)
+-- oasis_null -> only cases where all components have a Non-NULL value
+-- oasis_imp -> Imputation in case of NULL values, with 0's (common approach for severity of illness scores)
 , score AS (
 SELECT patientunitstayid, 
-    MAX(pre_ICU_LOS_OASIS) AS pre_ICU_LOS_OASIS,
-    MAX(age_OASIS) AS age_OASIS,
-    MAX(GCS_OASIS) AS GCS_OASIS,
-    MAX(heartrate_OASIS) AS heartrate_OASIS,
-    MAX(MAP_OASIS) AS MAP_OASIS,
-    MAX(respiratoryrate_OASIS) AS respiratoryrate_OASIS,
-    MAX(temperature_OASIS) AS temperature_OASIS,
-    MAX(urineoutput_OASIS) AS urineoutput_OASIS,
-    MAX(VENT_OASIS) AS VENT_OASIS,
-    MAX(electivesurgery_OASIS) AS electivesurgery_OASIS,
-    MAX(pre_ICU_LOS_OASIS + 
-        age_OASIS + 
-        GCS_OASIS + 
-        heartrate_OASIS + 
-        MAP_OASIS + 
-        respiratoryrate_OASIS + 
-        temperature_OASIS + 
-        urineoutput_OASIS + 
-        VENT_OASIS + 
-        electivesurgery_OASIS) AS OASIS_NULL,
+    MAX(pre_icu_los_oasis) AS pre_icu_los_oasis,
+    MAX(age_oasis) AS age_oasis,
+    MAX(gcs_oasis) AS gcs_oasis,
+    MAX(heartrate_oasis) AS heartrate_oasis,
+    MAX(map_oasis) AS map_oasis,
+    MAX(respiratoryrate_oasis) AS respiratoryrate_oasis,
+    MAX(temperature_oasis) AS temperature_oasis,
+    MAX(urineoutput_oasis) AS urineoutput_oasis,
+    MAX(vent_oasis) AS vent_oasis,
+    MAX(electivesurgery_oasis) AS electivesurgery_oasis,
+    MAX(pre_icu_los_oasis + 
+        age_oasis + 
+        gcs_oasis + 
+        heartrate_oasis + 
+        map_oasis + 
+        respiratoryrate_oasis + 
+        temperature_oasis + 
+        urineoutput_oasis + 
+        vent_oasis + 
+        electivesurgery_oasis) AS oasis_null,
   
-  MAX(pre_ICU_LOS_OASIS_Imp) AS pre_ICU_LOS_OASIS_Imp,
-  MAX(age_OASIS_Imp) AS age_OASIS_Imp, 
-  MAX(GCS_OASIS_Imp) AS GCS_OASIS_Imp, 
-  MAX(heartrate_OASIS_Imp) AS heartrate_OASIS_Imp,
-  MAX(MAP_OASIS_Imp) AS MAP_OASIS_Imp,
-  MAX(respiratoryrate_OASIS_Imp) AS respiratoryrate_OASIS_Imp,
-  MAX(temperature_OASIS_Imp) AS temperature_OASIS_Imp, 
-  MAX(urineoutput_OASIS_Imp) AS urineoutput_OASIS_Imp, 
-  MAX(VENT_OASIS_Imp) AS VENT_OASIS_Imp,
-  MAX(electivesurgery_OASIS_Imp) AS electivesurgery_OASIS_Imp, 
-  MAX(pre_ICU_LOS_OASIS_Imp + 
-      age_OASIS_Imp + 
-      GCS_OASIS_Imp + 
-      heartrate_OASIS_Imp + 
-      MAP_OASIS_Imp + 
-      respiratoryrate_OASIS_Imp + 
-      temperature_OASIS_Imp + 
-      urineoutput_OASIS_Imp + 
-      VENT_OASIS_Imp + 
-      electivesurgery_OASIS_Imp) AS OASIS_Imp
+  MAX(pre_icu_los_oasis_imp) AS pre_icu_los_oasis_imp,
+  MAX(age_oasis_imp) AS age_oasis_imp, 
+  MAX(gcs_oasis_imp) AS gcs_oasis_imp, 
+  MAX(heartrate_oasis_imp) AS heartrate_oasis_imp,
+  MAX(map_oasis_imp) AS map_oasis_imp,
+  MAX(respiratoryrate_oasis_imp) AS respiratoryrate_oasis_imp,
+  MAX(temperature_oasis_imp) AS temperature_oasis_imp, 
+  MAX(urineoutput_oasis_imp) AS urineoutput_oasis_imp, 
+  MAX(vent_oasis_imp) AS vent_oasis_imp,
+  MAX(electivesurgery_oasis_imp) AS electivesurgery_oasis_imp, 
+  MAX(pre_icu_los_oasis_imp + 
+      age_oasis_imp + 
+      gcs_oasis_imp + 
+      heartrate_oasis_imp + 
+      map_oasis_imp + 
+      respiratoryrate_oasis_imp + 
+      temperature_oasis_imp + 
+      urineoutput_oasis_imp + 
+      vent_oasis_imp + 
+      electivesurgery_oasis_imp) AS oasis_imp
 
 FROM score_impute
 GROUP BY patientunitstayid
@@ -459,20 +461,20 @@ GROUP BY patientunitstayid
 )
 
 SELECT patientunitstayid, 
-pre_ICU_LOS_OASIS, pre_ICU_LOS_OASIS_Imp,
-age_OASIS, age_OASIS_Imp,
-GCS_OASIS, GCS_OASIS_Imp,
-heartrate_OASIS, heartrate_OASIS_Imp,
-MAP_OASIS, MAP_OASIS_Imp,
-respiratoryrate_OASIS, respiratoryrate_OASIS_Imp,
-temperature_OASIS, temperature_OASIS_Imp,
-urineoutput_OASIS, urineoutput_OASIS_Imp,
-VENT_OASIS, VENT_OASIS_Imp,
-electivesurgery_OASIS, electivesurgery_OASIS_Imp,
-OASIS_Null, OASIS_Imp
+pre_icu_los_oasis, pre_icu_los_oasis_imp,
+age_oasis, age_oasis_imp,
+gcs_oasis, gcs_oasis_imp,
+heartrate_oasis, heartrate_oasis_imp,
+map_oasis, map_oasis_imp,
+respiratoryrate_oasis, respiratoryrate_oasis_imp,
+temperature_oasis, temperature_oasis_imp,
+urineoutput_oasis, urineoutput_oasis_imp,
+vent_oasis, vent_oasis_imp,
+electivesurgery_oasis, electivesurgery_oasis_imp,
+oasis_null, oasis_imp
 -- Calculate the probability of in-hospital mortality
-, 1 / (1 + exp(- (-6.1746 + 0.1275*(OASIS_Null) ))) AS OASIS_Prob_Null
-, 1 / (1 + exp(- (-6.1746 + 0.1275*(OASIS_Imp) ))) AS OASIS_Prob_Imp
+, 1 / (1 + exp(- (-6.1746 + 0.1275*(oasis_null) ))) AS oasis_prob_null
+, 1 / (1 + exp(- (-6.1746 + 0.1275*(oasis_imp) ))) AS oasis_prob_imp
 
 FROM score
 ;
