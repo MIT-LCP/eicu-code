@@ -119,11 +119,7 @@ SELECT patientunitstayid AS pid_LOS
 
 -- Only keep minimal gcs from merged_gcs table
 , minimal_gcs AS (
-    SELECT patientunitstayid,
-    CASE WHEN gcs1 < gcs2 THEN gcs1
-     WHEN gcs2 < gcs1 THEN gcs2
-     ELSE gcs1 
-     END AS gcs_min 
+    SELECT patientunitstayid, COALESCE(gcs1, gcs2) AS gcs_min 
     FROM merged_gcs
 )
 
