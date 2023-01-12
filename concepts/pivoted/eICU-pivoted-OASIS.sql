@@ -85,6 +85,7 @@ SELECT patientunitstayid AS pid_LOS
     ELSE NULL
     END AS age_oasis
     FROM age_numeric
+    GROUP BY pid_age
 )
 
 -- GCS, Glasgow Coma Scale
@@ -255,21 +256,44 @@ SELECT patientunitstayid AS pid_RR
 )
 
 -- Urine output
+, merged_uo AS (
+  
+  -- pat table as base for patientunitstayid 
+  SELECT pat.patientunitstayid, COALESCE(pivoted_uo.urineoutput, apache_urine.urine) AS uo_comb -- consider pivoted_uo first, if missing -> apacheapsvar
+  FROM `physionet-data.eicu_crd.patient` AS pat
+  
+  -- Join information from pivoted_uo table
+  LEFT JOIN(
+  SELECT patientunitstayid AS pid_uo, SUM(urineoutput) AS urineoutput
+  FROM `physionet-data.eicu_crd_derived.pivoted_uo` 
+  WHERE (chartoffset > 0 AND chartoffset <= 1440) -- consider only first 24h
+  AND urineoutput > 0 AND urineoutput IS NOT NULL -- ignore biologically implausible values <0
+  GROUP BY pid_uo
+  ) AS pivoted_uo
+  ON pivoted_uo.pid_uo = pat.patientunitstayid
+
+  -- Join information from apacheapsvar table
+  LEFT JOIN(
+  SELECT patientunitstayid AS pid_auo, urine
+  FROM `physionet-data.eicu_crd.apacheapsvar` 
+  WHERE urine > 0 AND urine IS NOT NULL -- ignore biologically implausible values <0
+  ) AS apache_urine
+  ON apache_urine.pid_auo = pat.patientunitstayid
+
+)
+
+-- Call merged_uo table for score computation
 , urineoutput_oasis AS (
-  SELECT patientunitstayid AS pid_urine
+  SELECT merged_uo.patientunitstayid AS pid_urine, merged_uo.uo_comb
   , CASE
-    WHEN SUM(urineoutput) <671 THEN 10
-    WHEN SUM(urineoutput) BETWEEN 671 AND 1426.99 THEN 5
-    WHEN SUM(urineoutput) BETWEEN 1427 AND 2543.99 THEN 1
-    WHEN SUM(urineoutput) BETWEEN 2544 AND 6896 THEN 0
-    WHEN SUM(urineoutput) >6896 THEN 8
+    WHEN uo_comb <671 THEN 10
+    WHEN uo_comb BETWEEN 671 AND 1426.99 THEN 5
+    WHEN uo_comb BETWEEN 1427 AND 2543.99 THEN 1
+    WHEN uo_comb BETWEEN 2544 AND 6896 THEN 0
+    WHEN uo_comb >6896 THEN 8
     ELSE NULL
     END AS urineoutput_oasis
-
-  FROM `physionet-data.eicu_crd_derived.pivoted_uo`
-  WHERE (chartoffset > 0 AND chartoffset <= 1440) -- consider only first 24h
-    AND urineoutput IS NOT NULL
-  GROUP BY pid_urine
+  FROM merged_uo
 )
 
 -- Ventiliation -> Note: This information is stored in 5 tables
@@ -460,21 +484,23 @@ GROUP BY patientunitstayid
 
 )
 
+-- Final statement to generate view
+-- Note: single components contain NULL values, but not final OASIS score (NULL's replaced by 0, see above)
+-- Code for above columns is retrained as convienience for user wanting to modify the view for other puroposes
 SELECT patientunitstayid, 
-pre_icu_los_oasis, pre_icu_los_oasis_imp,
-age_oasis, age_oasis_imp,
-gcs_oasis, gcs_oasis_imp,
-heartrate_oasis, heartrate_oasis_imp,
-map_oasis, map_oasis_imp,
-respiratoryrate_oasis, respiratoryrate_oasis_imp,
-temperature_oasis, temperature_oasis_imp,
-urineoutput_oasis, urineoutput_oasis_imp,
-vent_oasis, vent_oasis_imp,
-electivesurgery_oasis, electivesurgery_oasis_imp,
-oasis_null, oasis_imp
+pre_icu_los_oasis,
+age_oasis,
+gcs_oasis,
+heartrate_oasis,
+map_oasis,
+respiratoryrate_oasis,
+temperature_oasis,
+urineoutput_oasis,
+vent_oasis,
+electivesurgery_oasis,
+oasis_imp AS oasis
 -- Calculate the probability of in-hospital mortality
-, 1 / (1 + exp(- (-6.1746 + 0.1275*(oasis_null) ))) AS oasis_prob_null
-, 1 / (1 + exp(- (-6.1746 + 0.1275*(oasis_imp) ))) AS oasis_prob_imp
+, 1 / (1 + exp(- (-6.1746 + 0.1275*(oasis_imp) ))) AS oasis_prob
 
 FROM score
 ;
