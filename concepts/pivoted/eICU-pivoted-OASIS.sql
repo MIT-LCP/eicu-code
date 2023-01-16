@@ -48,7 +48,7 @@ CREATE TABLE `physionet-data.eicu_crd_derived.pivoted_OASIS` AS
 WITH 
 
 -- Pre-ICU stay LOS -> directly convert from minutes to hours
-pre_icu_los_oasis AS (
+pre_icu_los_data AS (
 SELECT patientunitstayid AS pid_LOS
   ,CASE
       WHEN hospitaladmitoffset > (-0.17*60) THEN 5
@@ -303,7 +303,7 @@ SELECT patientunitstayid AS pid_RR
     -- 2: ventilation_events table
       LEFT JOIN(
         SELECT patientunitstayid,
-        CASE WHEN ( MAX(event) = "mechvent start" OR MAX(event) = "mechvent end")THEN 1
+        MAX( CASE WHEN event = "mechvent start" OR event = "mechvent end") THEN 1
         ELSE NULL
         END as vent_1
         FROM `physionet-data.eicu_crd_derived.ventilation_events` AS vent_events
@@ -366,7 +366,7 @@ SELECT patientunitstayid AS pid_RR
 
 , cohort_oasis AS (
   SELECT cohort.patientunitstayid, 
-  pre_icu_los_oasis.pre_icu_los_oasis, 
+  pre_icu_los_data.pre_icu_los_oasis, 
   age_oasis.age_oasis, 
   gcs_oasis.gcs_oasis,
   heartrate_oasis.heartrate_oasis,
@@ -378,8 +378,8 @@ SELECT patientunitstayid AS pid_RR
   electivesurgery_oasis.electivesurgery_oasis
   FROM `physionet-data.eicu_crd.patient` AS cohort
 
-  LEFT JOIN pre_icu_los_oasis
-  ON cohort.patientunitstayid = pre_icu_los_oasis.pid_LOS
+  LEFT JOIN pre_icu_los_data
+  ON cohort.patientunitstayid = pre_icu_los_data.pid_LOS
 
   LEFT JOIN age_oasis
   ON cohort.patientunitstayid = age_oasis.pid_age 
