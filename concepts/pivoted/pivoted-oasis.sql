@@ -42,8 +42,6 @@
 -- Note:
 --  The score is calculated for *all* ICU patients, with the assumption that the user will subselect appropriate patientunitstayid.
 
-DROP TABLE IF EXISTS `physionet-data.eicu_crd_derived.pivoted_OASIS` ;
-CREATE TABLE `physionet-data.eicu_crd_derived.pivoted_OASIS` AS
 
 WITH 
 
