@@ -42,6 +42,7 @@
 -- Note:
 --  The score is calculated for *all* ICU patients, with the assumption that the user will subselect appropriate patientunitstayid.
 
+
 WITH 
 
 -- Pre-ICU stay LOS -> directly convert from minutes to hours
