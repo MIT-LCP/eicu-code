@@ -1,13 +1,6 @@
 DROP TABLE IF EXISTS pivoted_score CASCADE;
 CREATE TABLE pivoted_score as
 -- create columns with only numeric data
--- Glasgow Coma Scale, a measure of neurological function.
--- Ranges from 3 (worst, comatose) to 15 (best, normal function).
-
--- Note:
--- The GCS for sedated patients is defaulted to 15 in this code.
--- This follows common practice for scoring patients with severity of illness scores.
-
 with nc as
 (
 select
@@ -18,13 +11,13 @@ select
     when nursingchartcelltypecat = 'Scores'
      and nursingchartcelltypevallabel = 'Glasgow coma score'
      and nursingchartcelltypevalname = 'GCS Total'
-     and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+     and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
      and nursingchartvalue not in ('-','.')
         then cast(nursingchartvalue as numeric)
     when nursingchartcelltypecat = 'Other Vital Signs and Infusions'
      and nursingchartcelltypevallabel = 'Score (Glasgow Coma Scale)'
      and nursingchartcelltypevalname = 'Value'
-     and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+     and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
      and nursingchartvalue not in ('-','.')
         then cast(nursingchartvalue as numeric)
     else null end
@@ -34,7 +27,7 @@ select
     when nursingchartcelltypecat = 'Scores'
      and nursingchartcelltypevallabel = 'Glasgow coma score'
      and nursingchartcelltypevalname = 'Motor'
-     and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+     and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
      and nursingchartvalue not in ('-','.')
         then cast(nursingchartvalue as numeric)
     when nursingchartcelltypecat = 'Other Vital Signs and Infusions'
@@ -53,7 +46,7 @@ select
     when nursingchartcelltypecat = 'Scores'
      and nursingchartcelltypevallabel = 'Glasgow coma score'
      and nursingchartcelltypevalname = 'Verbal'
-     and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+     and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
      and nursingchartvalue not in ('-','.')
         then cast(nursingchartvalue as numeric)
     when nursingchartcelltypecat = 'Other Vital Signs and Infusions'
@@ -74,7 +67,7 @@ select
     when nursingchartcelltypecat = 'Scores'
      and nursingchartcelltypevallabel = 'Glasgow coma score'
      and nursingchartcelltypevalname = 'Eyes'
-     and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+     and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
      and nursingchartvalue not in ('-','.')
         then cast(nursingchartvalue as numeric)
     when nursingchartcelltypecat = 'Other Vital Signs and Infusions'
@@ -93,16 +86,16 @@ select
      and nursingchartcelltypevallabel = 'Glasgow coma score'
      and nursingchartcelltypevalname = 'GCS Total'
      and nursingchartvalue = 'Unable to score due to medication'
-        then 15
+        then 1
     else null end
   as gcs_unable
   , case
     when nursingchartcelltypecat = 'Other Vital Signs and Infusions'
      and nursingchartcelltypevallabel = 'Best Verbal Response'
      and nursingchartvalue = 'Trached or intubated'
-        then 5
+        then 1
     else null end
-  as gcs_verbal_intub
+  as gcs_intub
   -- fall risk
   , case
     when nursingchartcelltypecat = 'Scores'
@@ -179,9 +172,6 @@ select
       , 'Other Vital Signs and Infusions'
   )
 )
--- apply some preprocessing to fields
-, ncproc AS
-(
 select
   patientunitstayid
 , nursingchartoffset as chartoffset
@@ -191,7 +181,7 @@ select
 , AVG(gcs_verbal) as gcs_verbal
 , AVG(gcs_eyes) as gcs_eyes
 , MAX(gcs_unable) as gcs_unable
-, MAX(gcs_verbal_intub) as gcs_verbal_intub
+, MAX(gcs_intub) as gcs_intub
 , AVG(fall_risk) as fall_risk
 , MAX(delirium_scale) as delirium_scale
 , AVG(delirium_score) as delirium_score
@@ -206,7 +196,7 @@ OR gcs_motor IS NOT NULL
 OR gcs_verbal IS NOT NULL
 OR gcs_eyes IS NOT NULL
 OR gcs_unable IS NOT NULL
-OR gcs_verbal_intub IS NOT NULL
+OR gcs_intub IS NOT NULL
 OR fall_risk IS NOT NULL
 OR delirium_scale IS NOT NULL
 OR delirium_score IS NOT NULL
@@ -216,14 +206,4 @@ OR sedation_goal IS NOT NULL
 OR pain_score IS NOT NULL
 OR pain_goal IS NOT NULL
 group by patientunitstayid, nursingchartoffset, nursingchartentryoffset
-order by patientunitstayid, nursingchartoffset, nursingchartentryoffset
-)
-
-select *,
--- Corrected GCS in case patient is sedated or intubated
-, COALESCE(gcs_unable, gcs) as gcs_corrected
-, COALESCE(gcs_verbal_corrected, gcs_verbal) as gcs_verbal_corrected
-from ncproc
-order by patientunitstayid, nursingchartoffset, nursingchartentryoffset
-;
-
+order by patientunitstayid, nursingchartoffset, nursingchartentryoffset;
