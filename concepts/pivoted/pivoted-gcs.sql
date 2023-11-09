@@ -6,12 +6,12 @@ select
   , min(case
       when nursingchartcelltypevallabel = 'Glasgow coma score'
        and nursingchartcelltypevalname = 'GCS Total'
-       and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+       and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
        and nursingchartvalue not in ('-','.')
           then cast(nursingchartvalue as numeric)
       when nursingchartcelltypevallabel = 'Score (Glasgow Coma Scale)'
        and nursingchartcelltypevalname = 'Value'
-       and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+       and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
        and nursingchartvalue not in ('-','.')
           then cast(nursingchartvalue as numeric)
       else null end)
@@ -19,7 +19,7 @@ select
   , min(case
       when nursingchartcelltypevallabel = 'Glasgow coma score'
        and nursingchartcelltypevalname = 'Motor'
-       and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+       and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
        and nursingchartvalue not in ('-','.')
           then cast(nursingchartvalue as numeric)
       else null end)
@@ -27,7 +27,7 @@ select
   , min(case
       when nursingchartcelltypevallabel = 'Glasgow coma score'
        and nursingchartcelltypevalname = 'Verbal'
-       and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+       and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
        and nursingchartvalue not in ('-','.')
           then cast(nursingchartvalue as numeric)
       else null end)
@@ -35,7 +35,7 @@ select
   , min(case
       when nursingchartcelltypevallabel = 'Glasgow coma score'
        and nursingchartcelltypevalname = 'Eyes'
-       and REGEXP_CONTAINS(nursingchartvalue, '^[-]?[0-9]+[.]?[0-9]*$')
+       and nursingchartvalue ~ '^[-]?[0-9]+[.]?[0-9]*$'
        and nursingchartvalue not in ('-','.')
           then cast(nursingchartvalue as numeric)
       else null end)
