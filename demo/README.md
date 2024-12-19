@@ -7,7 +7,7 @@ Due to the sensitive nature of the data, the full dataset requires the signing o
 To encourage use of the data, a small subset (~1% of patients) is made fully publicly available. A random 50 patients were selected from 20 hospitals in the eICU-CRD. There are two recommended methods for working with the data:
 
 1. An SQLite file is attached as supplemental material. This is a lightweight database file which can be opened by a number of applications. Below we include instructions on how to install a program, "DB Browser for SQLite", which allows easy navigation of the data.
-2. A set of comma separated value files on PhysioNetWorks. Access to this data is done via this link: https://physionet.org/works/eICUCollaborativeResearchDatabaseDemo/files/
+2. A set of comma separated value files on PhysioNet: https://doi.org/10.13026/krfm-4167
 
 # Installing DB Browser for SQLite
 
