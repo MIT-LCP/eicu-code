@@ -18,7 +18,7 @@ Prerequisites: *This tutorial assumes that you have already completed the [steps
 
 Postgres (also known as PostgreSQL) is a database management system. To create an instance of the database on your local machine, you'll first need to make sure that Postgres is installed. For installation, please refer to: http://www.postgresql.org/download/
 
-On Mac OSX with the [Homebrew package manager](http://brew.sh/), simply type ```brew install postgres```. On Ubuntu Linux, try ```sudo apt-get install postgresql-9.4```.
+On Mac OSX with the [Homebrew package manager](http://brew.sh/), simply type ```brew install postgresql```. On Ubuntu Linux, try ```sudo apt-get install postgresql-9.4```.
 
 ## 2. Place the CSV data files in a local directory
 
