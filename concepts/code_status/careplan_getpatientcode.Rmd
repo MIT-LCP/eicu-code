@@ -1,0 +1,78 @@
+---
+title: "carePlan_getPatientCode"
+output: html_document
+author: Joseph Park
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Load configuration settings. Password requested by rstudioapi.
+
+```{r}
+dbdriver <- 'PostgreSQL'
+host  <- 'localhost'
+port  <- '5432'
+user  <- 'josephpark'
+dbname <- 'eicu'
+schema <- 'eicu'
+options <- paste("--search_path=", schema, sep="")
+```
+
+Connect to database.
+
+```{r}
+require("RPostgreSQL")
+drv <- dbDriver(dbdriver)
+con <- dbConnect(drv, dbname = dbname,
+                 host = host, port = port,
+                 user = user, password = rstudioapi::askForPassword("Database password"),
+                 options = options)
+dbExistsTable(con, "patient")
+```
+
+After inspecting table generated from careplan_getitemvalues.Rmd, the values in cpitemvalue_code were selected to relate to patient code status.
+
+```{r, connection = con}
+library(dplyr)
+carePlanGeneral_tbl <- tbl(con, "careplangeneral")
+cplitemvalue_code = c('Full therapy', 'Do not resuscitate', 'No CPR', 'No intubation', 'Comfort measures only',
+                      'No cardioversion', 'No vasopressors/inotropes', 'No augmentation of care', 
+                      'End of life', 'No blood products', 'No blood draws', 'Advance directives')
+```
+
+Generate table that lists the patient along with code status.
+SQL command was generated using show_query() for patientCodeStatus
+
+```{r, connection = con}
+patientCodeStatus <- carePlanGeneral_tbl %>%
+  filter(cplitemvalue %in% cplitemvalue_code) %>%
+  select(patientunitstayid, cplitemoffset, cplgroup, cplitemvalue) %>%
+  arrange(patientunitstayid, cplitemoffset, cplitemvalue) %>%
+  group_by(patientunitstayid, cplitemoffset) %>%
+  summarize(cplitemvalue = paste(cplitemvalue, collapse=", "))
+patientCodeStatus
+```
+
+Output the file as a csv.
+
+```{r, connection = con}
+write.csv(patientCodeStatus, "patient_status_table.csv", row.names=FALSE)
+```
+
+Optional: sorts patients by which patient had the most number of status updates. 
+
+```{r, connection = con,eval=FALSE}
+patientCodeStatus %>%
+  group_by(patientunitstayid) %>%
+  summarize(n = n()) %>%
+  arrange(desc(n))
+```
+
+Example of a patient. This patient was strange with both full therapy and no CPR at the same time.
+
+```{r, connection = con,eval=FALSE}
+patientCodeStatus %>%
+  filter(patientunitstayid == 266999)
+```

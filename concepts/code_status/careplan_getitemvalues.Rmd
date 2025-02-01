@@ -1,0 +1,48 @@
+---
+title: "carePlan_getItemValues"
+output: html_document
+author: Joseph Park
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Load configuration settings. Password requested by rstudioapi.
+
+```{r}
+dbdriver <- 'PostgreSQL'
+host  <- 'localhost'
+port  <- '5432'
+user  <- 'josephpark'
+dbname <- 'eicu'
+schema <- 'eicu'
+options <- paste("--search_path=", schema, sep="")
+```
+
+Connect to database.
+
+```{r}
+require("RPostgreSQL")
+drv <- dbDriver(dbdriver)
+con <- dbConnect(drv, dbname = dbname,
+                 host = host, port = port,
+                 user = user, password = rstudioapi::askForPassword("Database password"),
+                 options = options)
+dbExistsTable(con, "patient")
+```
+
+Write cplitemvalues to file "possible_status" for inspection on which items indicate patient code status.
+All cplitemvalues that were chosen were in cplgroup = 'Care Limitation' (all cplitemvalues in this cplgroup was used),
+  except cplitemvalue = 'End of life', which was in cplgroup = 'Ordered Protocols'.
+SQL command was generated using show_query() for possible_status
+
+```{r, connection = con}
+library(dplyr)
+carePlanGeneral_tbl <- tbl(con, "careplangeneral")
+possible_status <- carePlanGeneral_tbl %>% 
+  group_by(cplitemvalue) %>%
+  summarize(n=n()) %>%
+  arrange(desc(n))
+write.csv(possible_status, "possible_status.csv")
+```
