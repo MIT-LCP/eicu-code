@@ -21,6 +21,7 @@ toc = "true"
  # Important considerations
 
 * Nurse charting data can be entered directy into the system or can represent interfaced data from charting in the bedside EMR.
+* `nursingChartEntryOffset` (when the value was entered) equals `nursingChartOffset` (the time it was charted for) in 73.4% of the 151,604,232 rows of v2.0. For 10% of rows the value was entered 57 minutes or more after its charted time, and 0.9% of rows were entered before it. For a model that may only use data available at a given time, use the entry offset.
 
 # Table columns
 
@@ -28,7 +29,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
 `nursingChartID` | int | IDENTITY | surrogate key for the nurse charting | PK | C
-`nursingChartOffset` | int | NOT NULL | number of minutes from unit admit time that nursing chart column |  | C
+`nursingChartOffset` | int | NOT NULL | number of minutes from unit admit time that the nursing chart value was charted for |  | C
 `nursingChartEntryOffset` | int | NOT NULL | number of minutes from unit admit time that nursing chart column was entered |  | C
 `nursingChartCellTypeCat` | varchar(255) | NOT NULL | picklist nursing chart category type e.g.: Vital Signs, Scores, Other Vital Signs and Infusions, etc. |  | S
 `nursingChartCellTypeValLabel` | varchar(255) | NOT NULL | picklist nursing chart cell type value label e.g.: O2 Saturation, Glasgow coma score, Respiratory Rate, etc. |  | S

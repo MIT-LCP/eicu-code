@@ -20,9 +20,9 @@ The Nursing Assessment Flowsheet provides the capability to assess and document 
 
 * PATIENT on `patientUnitStayID`
 
-<!-- # Important considerations
+# Important considerations
 
-* To follow. -->
+* `nurseAssessEntryOffset` (when the value was entered) equals `nurseAssessOffset` (the time it was charted for) in only 5.4% of the 15,602,498 rows of v2.0. For 10% of rows the value was entered 195 minutes or more after its charted time, and 3.6% of rows were entered before it. For a model that may only use data available at a given time, use the entry offset.
 
 # Table columns
 
@@ -30,7 +30,7 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 ---- | ---- | ---- | ---- | ---- | ----
 `nurseAssessID` | int | IDENTITY | surrogate key for the nurse assessment | PK | C
 `patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
-`nurseAssessOffset` | int | NOT NULL | number of minutes from unit admit time that nurse assessment column |  | C
+`nurseAssessOffset` | int | NOT NULL | number of minutes from unit admit time that the nurse assessment value was charted for |  | C
 `nurseAssessEntryOffset` | int | NOT NULL | number of minutes from unit admit time that nurse assessment column was entered |  | C
 `cellAttributePath` | varchar(255) | NOT NULL | the full path string of the nurse assessment entry selected in eCareManager, the sections of the assessment will be separated by a | symbol e.g.: flowsheet|Flowsheet Cell Labels|Nursing Assessment|Scores|Braden Scale|Activity |  | S
 `cellLabel` | varchar(255) | NOT NULL | label of the selected nurse assessment entry |  | S

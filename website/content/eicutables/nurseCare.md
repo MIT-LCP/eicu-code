@@ -33,9 +33,9 @@ The Nursing Care Flowsheet provides the capability for nurses to document patien
 
 * PATIENT on `patientUnitStayID`
 
-<!-- # Important considerations
+# Important considerations
 
-* To follow. -->
+* `nurseCareEntryOffset` (when the value was entered) equals `nurseCareOffset` (the time it was charted for) in only 4.8% of the 8,311,132 rows of v2.0. For 10% of rows the value was entered 206 minutes or more after its charted time, and 3.5% of rows were entered before it. For a model that may only use data available at a given time, use the entry offset.
 
 # Table columns
 
@@ -44,7 +44,7 @@ Name | Datatype | Null Option | Comment | Is key | Stored Transformed Created
 `patientUnitStayID` | int | NOT NULL | foreign key link to the patient table | FK | C
 `cellLabel` | varchar(255) | NOT NULL | label of the selected nursing care entry |  | S
 `nurseCareID` | int | IDENTITY | surrogate key for the nursing care | PK | C
-`nurseCareOffset` | int | NOT NULL | number of minutes from unit admit time that nursing care column |   | C
+`nurseCareOffset` | int | NOT NULL | number of minutes from unit admit time that the nursing care value was charted for |   | C
 `nurseCareEntryOffset` | int | NOT NULL | number of minutes from unit admit time that nursing care column was entered |   | C
 `cellAttributePath` | varchar(255) | NOT NULL | the full path string of the nursing care entry selected in eCareManager, the sections of the assessment will be separated by a &#124; symbol e.g.: flowsheet &#124; Flowsheet Cell Labels &#124; Nursing Assessment &#124; Scores &#124; Braden Scale &#124; Activity |   | S
 `cellAttribute` | varchar(255) | NOT NULL | attribute for the nursing care entry selected in eCareManager |   | S

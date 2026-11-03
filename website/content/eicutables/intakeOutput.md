@@ -24,7 +24,9 @@ toc = "true"
 * The `intakeTotal`, `outputTotal`, `diaslysisTotal`, and `netTotal` are *cumulative* measurements up to the current offset. The value measured for the given row is stored in `cellValueNumeric` and `cellValueText`
 * When several entries are recorded at the same time for a patient, the values in intaketotal, outputtotal, dialysistotal and nettotal are duplicated!
 * outputtotal does not only corrspond to urine output, but also output from drains, blood loss, etc.
-* cellvaluenumeric is always POSITIVE, while dialysistotal is NEGATIVE for fluid removal and POSITIVE when fluid is administered to the patient via the dialysis machine.
+* cellvaluenumeric is almost always POSITIVE, but not always: in v2.0, 1,476 of the 12,030,289 rows are negative and 460,221 are 0. dialysistotal is NEGATIVE for fluid removal and POSITIVE when fluid is administered to the patient via the dialysis machine.
+* In v2.0, 9,619 rows repeat another row in every column except `intakeOutputID`. The table does not distinguish an entry saved twice from two equal entries.
+* `intakeOutputEntryOffset` (when the value was entered) equals `intakeOutputOffset` (when it was observed) in 54.1% of rows. For 10% of rows the value was entered 147 minutes or more after the time it was observed, and 3.3% of rows were entered before it. For a model that may only use data available at a given time, use the entry offset.
 * With each new entry in intakeoutput, the current daily net total is reported. If several entries happen at the same time, the daily net total will be repeated multiple times. So if you are trying to compute the daily fluid balance, you need to first isolate unique instances of daily net total (`select distinct patientunitstayid, intakeoutputoffset, nettotal`) and then sum these unique values. Failure to do so will result in a grossly overestimated daily fluid balance.
 
 # Table columns

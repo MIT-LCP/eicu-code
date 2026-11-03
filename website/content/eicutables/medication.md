@@ -21,6 +21,8 @@ toc = "true"
 # Important considerations
 
 * The majority of hospitals have an HL7 medication interface system in place which automatically synchronizes the orders with eCareManager as they are verified by the pharmacist in the source pharmacy system. For hospitals without a medication interface, the eICU staff may enter a selection of medications to facilitate population management and completeness for reporting purposes.
+* `drugStartOffset` is earlier than `drugOrderOffset` in 53.9% of the 7,301,853 rows of v2.0: by a median of 31 minutes, and by 2,779 minutes (about 46 hours) or more for 10% of those rows. This is likely the synchronization described above, when orders reach eCareManager once verified. For a model that may only use data available at a given time, use the later of the two offsets.
+* `drugStopOffset` is exactly 0 in 3.0% of rows, which puts the stop at unit admission, and earlier than `drugStartOffset` in 7.1%.
 
 # Table columns
 
