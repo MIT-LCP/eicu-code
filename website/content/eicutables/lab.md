@@ -22,6 +22,8 @@ toc = "true"
 
 It is possible some rarely obtained lab measurements are not interfaced into the system and therefore will not be available in the database. Absence of a rare lab measurement, such as serum lidocaine concentrations, would not indicate the lab was not drawn. However, absence of a platelet count would indicate the value was not obtained.
 
+`labName` is a picklist name, often an abbreviation. [concepts/mapping/lab-dictionary.csv](https://github.com/MIT-LCP/eicu-code/blob/main/concepts/mapping/lab-dictionary.csv) describes each of the 148 lab names and links 50 of them to LOINC.
+
 # Table columns
 
 Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
