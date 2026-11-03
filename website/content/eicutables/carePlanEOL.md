@@ -24,6 +24,8 @@ toc = "true"
 
 * The End-of-Life Discussion section of the Care Plan allows for the care provider who had the discussion, the date/time of the discussion as well as free text comments describing the discussion to be documented.
 
+* The discussion is often documented well after it took place: `cplEolSaveOffset` is later than `cplEolDiscussionOffset` in 97.8% of the 1,433 rows of v2.0, by a median of 22 hours, and by 6.6 days or more for 10% of those rows. An end-of-life discussion is a strong mortality signal, so for a model that may only use data available at a given time, use `cplEolSaveOffset`.
+
 # Table columns
 
 Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created

@@ -21,6 +21,7 @@ toc = "true"
 # Important considerations
 
 * The dataset is not well populated due to limited availability of microbiology interfaces.
+* `cultureTakenOffset` is when the culture was taken. The table records no time for the result, so the organism and its sensitivities were not known at that offset. For a model that may only use data available at a given time, do not place the result at `cultureTakenOffset`.
 
 # Table columns
 

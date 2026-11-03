@@ -37,6 +37,8 @@ Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
 `labMeasureNameInterface` | varchar(255) | NULL | the measurement name of the lab from interfaces e.g.: mm Hg, mmol/L, mEq/L, etc. |  | S
 `labResultRevisedOffset` | int | NOT NULL | number of minutes from unit admit time that the revised lab value was entered |  | C
 
+In 1,974,810 (5.0%) of the 39,132,531 rows of v2.0, `labResultRevisedOffset` is earlier than `labResultOffset`, by a median of 34 minutes and by 106 minutes or more for 10% of those rows, so the result is recorded as entered before the specimen was drawn. For a model that may only use data available at a given time, use the later of the two offsets.
+
 <!-- # Detailed description
 
 * To follow.

@@ -19,9 +19,9 @@ Data provided in the respiratory chart includes offset, chart type (e.g. respira
 
 * PATIENT on `patientUnitStayID`
 
-<!-- # Important considerations
+# Important considerations
 
-* To follow. -->
+* `respChartEntryOffset` (when the value was entered) equals `respChartOffset` (the time it was charted for) in 74.9% of the 20,168,176 rows of v2.0. For 10% of rows the value was entered 47 minutes or more after its charted time, and 0.7% of rows were entered before it. For a model that may only use data available at a given time, use the entry offset.
 
 # Table columns
 

@@ -40,6 +40,14 @@ Note that the first ICU stay has a *larger* `hospitalAdmitOffset`, because this 
 
 There is no systematic method for chronologically ordering `patientHealthSystemStayID` for the same patient within the same year.
 
+## Discharge status
+
+Counts are rows (unit stays) of v2.0, which has 200,859.
+
+* `hospitalDischargeStatus` is `Expired` exactly when `hospitalDischargeLocation` is `Death` (18,004 rows). `hospitalDischargeStatus` is NULL in 1,751 rows; `hospitalDischargeLocation` is NULL in those and in 282 rows with status `Alive`.
+* Many in-hospital deaths happen after the unit stay: 7,315 rows have `unitDischargeStatus` = `Alive` and `hospitalDischargeStatus` = `Expired`. For in-hospital mortality, use `hospitalDischargeStatus`, not `unitDischargeStatus`.
+* 222 rows have `unitDischargeStatus` = `Expired` but a `hospitalDischargeStatus` of `Alive` or NULL. In 142 of them, the hospital stay continues after the unit discharge at which the patient is recorded as having died (`hospitalDischargeOffset` > `unitDischargeOffset`).
+
 # Table columns
 
 Name | Datatype | Null Option | Comment | Is Key | Stored Transformed Created
